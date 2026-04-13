@@ -59,7 +59,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;box-shadow:var(--shadow-sm);}
 .stat:hover{box-shadow:var(--shadow-md);}
 .stat-lbl{font-size:10px;color:var(--text3);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-family:'DM Mono',monospace;}
-.stat-val{font-size:23px;font-weight:800;color:var(--navy);letter-spacing:-.03em;font-family:'DM Mono',monospace;}
+.stat-val{font-size:23px;font-weight:800;color:var(--text);letter-spacing:-.03em;font-family:'DM Mono',monospace;}
 .stat-note{font-size:10px;color:var(--text4);margin-top:3px;}
 
 /* ── SECTION LABELS ── */
@@ -75,14 +75,14 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .vlogo{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;overflow:hidden;}
 .vlogo img{width:100%;height:100%;object-fit:contain;padding:4px;}
 .vmeta{flex:1;min-width:0;}
-.vname{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.vname{font-size:13px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 .vorigin{font-size:11px;color:var(--text3);margin-top:1px;}
 .vtags{padding:0 16px 10px;display:flex;flex-wrap:wrap;gap:4px;}
 .vtag{font-size:10px;padding:2px 8px;border-radius:5px;border:1px solid;font-weight:600;}
 .vbody{padding:0 16px 14px;font-size:12.5px;color:var(--text2);line-height:1.7;display:none;border-top:1px solid var(--border);padding-top:11px;margin-top:2px;}
 .vbody.open{display:block;}
 .vfooter{padding:9px 16px;background:var(--surface2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.vprice{font-size:11px;font-weight:700;color:var(--navy);font-family:'DM Mono',monospace;}
+.vprice{font-size:11px;font-weight:700;color:var(--text);font-family:'DM Mono',monospace;}
 .vclient{font-size:10px;color:var(--text3);}
 .vbtn{font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);color:var(--green);background:var(--green-pale);transition:all .12s;}
 .vbtn:hover{background:var(--green);color:#fff;}
@@ -169,7 +169,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .step-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:14px;}
 .step-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;border-left-width:3px;}
 .step-num{font-size:9px;font-weight:700;font-family:'DM Mono',monospace;opacity:.5;margin-bottom:3px;}
-.step-title{font-size:11px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.step-title{font-size:11px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .step-desc{font-size:10px;color:var(--text2);line-height:1.5;}
 
 /* ── OUTPUTS ── */
@@ -244,7 +244,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .hero-headline {
   font-size: 42px;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--text);
   letter-spacing: -.04em;
   line-height: 1.1;
   margin-bottom: 10px;
@@ -327,7 +327,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .feature-col-title {
   font-size: 14px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--text);
   margin-bottom: 6px;
 }
 .feature-col-desc {
@@ -371,7 +371,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .advantage-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--text);
   margin-bottom: 2px;
 }
 .advantage-desc {
@@ -1832,7 +1832,7 @@ function buildOrgChart(){
   +'<line x1="265" y1="185" x2="265" y2="208" stroke="#94a3b8" stroke-width="1.2"/>'
   +'<line x1="395" y1="185" x2="395" y2="208" stroke="#94a3b8" stroke-width="1.2"/>'
   +'<line x1="510" y1="185" x2="510" y2="208" stroke="#94a3b8" stroke-width="1.2"/>'
-  +'<line x1="665" y1="168" x2="665" y2="340" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,2"/>'
+  +'<line x1="665" y1="168" x2="665" y2="340" stroke="#94a3b8" troke-width="1.2" stroke-dasharray="4,2"/>'
   +'<line x1="665" y1="340" x2="1010" y2="340" stroke="#94a3b8" stroke-width="1.2"/>'
   +'<line x1="680" y1="340" x2="680" y2="360" stroke="#94a3b8" stroke-width="1.2"/>'
   +'<line x1="790" y1="340" x2="790" y2="360" stroke="#94a3b8" stroke-width="1.2"/>'

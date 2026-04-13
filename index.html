@@ -4,6 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Football Club Blueprint Â· 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ââââââââââââââââââââââââââââââââââââââââââââââââââââ
    FOOTBALL CLUB BLUEPRINT â DARK EDITION
@@ -34,7 +37,7 @@
   --shadow-lg:0 12px 48px rgba(0,0,0,.7);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(37,99,235,.22) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 100%,rgba(6,182,212,.12) 0%,transparent 60%);background-attachment:fixed;}
+body{font-family:'Inter','DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(37,99,235,.22) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 100%,rgba(6,182,212,.12) 0%,transparent 60%);background-attachment:fixed;}
 
 
 /* ââ SIDE TABS (Sporting / Operational) ââ */
@@ -442,6 +445,43 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
   max-width: 520px;
   line-height: 1.65;
 }
+
+/* ——— LANDING PAGE ——— */
+.lp-wrap{max-width:860px;margin:0 auto;padding:60px 32px 80px;}
+.lp-hero{padding:80px 0 60px;border-bottom:1px solid var(--border);}
+.lp-hero-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:24px;}
+.lp-hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:700;line-height:1.12;letter-spacing:-.02em;color:var(--text);margin-bottom:24px;}
+.lp-hero-sub{font-size:17px;font-weight:400;line-height:1.75;color:var(--text2);max-width:640px;}
+.lp-section{padding:64px 0;border-bottom:1px solid var(--border);}
+.lp-section:last-child{border-bottom:none;}
+.lp-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+.lp-h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--text);margin-bottom:20px;}
+.lp-body{font-size:15px;line-height:1.8;color:var(--text2);margin-bottom:16px;}
+.lp-list{list-style:none;padding:0;margin:24px 0 0;}
+.lp-list li{font-size:14px;line-height:1.7;color:var(--text2);padding:10px 0 10px 24px;border-bottom:1px solid var(--border);position:relative;}
+.lp-list li:last-child{border-bottom:none;}
+.lp-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--green);}
+.lp-pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:24px;}
+.lp-pillar{background:var(--surface);padding:20px 22px;}
+.lp-pillar-num{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--green);margin-bottom:8px;}
+.lp-pillar-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;}
+.lp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:24px;}
+.lp-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
+.lp-card-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.lp-card-body{font-size:13px;line-height:1.7;color:var(--text2);}
+.lp-steps{display:flex;flex-direction:column;gap:0;margin-top:24px;}
+.lp-step{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);}
+.lp-step:last-child{border-bottom:none;}
+.lp-step-num{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green);min-width:32px;padding-top:2px;}
+.lp-step-text{font-size:14px;line-height:1.7;color:var(--text2);}
+.lp-step-text strong{font-weight:600;color:var(--text);display:block;margin-bottom:2px;}
+.lp-tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:24px;}
+.lp-tech-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:13px;font-weight:500;color:var(--text2);display:flex;align-items:center;gap:10px;}
+.lp-tech-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-mid);flex-shrink:0;}
+.lp-principles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.lp-principle{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;font-size:13px;line-height:1.6;color:var(--text2);}
+.lp-principle strong{display:block;font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px;}
+@media(max-width:600px){.lp-pillars,.lp-principles{grid-template-columns:1fr;}.lp-hero-title{font-size:32px;}}
 </style>
 </head>
 <body>
@@ -484,6 +524,9 @@ const nav=document.getElementById('nav');
 const pagesEl=document.getElementById('pages');
 
 const PAGES=[
+  {id:"landing",label:"Home",type:"landing",
+   title:"Football Club Blueprint",
+   desc:"A structured model to align sporting vision, scouting, talent development, performance, and decision-making in modern football."},
   {id:"blueprint",label:"Club Blueprint",type:"blueprint",
    title:"Football Club Blueprint",
    desc:"A structured operational guide for modern football clubs â mapping every department's workflow, the data that flows through it, and how technology connects it all."},
@@ -508,7 +551,7 @@ const PAGES=[
 ];
 
 PAGES.forEach((p,i)=>{
-  const isDefault=(p.id==='blueprint');
+  const isDefault=(p.id==='landing');
   const btn=document.createElement('button');
   btn.className='nav-pill'+(isDefault?' active':'');
   btn.textContent=p.label;
@@ -534,12 +577,96 @@ PAGES.forEach((p,i)=>{
   pagesEl.appendChild(pg);
 });
 
+function buildLandingPage(){
+  return `<div class="lp-wrap">
+    <section class="lp-hero">
+      <div class="lp-hero-eyebrow">Football Club Blueprint</div>
+      <h1 class="lp-hero-title">The Modern Football<br>Club Blueprint</h1>
+      <p class="lp-hero-sub">A structured model to align sporting vision, scouting, talent development, performance, and decision-making in modern football environments.</p>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">The Challenge</div>
+      <h2 class="lp-h2">The Challenge in Modern Football Clubs</h2>
+      <p class="lp-body">Modern football organizations face structural and operational inefficiencies that limit performance and long-term success:</p>
+      <ul class="lp-list">
+        <li>Departments operate in silos</li>
+        <li>Scouting lacks structure and consistency</li>
+        <li>Data exists but does not drive decisions</li>
+        <li>Misalignment between sporting, finance, and performance areas</li>
+        <li>Talent identification processes vary across regions without clear methodology</li>
+      </ul>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">The Blueprint</div>
+      <h2 class="lp-h2">Core Pillars of the Blueprint</h2>
+      <p class="lp-body">This model is built around a set of interconnected pillars designed to create alignment, clarity, and efficiency across the entire football organization:</p>
+      <div class="lp-pillars">
+        <div class="lp-pillar"><div class="lp-pillar-num">01</div><div class="lp-pillar-name">Sporting Vision &amp; Identity</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">02</div><div class="lp-pillar-name">Organizational Structure</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">03</div><div class="lp-pillar-name">Scouting &amp; Recruitment</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">04</div><div class="lp-pillar-name">Talent Identification</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">05</div><div class="lp-pillar-name">Player Development Pathway</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">06</div><div class="lp-pillar-name">Performance &amp; Medical Integration</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">07</div><div class="lp-pillar-name">Squad Planning &amp; Contract Logic</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">08</div><div class="lp-pillar-name">Data &amp; Technology Layer</div></div>
+        <div class="lp-pillar"><div class="lp-pillar-num">09</div><div class="lp-pillar-name">Decision-Making Model</div></div>
+      </div>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">Example Use Cases</div>
+      <h2 class="lp-h2">Built for Different Contexts</h2>
+      <div class="lp-cards">
+        <div class="lp-card"><div class="lp-card-title">Club Needing Scouting Structure</div><div class="lp-card-body">Design role clarity, reporting lines, market priorities, and player evaluation frameworks.</div></div>
+        <div class="lp-card"><div class="lp-card-title">Federation or Member Association</div><div class="lp-card-body">Develop a structured talent identification model aligned with geography, fairness, coaching education, and long-term player tracking.</div></div>
+        <div class="lp-card"><div class="lp-card-title">Club Modernizing Decision-Making</div><div class="lp-card-body">Connect scouting, performance, contracts, and executive reporting into one unified operational model.</div></div>
+      </div>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">From Concept to Execution</div>
+      <h2 class="lp-h2">A Pathway to Implementation</h2>
+      <p class="lp-body">The blueprint is designed not only as a framework, but as a pathway to implementation:</p>
+      <div class="lp-steps">
+        <div class="lp-step"><div class="lp-step-num">01</div><div class="lp-step-text"><strong>Diagnostic Phase</strong>Understanding the current structure and identifying gaps</div></div>
+        <div class="lp-step"><div class="lp-step-num">02</div><div class="lp-step-text"><strong>Structural Design</strong>Defining roles, responsibilities, and organizational alignment</div></div>
+        <div class="lp-step"><div class="lp-step-num">03</div><div class="lp-step-text"><strong>Process Definition</strong>Establishing clear workflows across departments</div></div>
+        <div class="lp-step"><div class="lp-step-num">04</div><div class="lp-step-text"><strong>Data &amp; Tools Integration</strong>Connecting systems and enabling information flow</div></div>
+        <div class="lp-step"><div class="lp-step-num">05</div><div class="lp-step-text"><strong>Stakeholder Alignment</strong>Ensuring leadership and departments operate cohesively</div></div>
+        <div class="lp-step"><div class="lp-step-num">06</div><div class="lp-step-text"><strong>Continuous Review</strong>Adapting and evolving the model over time</div></div>
+      </div>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">Technology</div>
+      <h2 class="lp-h2">Technology as an Enabler, Not a Driver</h2>
+      <p class="lp-body">Technology should support decision-making, not replace it. The goal is to create an integrated environment where information flows efficiently across the organization:</p>
+      <div class="lp-tech-grid">
+        <div class="lp-tech-item">Centralized Data Environments</div>
+        <div class="lp-tech-item">Scouting Platforms</div>
+        <div class="lp-tech-item">Performance Tracking Systems</div>
+        <div class="lp-tech-item">Contract &amp; Financial Integration</div>
+        <div class="lp-tech-item">Decision-Support Dashboards</div>
+      </div>
+    </section>
+    <section class="lp-section">
+      <div class="lp-label">Operating Principles</div>
+      <h2 class="lp-h2">How We Think and Work</h2>
+      <div class="lp-principles">
+        <div class="lp-principle"><strong>Clarity Over Complexity</strong>Simple, executable structures that everyone can follow</div>
+        <div class="lp-principle"><strong>Structure Before Tools</strong>Get the organization right before choosing technology</div>
+        <div class="lp-principle"><strong>Context Over Raw Data</strong>Numbers only matter when interpreted correctly</div>
+        <div class="lp-principle"><strong>Long-Term Thinking</strong>Decisions made with the next 3–5 years in mind</div>
+        <div class="lp-principle"><strong>Human Decision-Making</strong>Data supports judgment — it does not replace it</div>
+      </div>
+    </section>
+  </div>`;
+}
+
 function buildPage(p){
   let h=`<div class="page-title">${p.title}</div><div class="page-desc">${p.desc}</div>`;
   if(p.stats) h+=`<div class="stats-row">`+p.stats.map(s=>`<div class="stat"><div class="stat-lbl">${s.l}</div><div class="stat-val">${s.v}</div><div class="stat-note">${s.n}</div></div>`).join('')+`</div>`;
   if(p.type==='home') return h+buildHome(p);
   if(p.type==='playervaluation') return h+buildPlayerValuation(p);
   if (p.type==='platforms') return h+buildPlatforms();
+  if(p.type==='landing') return buildLandingPage();
   if(p.type==='blueprint') return h+buildBlueprint();
   if(p.type==='orgchart') return h+buildOrgChart();
   if(p.type==='coaching') return h+buildCoaching();

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Football Club Blueprint · 2026</title>
+<title>Football Club Blueprint Â· 2026</title>
 <style>
-/* ════════════════════════════════════════════════════
-   FOOTBALL CLUB BLUEPRINT — DARK EDITION
-   ════════════════════════════════════════════════════ */
+/* ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+   FOOTBALL CLUB BLUEPRINT â DARK EDITION
+   ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 :root{
   --bg:#0a0f1e;
   --bg2:#0d1526;
@@ -37,14 +37,14 @@
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(37,99,235,.22) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 100%,rgba(6,182,212,.12) 0%,transparent 60%);background-attachment:fixed;}
 
 
-/* ── SIDE TABS (Sporting / Operational) ── */
+/* ââ SIDE TABS (Sporting / Operational) ââ */
 .side-tabs{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
 .side-tab{padding:10px 24px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border2);color:var(--text2);background:transparent;transition:all .18s;letter-spacing:.02em;}
 .side-tab:hover{border-color:var(--green);color:var(--green-light);}
 .side-tab.active{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 2px 16px rgba(59,130,246,.35);}
 .side-section{display:none;}
 .side-section.active{display:block;}
-/* ── SCOUTING WORKFLOW ── */
+/* ââ SCOUTING WORKFLOW ââ */
 .wf-phase-block{margin-bottom:28px;}
 .wf-phase-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.5;margin-bottom:10px;padding-left:2px;}
 .wf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
@@ -55,7 +55,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .wf-step-desc{font-size:11px;color:var(--text2);line-height:1.55;}
 .wf-arrow{text-align:center;font-size:18px;color:var(--border2);margin:2px 0;}
 
-/* ── TOPBAR ── */
+/* ââ TOPBAR ââ */
 .topbar{background:rgba(4,8,16,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 32px rgba(0,0,0,.6);}
 .brand{display:flex;align-items:center;gap:10px;}
 .brand-logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#22c55e,#15803d);display:flex;align-items:center;justify-content:center;}
@@ -67,13 +67,13 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .nav-pill:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);}
 .nav-pill.active{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border-color:transparent;box-shadow:0 2px 16px rgba(59,130,246,.4);font-weight:700;}
 
-/* ── PAGES ── */
+/* ââ PAGES ââ */
 .page{display:none;padding:28px 28px 64px;max-width:1400px;margin:0 auto;}
 .page.active{display:block;}
 .page-title{font-size:32px;font-weight:800;color:#f1f5f9;margin-bottom:8px;letter-spacing:-.04em;}
 .page-desc{font-size:13.5px;color:var(--text2);line-height:1.75;max-width:720px;margin-bottom:24px;font-weight:300;}
 
-/* ── STATS ── */
+/* ââ STATS ââ */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:28px;}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;box-shadow:var(--shadow-sm);}
 .stat:hover{box-shadow:var(--shadow-md);}
@@ -81,12 +81,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .stat-val{font-size:23px;font-weight:800;color:var(--text);letter-spacing:-.03em;font-family:'DM Mono',monospace;}
 .stat-note{font-size:10px;color:var(--text4);margin-top:3px;}
 
-/* ── SECTION LABELS ── */
+/* ââ SECTION LABELS ââ */
 .section-label{font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
 .section-label::before{content:'';display:block;width:3px;height:14px;background:#22c55e;border-radius:2px;}
 .section-sublabel{font-size:12px;color:var(--text2);margin-bottom:12px;margin-top:-10px;}
 
-/* ── VENDOR CARDS ── */
+/* ââ VENDOR CARDS ââ */
 .vendor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:13px;margin-bottom:28px;}
 .vcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:box-shadow .15s,transform .15s,border-color .15s;box-shadow:var(--shadow-sm);}
 .vcard:hover{box-shadow:var(--shadow-md),0 0 0 1px rgba(59,130,246,.25),0 0 32px rgba(59,130,246,.12);transform:translateY(-3px);border-color:rgba(59,130,246,.4);}
@@ -107,7 +107,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .vbtn:hover{background:var(--green);color:#fff;}
 .badge-sm{font-size:9px;padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em;}
 
-/* ── PLATFORMS ── */
+/* ââ PLATFORMS ââ */
 .platform-list{display:flex;flex-direction:column;gap:16px;}
 .pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);}
 .pcard-head{padding:16px 18px;display:flex;align-items:center;gap:14px;}
@@ -122,7 +122,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .gap-text{font-size:12px;color:var(--text2);line-height:1.7;}
 .pcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;}
 
-/* ── HOME LAYOUT ── */
+/* ââ HOME LAYOUT ââ */
 .home-layout{display:grid;grid-template-columns:1fr 300px;gap:20px;}
 .funnel-container{background:var(--surface);border-radius:var(--radius-lg);padding:18px 20px;box-shadow:var(--shadow-sm);border:1px solid var(--border);}
 .funnel-heading{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
@@ -141,12 +141,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .legend-text{font-size:12px;color:var(--text2);font-weight:500;flex:1;}
 .legend-arrow{font-size:11px;color:var(--text4);}
 
-/* ── BRANCH DIVIDERS ── */
+/* ââ BRANCH DIVIDERS ââ */
 .branch-divider{display:flex;align-items:center;gap:10px;margin:20px 0 10px;}
 .branch-line{flex:1;height:1px;background:var(--border);}
 .branch-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;}
 
-/* ── PRICING HIGHLIGHT ── */
+/* ââ PRICING HIGHLIGHT ââ */
 .pricing-highlight{background:linear-gradient(135deg,#0f1e3a 0%,#0a2744 100%);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:20px;color:#fff;box-shadow:var(--shadow-md);}
 .ph-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-bottom:10px;}
 .ph-grid{display:flex;gap:24px;flex-wrap:wrap;}
@@ -154,7 +154,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .ph-val{font-size:26px;font-weight:800;color:#4ade80;font-family:'DM Mono',monospace;}
 .ph-desc{font-size:10px;opacity:.65;margin-top:2px;}
 
-/* ── MARKET DATA PANEL ── */
+/* ââ MARKET DATA PANEL ââ */
 #fin-panel{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1);padding:12px 28px;box-shadow:0 4px 16px rgba(5,46,22,.35);}
 #fin-panel .stat{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);}
 #fin-panel .stat-lbl{color:rgba(255,255,255,.5);}
@@ -162,7 +162,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 #fin-panel .stat-note{color:rgba(255,255,255,.38);}
 #fin-stats-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;}
 
-/* ── WORKFLOW ── */
+/* ââ WORKFLOW ââ */
 .wf-steps{display:flex;flex-direction:column;gap:0;}
 .wf-node{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;color:#fff;z-index:1;}
 .wf-content{flex:1;padding:0 0 20px 12px;}
@@ -170,10 +170,10 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .wf-desc{font-size:11.5px;color:var(--text2);line-height:1.6;margin-bottom:6px;font-weight:300;}
 .wf-items{list-style:none;padding:0;display:flex;flex-direction:column;gap:3px;}
 .wf-items li{font-size:11px;color:var(--text2);padding-left:14px;position:relative;line-height:1.5;}
-.wf-items li::before{content:'→';position:absolute;left:0;color:#22c55e;font-weight:700;}
+.wf-items li::before{content:'â';position:absolute;left:0;color:#22c55e;font-weight:700;}
 .wf-output{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;background:#22c55e;color:#052e16;margin-top:6px;}
 
-/* ── DEPT CARDS ── */
+/* ââ DEPT CARDS ââ */
 .dept-header{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;transition:background .12s;}
 .dept-header:hover{background:rgba(0,0,0,.02);}
 .dept-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800;flex-shrink:0;}
@@ -183,7 +183,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .dept-kpi-row{display:flex;flex-wrap:wrap;gap:5px;padding:10px 0 12px;}
 .dept-kpi{font-size:10px;padding:3px 9px;border-radius:5px;background:var(--green-pale);border:1px solid var(--border2);color:var(--green);font-weight:600;font-family:'DM Mono',monospace;}
 
-/* ── PHASE / STEP CARDS ── */
+/* ââ PHASE / STEP CARDS ââ */
 .phase-header{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:5px 10px 5px 12px;border-radius:6px;margin-bottom:8px;border-left:3px solid;}
 .step-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:14px;}
 .step-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;border-left-width:3px;}
@@ -191,7 +191,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .step-title{font-size:11px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .step-desc{font-size:10px;color:var(--text2);line-height:1.5;}
 
-/* ── OUTPUTS ── */
+/* ââ OUTPUTS ââ */
 .output-row{padding:9px 12px;background:#f0fdf4;border-radius:9px;border:1px solid #a7f3d0;margin-top:8px;}
 .output-label{font-size:9px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;}
 .output-chips{display:flex;flex-wrap:wrap;gap:4px;}
@@ -202,18 +202,18 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .file-chip{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 9px;border-radius:5px;background:#fff;color:var(--green);border:1px solid var(--border2);font-weight:500;text-decoration:none;}
 .file-chip:hover{background:var(--green);color:#fff;}
 
-/* ── ORG CHART TIP ── */
+/* ââ ORG CHART TIP ââ */
 .oc-tip{position:fixed;background:#052e16;color:#fff;font-size:11.5px;padding:8px 13px;border-radius:9px;max-width:280px;pointer-events:none;z-index:9999;display:none;box-shadow:0 4px 20px rgba(5,46,22,.5);line-height:1.5;border:1px solid rgba(255,255,255,.1);}
 .oc-box{cursor:pointer;}
 .oc-box:hover{filter:drop-shadow(0 3px 10px rgba(5,46,22,.4));}
 
-/* ── SCROLLBAR ── */
+/* ââ SCROLLBAR ââ */
 ::-webkit-scrollbar{width:6px;height:6px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--green-mid);}
 
-/* ── TEAMWORKS-STYLE DARK METRIC CARDS ── */
+/* ââ TEAMWORKS-STYLE DARK METRIC CARDS ââ */
 .dark-panel{background:#0d1f12;border:1px solid #1a3d22;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 8px 32px rgba(5,46,22,.4);}
 .dark-panel-header{background:linear-gradient(135deg,#052e16,#0d2b1a);padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);}
 .dark-panel-title{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.02em;}
@@ -254,10 +254,10 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 .candidate-score{font-size:13px;font-weight:800;font-family:'DM Mono',monospace;width:36px;text-align:right;}
 
 
-/* ══════════════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââââââââââââ
    TEAMWORKS-INSPIRED DESIGN SYSTEM
-   Bold headlines · Dark stat panels · Icon cols
-   ══════════════════════════════════════════════ */
+   Bold headlines Â· Dark stat panels Â· Icon cols
+   ââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* Hero headline style */
 .hero-headline {
@@ -451,7 +451,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
     <div class="brand-logo">
       <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/><rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".7"/><rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".7"/><rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".4"/></svg>
     </div>
-    <div><div class="brand-name">Football Club Blueprint</div><div class="brand-sub">Football Club Blueprint · 2026</div></div>
+    <div><div class="brand-name">Football Club Blueprint</div><div class="brand-sub">Football Club Blueprint Â· 2026</div></div>
   </div>
   <div class="nav-pills" id="nav"></div>
   <button onclick="toggleFinancial()" id="fin-btn" style="padding:5px 14px;border-radius:20px;border:1.5px solid #185FA5;cursor:pointer;color:#185FA5;background:#f0f7ff;font-size:12px;font-weight:700;display:flex;align-items:center;gap:5px;white-space:nowrap;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#f0f7ff'">
@@ -463,22 +463,22 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 
 <div id="fin-panel" style="display:none;background:#fff;border-bottom:1px solid #c8dff5;padding:14px 28px;box-shadow:0 4px 12px rgba(24,95,165,.08);">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;max-width:900px;" id="fin-stats-inner"></div>
-  <div style="font-size:11px;color:#7aaacf;margin-top:8px;">Annual price references in USD · Source: Cyferd Sports research 2026</div>
+  <div style="font-size:11px;color:#7aaacf;margin-top:8px;">Annual price references in USD Â· Source: Cyferd Sports research 2026</div>
 </div>
 
 <div id="pages"></div>
 
 <script>
 
-// ════════════════════════════════════════════════════════════
-// HUB DATA — Edit this section to update all content
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// HUB DATA â Edit this section to update all content
 // To add a vendor: find the right category in _DP_VENDORS
 // To add a page: add to PAGES array below
-// ════════════════════════════════════════════════════════════
-const _DP_CATS    = [{"id": "overview", "icon": "&#127919;", "label": "Overview", "color": "#0a1f3c", "bg": "#dbeafe", "desc": "The technology funnel — from broad market intelligence to club-specific tools."}, {"id": "data", "icon": "&#128202;", "label": "Data Providers", "color": "#1557a0", "bg": "#eff6ff", "desc": "Match statistics, event data, physical metrics and tactical analytics. StatsBomb and Driblab compete directly for the Liga MX market."}, {"id": "sportstec", "icon": "&#128170;", "label": "Sports Science & GPS", "color": "#065f46", "bg": "#f0fdf4", "desc": "GPS wearables, physical performance monitoring, thermography, cognitive testing. WIMU collaborates with all 18 Liga MX clubs."}, {"id": "video", "icon": "&#127909;", "label": "Video Analysis", "color": "#5b21b6", "bg": "#faf5ff", "desc": "Two distinct branches: (A) tactical analysis and editing platforms, (B) automatic tracking cameras with no operator needed."}, {"id": "operations", "icon": "&#128203;", "label": "Operations", "color": "#7c3317", "bg": "#fff7ed", "desc": "Contract management, budgeting, transfer tools. Cyferd's pricing: $20K implementation + $25K/yr per app."}, {"id": "scouting", "icon": "&#128270;", "label": "Scouting App", "color": "#1a4f7a", "bg": "#dbeafe", "desc": "Centralized player data management, scout reports, shortlists, dashboards and performance scores."}, {"id": "performance", "icon": "&#127941;", "label": "Player Performance", "color": "#854F0B", "bg": "#fef3c7", "desc": "360-degree player profiles combining GPS, medical, nutrition, psychology and match data into one decision-support system."}, {"id": "academy", "icon": "&#127807;", "label": "Academy", "color": "#047857", "bg": "#f0fdf4", "desc": "Youth development platforms covering performance tracking, coach communication quality, and pathway to first team."}];
-const _DP_VENDORS = {"data": [{"n": "Driblab", "origin": "Spain", "logo": "https://logo.clearbit.com/driblab.com?size=64", "c": "#1557a0", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["event data", "physical", "API", "Liga MX"], "price": "avg $40K/yr", "clients": "8 MX clubs + Federation", "desc": "Spanish company, direct StatsBomb competitor in Mexico. Physical and tactical metrics via API. Used by Inter Miami and 8 Mexican clubs plus the Federation. Pricing scales with leagues and physical data add-ons. Flexible platform or raw API access.", "badge": "best"}, {"n": "StatsBomb", "origin": "UK", "logo": "https://logo.clearbit.com/statsbomb.com?size=64", "c": "#1557a0", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["event data", "360 tracking", "API", "consultancy"], "price": "$35–65K/yr", "clients": "Top Liga MX clubs", "desc": "Global leader in event data and 360-degree tracking. Liga MX range: $35K–$65K/yr. Consultancy available. StatsBomb Open is the industry standard for open-source analytics. Proprietary data collection for top clubs.", "badge": "best"}, {"n": "Impect", "origin": "Germany", "logo": "https://logo.clearbit.com/impect.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["passing models", "build-up", "API"], "price": "custom", "clients": "Bundesliga, European clubs", "desc": "Detailed passing models and build-up phase analysis. Unique metrics for pressing and ball progression. Strong for tactical teams that want deep build-up intelligence beyond standard event data.", "badge": "niche"}, {"n": "SciSports", "origin": "Netherlands", "logo": "https://logo.clearbit.com/scisports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["player ratings", "transfer values", "API"], "price": "custom", "clients": "Budget-conscious clubs", "desc": "Good for clubs without large analytics departments. Player ratings, transfer value estimates, basic scouting lists. Not as deep as StatsBomb or Driblab but solid entry-level option.", "badge": ""}, {"n": "Golstats", "origin": "Mexico", "logo": "https://logo.clearbit.com/golstats.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["Liga MX only", "tracking", "local"], "price": "Liga MX clubs only", "clients": "All 18 Liga MX clubs", "desc": "Provided by the Liga MX. Panoramic camera tracking data for all league matches. Player tracking, movement data, defensive distances. Available exclusively to Liga MX members. Growing physical data coverage.", "badge": "mx"}, {"n": "Opta (Stats Perform)", "origin": "UK", "logo": "https://logo.clearbit.com/statsperform.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["event data", "feeds", "broadcast"], "price": "enterprise", "clients": "Broadcasters, major clubs", "desc": "Veteran provider. Reliable broad stats including third assists, defensive actions and comprehensive historical databases. Common in broadcast and club analytics. Often bundled with other Stats Perform products.", "badge": ""}, {"n": "InStat", "origin": "EU", "logo": "https://logo.clearbit.com/instatscout.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["video", "stats", "scouting"], "price": "custom", "clients": "European clubs", "desc": "Combines video and stats. Good for clubs wanting integrated video-data scouting. Less dominant in Latin American markets but growing.", "badge": ""}], "sportstec": [{"n": "WIMU", "origin": "Spain", "logo": "https://logo.clearbit.com/wimu.es?size=64", "c": "#065f46", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["GPS", "wearable", "Liga MX"], "price": "avg $35K/kit (30 GPS)", "clients": "18/18 Liga MX clubs", "desc": "WIMU collaborates with all 18 Liga MX clubs — the dominant GPS provider in Mexico. Kit pricing (30 GPS units). Real-time workload monitoring, sprint detection, accelerations/decelerations. Data feeds directly into sports science platforms.", "badge": "best"}, {"n": "Catapult", "origin": "Australia", "logo": "https://logo.clearbit.com/catapult.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["GPS", "wearable", "scouting"], "price": "enterprise", "clients": "NFL, NBA, EPL, MLS", "desc": "Global leader in GPS wearables and sports performance. Now also offers a scouting workflow module. Very common in professional football globally. Trusted hardware with extensive software analytics.", "badge": ""}, {"n": "STATSports", "origin": "Ireland", "logo": "https://logo.clearbit.com/statsports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["GPS", "youth", "consumer"], "price": "custom", "clients": "EPL, national teams", "desc": "Used by several national teams and top academies. Known for lightweight vest design. Consumer version available for grassroots teams. Good option for academies with limited budget.", "badge": ""}, {"n": "ThermoHuman", "origin": "Spain", "logo": "https://logo.clearbit.com/thermohuman.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["thermography", "injury prevention", "CPK"], "price": "custom", "clients": "Real Madrid, La Liga clubs", "desc": "Founded by Ismael Fernandez (Real Madrid Sports Science). Detects thermal asymmetries (hypo/hyperthermia) linked to injury risk. 100% CPK detection. Allows preventive action before injuries occur. Detects early flu spread through the squad.", "badge": "best"}, {"n": "SkillCorner", "origin": "France", "logo": "https://logo.clearbit.com/skillcorner.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tracking", "Game IQ", "physical"], "price": "$5K Tier 2 (5 leagues)", "clients": "MLS (29/31), Mex Federation", "desc": "Top-tier physical and tactical data from broadcast video. Three products: Tracking Data (raw), Physical Data (standard metrics), Game Intelligence (run categorization, pressing, passing execution). Developed with Crystal Palace staff.", "badge": ""}, {"n": "NeuroTracker", "origin": "Canada", "logo": "https://logo.clearbit.com/neurotracker.net?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["cognitive", "3D tracking", "brain"], "price": "custom", "clients": "EPL, NHL, MLB clubs", "desc": "Cognitive performance testing using 3D multiple object tracking. Measures attention, processing speed, peripheral awareness. Used to track brain performance over a season and correlate with injury risk and decision-making quality.", "badge": ""}], "video": [{"n": "Wyscout (Hudl)", "origin": "Italy/USA", "logo": "https://logo.clearbit.com/wyscout.com?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["video", "scouting", "cloud"], "price": "custom", "clients": "40K+ teams worldwide", "desc": "Industry standard for video scouting. Owned by Hudl — best-in-class combined platform. 40K+ teams, 90+ competitions. Editable reports, player filters, agent integration. Direct data download for clubs needing CSV stats.", "badge": "best"}, {"n": "LongoMatch", "origin": "Spain", "logo": "https://logo.clearbit.com/longomatch.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tagging", "analysis", "open"], "price": "free/custom", "clients": "Clubs and academies", "desc": "Open-source origins, now commercial. Strong tagging and clip analysis tool. Popular in academies and smaller clubs. Good option when budget is limited but tactical video analysis is needed.", "badge": ""}, {"n": "Metrica Sports", "origin": "Spain", "logo": "https://logo.clearbit.com/metrica-sports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tracking", "AI", "automation"], "price": "custom", "clients": "Professional clubs", "desc": "AI-powered automatic tracking from video. Automated player ID and movement data extraction. Growing quickly with European clubs wanting broadcast-level tracking at lower cost.", "badge": ""}, {"n": "Pixellot", "origin": "Israel", "logo": "https://logo.clearbit.com/pixellot.tv?size=64", "c": "#dc2626", "bg": "#fff1f2", "bc": "#fca5a5", "tags": ["auto camera", "AI", "academy"], "price": "custom", "clients": "FC Barcelona Academy, 3K+ venues", "desc": "Automatic camera system with no operator needed. AI pan/tilt follows the game. Used by FC Barcelona Academy. Ideal for academies, lower divisions and multi-venue clubs. 3,000+ venues worldwide.", "badge": "best"}, {"n": "Veo", "origin": "Denmark", "logo": "https://logo.clearbit.com/veo.co?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "4K", "grassroots"], "price": "custom", "clients": "100K+ teams globally", "desc": "4K panoramic camera. No operator needed. 100,000+ teams using globally. Very popular in academies and semi-professional environments. Cloud storage and highlight detection included.", "badge": ""}, {"n": "Trace", "origin": "Denmark", "logo": "https://logo.clearbit.com/tracesports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "GPS overlay", "tracking"], "price": "custom", "clients": "Semi-pro, academies", "desc": "Combines automatic camera with individual GPS-style tracking per player. Generates automatic clips and physical data overlay. Good for clubs wanting video + physical data in one affordable package.", "badge": ""}], "operations": [{"n": "Cyferd Contract Mgmt", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#7c3317", "bg": "#fff7ed", "bc": "#fca5a5", "tags": ["contracts", "workflow", "Liga MX"], "price": "$20K impl + $25K/yr", "clients": "Chivas de Guadalajara", "desc": "Full contract lifecycle: sporting approval, negotiation, financial validation, legal docs, migration, registration and post-signing monitoring. Squad Ladder visualization. AI-powered contract preparation. DocuSign and Snowflake integration.", "badge": "ours"}, {"n": "Cyferd Budgeting", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#7c3317", "bg": "#fff7ed", "bc": "#fca5a5", "tags": ["budgeting", "ERP", "workflows"], "price": "$20K impl + $25K/yr", "clients": "Atletico San Luis", "desc": "End-to-end budget lifecycle: framework config, guided collection, approval workflows, automated consolidation, ERP integration (CSV). Budget transfers and supplements with full audit trail.", "badge": "ours"}, {"n": "TransferRoom", "origin": "Denmark", "logo": "https://logo.clearbit.com/transferroom.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["transfers", "network", "agents"], "price": "$30K/yr ($17.5K discount)", "clients": "500+ clubs worldwide", "desc": "Direct club-to-club transfer network. Real-time availability alerts. Decision Room and Contingency AI features. Used by MLS, EPL, Championship clubs. Feb 2026 discount offer for lower-table Liga MX clubs.", "badge": "best"}, {"n": "LibroDePases", "origin": "Mexico", "logo": "https://logo.clearbit.com/librodepases.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["transfers", "Mexico", "registry"], "price": "budget", "clients": "Liga MX clubs", "desc": "Player registration and transfer record tool for Mexican football. Keeps local clubs informed on movement. Practical for lower divisions. Now adding basic scouting report features but general quality is limited.", "badge": "mx"}], "scouting": [{"n": "Cyferd Scouting App", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#1a4f7a", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["scouting", "dashboards", "data integration"], "price": "$20K impl + $25K/yr", "clients": "Tigres UANL, Chivas", "desc": "Centralizes StatsBomb, Driblab, Wyscout, SkillCorner and Golstats into one player master index. Scout report templates, shortlists, dashboards with radar charts and scatter plots. Game Metrics Score (0–100) and Physical Data Score (0–100). SSO access control.", "badge": "ours"}, {"n": "SciSports Scouting", "origin": "Netherlands", "logo": "https://logo.clearbit.com/scisports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["player ratings", "recruitment", "AI"], "price": "custom", "clients": "European clubs", "desc": "Player valuation and recruitment intelligence. AI-generated similarity profiles. Good for clubs wanting automated shortlists based on statistical similarity. Less customizable than Cyferd.", "badge": ""}, {"n": "Kin Analytics", "origin": "UK", "logo": "https://logo.clearbit.com/kinanalytics.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["recruitment", "modeling", "analytics"], "price": "custom", "clients": "EPL, Championship", "desc": "Recruitment analytics platform. Expected contribution modeling. Transfer value predictions. Strong in English football market.", "badge": ""}], "performance": [{"n": "Cyferd Player Performance", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#854F0B", "bg": "#fef3c7", "bc": "#fcd34d", "tags": ["360 profile", "GPS", "medical", "nutrition"], "price": "$20K impl + $25K/yr", "clients": "Chivas de Guadalajara", "desc": "Integrates GPS, medical, nutrition, psychology, match data and sports science into one player-centric platform. 360-degree profiles, composite performance score (0–100), interactive squad planner (drag-and-drop pitch), 6-month evaluation reports, benchmarking against league averages.", "badge": "ours"}, {"n": "Teamworks AMS", "origin": "USA", "logo": "https://logo.clearbit.com/teamworks.com?size=64", "c": "#991b1b", "bg": "#fee2e2", "bc": "#fca5a5", "tags": ["AMS", "nutrition", "S&C", "70+ integrations"], "price": "enterprise custom", "clients": "NFL, NBA, EPL, Olympics", "desc": "Teamworks flagship performance product. Centralizes load, nutrition, recovery, medical, and wellness. Alerts when body weight drops 1%+ post-training. 70+ pre-built integrations. 10,000+ teams globally. Main competitor in integrated performance management.", "badge": "comp"}, {"n": "Kitman Labs", "origin": "Ireland", "logo": "https://logo.clearbit.com/kitmanlabs.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["injury prevention", "readiness", "AI"], "price": "enterprise", "clients": "NFL, MLS, GAA", "desc": "AI-powered injury prevention and readiness platform. Strong in American sports. Growing football presence. Focus on reducing injury burden through predictive models.", "badge": "comp"}], "academy": [{"n": "Cyferd Academy", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#047857", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["academy", "GPS", "bi-monthly reports"], "price": "$20K impl + $25K/yr", "clients": "Chivas (academy module)", "desc": "GPS sprint ranking across full cohort. Unique player IDs from academy to first team. Bi-monthly development reports. Contract consideration flags when GPS trajectory exceeds historical norms.", "badge": "ours"}, {"n": "Coach Intelligence Lab", "origin": "Global", "logo": "https://logo.clearbit.com/coachiq.com?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["AI audio", "coaching language", "academy"], "price": "custom", "clients": "Professional teams", "desc": "AI audio analysis of coaching sessions. Records from the coach perspective, transcribes and analyzes language. Identifies communication patterns that build engagement vs those that undermine it. Especially useful for academy staff. Instagram: @coach.intelligence.lab", "badge": "emerging"}, {"n": "SeeUPlay", "origin": "Netherlands", "logo": "https://logo.clearbit.com/seeuplay.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "academy", "youth"], "price": "custom", "clients": "Youth academies", "desc": "Automatic camera system tailored for youth football. AI highlights and clip generation. Good for academies wanting video coverage at multiple pitches without operator costs.", "badge": ""}]};
-const PLATFORMS   = [{"name": "Teamworks", "origin": "USA", "logo": "https://logo.clearbit.com/teamworks.com?size=64", "tagline": "The operating system for sports™", "c": "#991b1b", "bg": "#fee2e2", "badge": "Main competitor", "bc": "#fca5a5", "modules": ["AMS", "Nutrition", "S&C", "Hub", "Compliance", "Recruiting", "Intelligence (ML)", "Sportlogiq", "Coaching", "Wallet", "Inventory", "Camps"], "desc": "The world's largest integrated sports technology platform. NFL, NBA, EPL, MLS, Olympic bodies, national teams (including APF) and military. 10,000+ teams. Acquired PFF Enterprise. Teamworks Intelligence (formerly Zelus Analytics) delivers ML models for squad building, contract valuation and game strategy. S&C module launched May 2025. 70+ pre-built integrations.", "strengths": ["10,000+ teams — pro, collegiate, Olympic, military", "AMS: load, nutrition, medical, wellness, and S&C in one", "Intelligence: ML models for roster + contract valuation", "70+ integrations (GPS, EMR, wearables)", "Signed major football federations and national teams", "Acquired PFF Enterprise — deepest football analytics depth"], "gap": "Enterprise pricing — custom and not publicly disclosed. Less presence in Latin American club football. May be overkill for mid-size clubs."}, {"name": "Cyferd Sports", "origin": "UK / Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "tagline": "Semi-standard apps — one engine, five solutions", "c": "#1e40af", "bg": "#dbeafe", "badge": "Our product", "bc": "#93c5fd", "modules": ["Scouting", "Player Performance", "Budgeting", "Contract Management", "Sport Science"], "desc": "The only platform integrating scouting intelligence, player performance, contract governance, and financial budgeting in a single shared data layer. Built on enterprise AI with cross-industry experience in contract management, budgeting, and resilience. Semi-standard apps = faster deployment, lower cost. Liga MX clients: Tigres, Chivas, Atlético San Luis.", "strengths": ["Only platform connecting contracts ↔ performance ↔ scouting", "Cross-industry enterprise AI: contracts, budgeting, resilience", "$135K Year 1 for 3 apps — most accessible integrated option", "Already deployed in Liga MX with proven implementations", "Full data ownership and custom scoring logic per club", "Semi-standard apps: faster delivery, predictable pricing"], "gap": "Smaller global footprint vs Teamworks. Building track record at scale beyond Liga MX."}, {"name": "Kitman Labs", "origin": "Ireland", "logo": "https://logo.clearbit.com/kitmanlabs.com?size=64", "tagline": "Performance + talent development platform", "c": "#991b1b", "bg": "#fee2e2", "badge": "Competitor", "bc": "#fca5a5", "modules": ["Performance analytics", "Injury prevention", "Talent development", "Academy pathways", "Load management", "Return to play"], "desc": "Strong competitor in player performance and academy talent development. Unifies GPS, match data, medical records, and training history. Talent development module with structured pathways and personalized goals. Premier League clubs and federation academies.", "strengths": ["30% fewer injuries reported in rugby deployment", "Talent development pathways with structured syllabuses", "Premier League and federation academy penetration", "Real-time readiness flags and return-to-play management", "Growing internationally in football"], "gap": "Does not cover contracts, budgeting, or transfer tools — performance and development only."}];
-window.FUNNEL_LAYERS = [{"label": "Match analysis & scouting", "color": "#7ec8ef", "textColor": "#0a3060", "logos": ["https://logo.clearbit.com/statsbomb.com", "https://logo.clearbit.com/driblab.com", "https://logo.clearbit.com/wyscout.com", "https://logo.clearbit.com/scisports.com", "https://logo.clearbit.com/impect.com", "https://logo.clearbit.com/instatscout.com", "https://logo.clearbit.com/olocip.com", "https://logo.clearbit.com/golstats.com"], "names": ["StatsBomb", "Driblab", "Wyscout", "SciSports", "Impect", "InStat", "Olocip", "Golstats"], "page": "data"}, {"label": "Sports science & GPS", "color": "#4daa88", "textColor": "#fff", "logos": ["https://logo.clearbit.com/wimugo.com", "https://logo.clearbit.com/catapult.com", "https://logo.clearbit.com/statsports.com", "https://logo.clearbit.com/thermohuman.com", "https://logo.clearbit.com/skillcorner.com", "https://logo.clearbit.com/neurotracker.net"], "names": ["WIMU", "Catapult", "STATSports", "ThermoHuman", "SkillCorner", "NeuroTracker"], "page": "sportstec"}, {"label": "Operations & management", "color": "#e8954a", "textColor": "#fff", "logos": ["https://logo.clearbit.com/cyferd.com", "https://logo.clearbit.com/teamworks.com", "https://logo.clearbit.com/transferroom.com", "https://logo.clearbit.com/oracle.com"], "names": ["Cyferd", "Teamworks", "TransferRoom", "Oracle/SAP"], "page": "operations"}, {"label": "Video — tactical analysis", "color": "#9b72cf", "textColor": "#fff", "logos": ["https://logo.clearbit.com/wyscout.com", "https://logo.clearbit.com/hudl.com", "https://logo.clearbit.com/flyfut.com", "https://logo.clearbit.com/longomatch.com", "https://logo.clearbit.com/metrica-sports.com"], "names": ["Wyscout", "Hudl", "FlyFut", "LongoMatch", "Metrica"], "page": "video"}, {"label": "Video — AI automatic cameras", "color": "#7b5ea7", "textColor": "#fff", "logos": ["https://logo.clearbit.com/pixellot.tv", "https://logo.clearbit.com/veo.co", "https://logo.clearbit.com/traceup.com", "https://logo.clearbit.com/seeuplay.com"], "names": ["Pixellot", "Veo", "Trace", "SeeUPlay"], "page": "video"}, {"label": "Player performance & academy", "color": "#4caf82", "textColor": "#fff", "logos": ["https://logo.clearbit.com/cyferd.com", "https://logo.clearbit.com/teamworks.com", "https://logo.clearbit.com/kitmanlabs.com", "https://logo.clearbit.com/coachintelligencelab.com"], "names": ["Cyferd Perf.", "Teamworks AMS", "Kitman Labs", "Coach Intel. Lab"], "page": "performance"}, {"label": "Transfer tools", "color": "#3a8c5c", "textColor": "#fff", "logos": ["https://logo.clearbit.com/transferroom.com"], "names": ["TransferRoom"], "page": "operations"}];
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+const _DP_CATS    = [{"id": "overview", "icon": "&#127919;", "label": "Overview", "color": "#0a1f3c", "bg": "#dbeafe", "desc": "The technology funnel â from broad market intelligence to club-specific tools."}, {"id": "data", "icon": "&#128202;", "label": "Data Providers", "color": "#1557a0", "bg": "#eff6ff", "desc": "Match statistics, event data, physical metrics and tactical analytics. StatsBomb and Driblab compete directly for the Liga MX market."}, {"id": "sportstec", "icon": "&#128170;", "label": "Sports Science & GPS", "color": "#065f46", "bg": "#f0fdf4", "desc": "GPS wearables, physical performance monitoring, thermography, cognitive testing. WIMU collaborates with all 18 Liga MX clubs."}, {"id": "video", "icon": "&#127909;", "label": "Video Analysis", "color": "#5b21b6", "bg": "#faf5ff", "desc": "Two distinct branches: (A) tactical analysis and editing platforms, (B) automatic tracking cameras with no operator needed."}, {"id": "operations", "icon": "&#128203;", "label": "Operations", "color": "#7c3317", "bg": "#fff7ed", "desc": "Contract management, budgeting, transfer tools. Cyferd's pricing: $20K implementation + $25K/yr per app."}, {"id": "scouting", "icon": "&#128270;", "label": "Scouting App", "color": "#1a4f7a", "bg": "#dbeafe", "desc": "Centralized player data management, scout reports, shortlists, dashboards and performance scores."}, {"id": "performance", "icon": "&#127941;", "label": "Player Performance", "color": "#854F0B", "bg": "#fef3c7", "desc": "360-degree player profiles combining GPS, medical, nutrition, psychology and match data into one decision-support system."}, {"id": "academy", "icon": "&#127807;", "label": "Academy", "color": "#047857", "bg": "#f0fdf4", "desc": "Youth development platforms covering performance tracking, coach communication quality, and pathway to first team."}];
+const _DP_VENDORS = {"data": [{"n": "Driblab", "origin": "Spain", "logo": "https://logo.clearbit.com/driblab.com?size=64", "c": "#1557a0", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["event data", "physical", "API", "Liga MX"], "price": "avg $40K/yr", "clients": "8 MX clubs + Federation", "desc": "Spanish company, direct StatsBomb competitor in Mexico. Physical and tactical metrics via API. Used by Inter Miami and 8 Mexican clubs plus the Federation. Pricing scales with leagues and physical data add-ons. Flexible platform or raw API access.", "badge": "best"}, {"n": "StatsBomb", "origin": "UK", "logo": "https://logo.clearbit.com/statsbomb.com?size=64", "c": "#1557a0", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["event data", "360 tracking", "API", "consultancy"], "price": "$35â65K/yr", "clients": "Top Liga MX clubs", "desc": "Global leader in event data and 360-degree tracking. Liga MX range: $35Kâ$65K/yr. Consultancy available. StatsBomb Open is the industry standard for open-source analytics. Proprietary data collection for top clubs.", "badge": "best"}, {"n": "Impect", "origin": "Germany", "logo": "https://logo.clearbit.com/impect.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["passing models", "build-up", "API"], "price": "custom", "clients": "Bundesliga, European clubs", "desc": "Detailed passing models and build-up phase analysis. Unique metrics for pressing and ball progression. Strong for tactical teams that want deep build-up intelligence beyond standard event data.", "badge": "niche"}, {"n": "SciSports", "origin": "Netherlands", "logo": "https://logo.clearbit.com/scisports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["player ratings", "transfer values", "API"], "price": "custom", "clients": "Budget-conscious clubs", "desc": "Good for clubs without large analytics departments. Player ratings, transfer value estimates, basic scouting lists. Not as deep as StatsBomb or Driblab but solid entry-level option.", "badge": ""}, {"n": "Golstats", "origin": "Mexico", "logo": "https://logo.clearbit.com/golstats.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["Liga MX only", "tracking", "local"], "price": "Liga MX clubs only", "clients": "All 18 Liga MX clubs", "desc": "Provided by the Liga MX. Panoramic camera tracking data for all league matches. Player tracking, movement data, defensive distances. Available exclusively to Liga MX members. Growing physical data coverage.", "badge": "mx"}, {"n": "Opta (Stats Perform)", "origin": "UK", "logo": "https://logo.clearbit.com/statsperform.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["event data", "feeds", "broadcast"], "price": "enterprise", "clients": "Broadcasters, major clubs", "desc": "Veteran provider. Reliable broad stats including third assists, defensive actions and comprehensive historical databases. Common in broadcast and club analytics. Often bundled with other Stats Perform products.", "badge": ""}, {"n": "InStat", "origin": "EU", "logo": "https://logo.clearbit.com/instatscout.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["video", "stats", "scouting"], "price": "custom", "clients": "European clubs", "desc": "Combines video and stats. Good for clubs wanting integrated video-data scouting. Less dominant in Latin American markets but growing.", "badge": ""}], "sportstec": [{"n": "WIMU", "origin": "Spain", "logo": "https://logo.clearbit.com/wimu.es?size=64", "c": "#065f46", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["GPS", "wearable", "Liga MX"], "price": "avg $35K/kit (30 GPS)", "clients": "18/18 Liga MX clubs", "desc": "WIMU collaborates with all 18 Liga MX clubs â the dominant GPS provider in Mexico. Kit pricing (30 GPS units). Real-time workload monitoring, sprint detection, accelerations/decelerations. Data feeds directly into sports science platforms.", "badge": "best"}, {"n": "Catapult", "origin": "Australia", "logo": "https://logo.clearbit.com/catapult.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["GPS", "wearable", "scouting"], "price": "enterprise", "clients": "NFL, NBA, EPL, MLS", "desc": "Global leader in GPS wearables and sports performance. Now also offers a scouting workflow module. Very common in professional football globally. Trusted hardware with extensive software analytics.", "badge": ""}, {"n": "STATSports", "origin": "Ireland", "logo": "https://logo.clearbit.com/statsports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["GPS", "youth", "consumer"], "price": "custom", "clients": "EPL, national teams", "desc": "Used by several national teams and top academies. Known for lightweight vest design. Consumer version available for grassroots teams. Good option for academies with limited budget.", "badge": ""}, {"n": "ThermoHuman", "origin": "Spain", "logo": "https://logo.clearbit.com/thermohuman.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["thermography", "injury prevention", "CPK"], "price": "custom", "clients": "Real Madrid, La Liga clubs", "desc": "Founded by Ismael Fernandez (Real Madrid Sports Science). Detects thermal asymmetries (hypo/hyperthermia) linked to injury risk. 100% CPK detection. Allows preventive action before injuries occur. Detects early flu spread through the squad.", "badge": "best"}, {"n": "SkillCorner", "origin": "France", "logo": "https://logo.clearbit.com/skillcorner.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tracking", "Game IQ", "physical"], "price": "$5K Tier 2 (5 leagues)", "clients": "MLS (29/31), Mex Federation", "desc": "Top-tier physical and tactical data from broadcast video. Three products: Tracking Data (raw), Physical Data (standard metrics), Game Intelligence (run categorization, pressing, passing execution). Developed with Crystal Palace staff.", "badge": ""}, {"n": "NeuroTracker", "origin": "Canada", "logo": "https://logo.clearbit.com/neurotracker.net?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["cognitive", "3D tracking", "brain"], "price": "custom", "clients": "EPL, NHL, MLB clubs", "desc": "Cognitive performance testing using 3D multiple object tracking. Measures attention, processing speed, peripheral awareness. Used to track brain performance over a season and correlate with injury risk and decision-making quality.", "badge": ""}], "video": [{"n": "Wyscout (Hudl)", "origin": "Italy/USA", "logo": "https://logo.clearbit.com/wyscout.com?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["video", "scouting", "cloud"], "price": "custom", "clients": "40K+ teams worldwide", "desc": "Industry standard for video scouting. Owned by Hudl â best-in-class combined platform. 40K+ teams, 90+ competitions. Editable reports, player filters, agent integration. Direct data download for clubs needing CSV stats.", "badge": "best"}, {"n": "LongoMatch", "origin": "Spain", "logo": "https://logo.clearbit.com/longomatch.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tagging", "analysis", "open"], "price": "free/custom", "clients": "Clubs and academies", "desc": "Open-source origins, now commercial. Strong tagging and clip analysis tool. Popular in academies and smaller clubs. Good option when budget is limited but tactical video analysis is needed.", "badge": ""}, {"n": "Metrica Sports", "origin": "Spain", "logo": "https://logo.clearbit.com/metrica-sports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["tracking", "AI", "automation"], "price": "custom", "clients": "Professional clubs", "desc": "AI-powered automatic tracking from video. Automated player ID and movement data extraction. Growing quickly with European clubs wanting broadcast-level tracking at lower cost.", "badge": ""}, {"n": "Pixellot", "origin": "Israel", "logo": "https://logo.clearbit.com/pixellot.tv?size=64", "c": "#dc2626", "bg": "#fff1f2", "bc": "#fca5a5", "tags": ["auto camera", "AI", "academy"], "price": "custom", "clients": "FC Barcelona Academy, 3K+ venues", "desc": "Automatic camera system with no operator needed. AI pan/tilt follows the game. Used by FC Barcelona Academy. Ideal for academies, lower divisions and multi-venue clubs. 3,000+ venues worldwide.", "badge": "best"}, {"n": "Veo", "origin": "Denmark", "logo": "https://logo.clearbit.com/veo.co?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "4K", "grassroots"], "price": "custom", "clients": "100K+ teams globally", "desc": "4K panoramic camera. No operator needed. 100,000+ teams using globally. Very popular in academies and semi-professional environments. Cloud storage and highlight detection included.", "badge": ""}, {"n": "Trace", "origin": "Denmark", "logo": "https://logo.clearbit.com/tracesports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "GPS overlay", "tracking"], "price": "custom", "clients": "Semi-pro, academies", "desc": "Combines automatic camera with individual GPS-style tracking per player. Generates automatic clips and physical data overlay. Good for clubs wanting video + physical data in one affordable package.", "badge": ""}], "operations": [{"n": "Cyferd Contract Mgmt", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#7c3317", "bg": "#fff7ed", "bc": "#fca5a5", "tags": ["contracts", "workflow", "Liga MX"], "price": "$20K impl + $25K/yr", "clients": "Chivas de Guadalajara", "desc": "Full contract lifecycle: sporting approval, negotiation, financial validation, legal docs, migration, registration and post-signing monitoring. Squad Ladder visualization. AI-powered contract preparation. DocuSign and Snowflake integration.", "badge": "ours"}, {"n": "Cyferd Budgeting", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#7c3317", "bg": "#fff7ed", "bc": "#fca5a5", "tags": ["budgeting", "ERP", "workflows"], "price": "$20K impl + $25K/yr", "clients": "Atletico San Luis", "desc": "End-to-end budget lifecycle: framework config, guided collection, approval workflows, automated consolidation, ERP integration (CSV). Budget transfers and supplements with full audit trail.", "badge": "ours"}, {"n": "TransferRoom", "origin": "Denmark", "logo": "https://logo.clearbit.com/transferroom.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["transfers", "network", "agents"], "price": "$30K/yr ($17.5K discount)", "clients": "500+ clubs worldwide", "desc": "Direct club-to-club transfer network. Real-time availability alerts. Decision Room and Contingency AI features. Used by MLS, EPL, Championship clubs. Feb 2026 discount offer for lower-table Liga MX clubs.", "badge": "best"}, {"n": "LibroDePases", "origin": "Mexico", "logo": "https://logo.clearbit.com/librodepases.com?size=64", "c": "#059669", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["transfers", "Mexico", "registry"], "price": "budget", "clients": "Liga MX clubs", "desc": "Player registration and transfer record tool for Mexican football. Keeps local clubs informed on movement. Practical for lower divisions. Now adding basic scouting report features but general quality is limited.", "badge": "mx"}], "scouting": [{"n": "Cyferd Scouting App", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#1a4f7a", "bg": "#dbeafe", "bc": "#93c5fd", "tags": ["scouting", "dashboards", "data integration"], "price": "$20K impl + $25K/yr", "clients": "Tigres UANL, Chivas", "desc": "Centralizes StatsBomb, Driblab, Wyscout, SkillCorner and Golstats into one player master index. Scout report templates, shortlists, dashboards with radar charts and scatter plots. Game Metrics Score (0â100) and Physical Data Score (0â100). SSO access control.", "badge": "ours"}, {"n": "SciSports Scouting", "origin": "Netherlands", "logo": "https://logo.clearbit.com/scisports.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["player ratings", "recruitment", "AI"], "price": "custom", "clients": "European clubs", "desc": "Player valuation and recruitment intelligence. AI-generated similarity profiles. Good for clubs wanting automated shortlists based on statistical similarity. Less customizable than Cyferd.", "badge": ""}, {"n": "Kin Analytics", "origin": "UK", "logo": "https://logo.clearbit.com/kinanalytics.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["recruitment", "modeling", "analytics"], "price": "custom", "clients": "EPL, Championship", "desc": "Recruitment analytics platform. Expected contribution modeling. Transfer value predictions. Strong in English football market.", "badge": ""}], "performance": [{"n": "Cyferd Player Performance", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#854F0B", "bg": "#fef3c7", "bc": "#fcd34d", "tags": ["360 profile", "GPS", "medical", "nutrition"], "price": "$20K impl + $25K/yr", "clients": "Chivas de Guadalajara", "desc": "Integrates GPS, medical, nutrition, psychology, match data and sports science into one player-centric platform. 360-degree profiles, composite performance score (0â100), interactive squad planner (drag-and-drop pitch), 6-month evaluation reports, benchmarking against league averages.", "badge": "ours"}, {"n": "Teamworks AMS", "origin": "USA", "logo": "https://logo.clearbit.com/teamworks.com?size=64", "c": "#991b1b", "bg": "#fee2e2", "bc": "#fca5a5", "tags": ["AMS", "nutrition", "S&C", "70+ integrations"], "price": "enterprise custom", "clients": "NFL, NBA, EPL, Olympics", "desc": "Teamworks flagship performance product. Centralizes load, nutrition, recovery, medical, and wellness. Alerts when body weight drops 1%+ post-training. 70+ pre-built integrations. 10,000+ teams globally. Main competitor in integrated performance management.", "badge": "comp"}, {"n": "Kitman Labs", "origin": "Ireland", "logo": "https://logo.clearbit.com/kitmanlabs.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["injury prevention", "readiness", "AI"], "price": "enterprise", "clients": "NFL, MLS, GAA", "desc": "AI-powered injury prevention and readiness platform. Strong in American sports. Growing football presence. Focus on reducing injury burden through predictive models.", "badge": "comp"}], "academy": [{"n": "Cyferd Academy", "origin": "Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "c": "#047857", "bg": "#f0fdf4", "bc": "#6ee7b7", "tags": ["academy", "GPS", "bi-monthly reports"], "price": "$20K impl + $25K/yr", "clients": "Chivas (academy module)", "desc": "GPS sprint ranking across full cohort. Unique player IDs from academy to first team. Bi-monthly development reports. Contract consideration flags when GPS trajectory exceeds historical norms.", "badge": "ours"}, {"n": "Coach Intelligence Lab", "origin": "Global", "logo": "https://logo.clearbit.com/coachiq.com?size=64", "c": "#5b21b6", "bg": "#faf5ff", "bc": "#c4b5fd", "tags": ["AI audio", "coaching language", "academy"], "price": "custom", "clients": "Professional teams", "desc": "AI audio analysis of coaching sessions. Records from the coach perspective, transcribes and analyzes language. Identifies communication patterns that build engagement vs those that undermine it. Especially useful for academy staff. Instagram: @coach.intelligence.lab", "badge": "emerging"}, {"n": "SeeUPlay", "origin": "Netherlands", "logo": "https://logo.clearbit.com/seeuplay.com?size=64", "c": "#374151", "bg": "#f3f4f6", "bc": "#d1d5db", "tags": ["auto camera", "academy", "youth"], "price": "custom", "clients": "Youth academies", "desc": "Automatic camera system tailored for youth football. AI highlights and clip generation. Good for academies wanting video coverage at multiple pitches without operator costs.", "badge": ""}]};
+const PLATFORMS   = [{"name": "Teamworks", "origin": "USA", "logo": "https://logo.clearbit.com/teamworks.com?size=64", "tagline": "The operating system for sportsâ¢", "c": "#991b1b", "bg": "#fee2e2", "badge": "Main competitor", "bc": "#fca5a5", "modules": ["AMS", "Nutrition", "S&C", "Hub", "Compliance", "Recruiting", "Intelligence (ML)", "Sportlogiq", "Coaching", "Wallet", "Inventory", "Camps"], "desc": "The world's largest integrated sports technology platform. NFL, NBA, EPL, MLS, Olympic bodies, national teams (including APF) and military. 10,000+ teams. Acquired PFF Enterprise. Teamworks Intelligence (formerly Zelus Analytics) delivers ML models for squad building, contract valuation and game strategy. S&C module launched May 2025. 70+ pre-built integrations.", "strengths": ["10,000+ teams â pro, collegiate, Olympic, military", "AMS: load, nutrition, medical, wellness, and S&C in one", "Intelligence: ML models for roster + contract valuation", "70+ integrations (GPS, EMR, wearables)", "Signed major football federations and national teams", "Acquired PFF Enterprise â deepest football analytics depth"], "gap": "Enterprise pricing â custom and not publicly disclosed. Less presence in Latin American club football. May be overkill for mid-size clubs."}, {"name": "Cyferd Sports", "origin": "UK / Global", "logo": "https://logo.clearbit.com/cyferd.com?size=64", "tagline": "Semi-standard apps â one engine, five solutions", "c": "#1e40af", "bg": "#dbeafe", "badge": "Our product", "bc": "#93c5fd", "modules": ["Scouting", "Player Performance", "Budgeting", "Contract Management", "Sport Science"], "desc": "The only platform integrating scouting intelligence, player performance, contract governance, and financial budgeting in a single shared data layer. Built on enterprise AI with cross-industry experience in contract management, budgeting, and resilience. Semi-standard apps = faster deployment, lower cost. Liga MX clients: Tigres, Chivas, AtlÃ©tico San Luis.", "strengths": ["Only platform connecting contracts â performance â scouting", "Cross-industry enterprise AI: contracts, budgeting, resilience", "$135K Year 1 for 3 apps â most accessible integrated option", "Already deployed in Liga MX with proven implementations", "Full data ownership and custom scoring logic per club", "Semi-standard apps: faster delivery, predictable pricing"], "gap": "Smaller global footprint vs Teamworks. Building track record at scale beyond Liga MX."}, {"name": "Kitman Labs", "origin": "Ireland", "logo": "https://logo.clearbit.com/kitmanlabs.com?size=64", "tagline": "Performance + talent development platform", "c": "#991b1b", "bg": "#fee2e2", "badge": "Competitor", "bc": "#fca5a5", "modules": ["Performance analytics", "Injury prevention", "Talent development", "Academy pathways", "Load management", "Return to play"], "desc": "Strong competitor in player performance and academy talent development. Unifies GPS, match data, medical records, and training history. Talent development module with structured pathways and personalized goals. Premier League clubs and federation academies.", "strengths": ["30% fewer injuries reported in rugby deployment", "Talent development pathways with structured syllabuses", "Premier League and federation academy penetration", "Real-time readiness flags and return-to-play management", "Growing internationally in football"], "gap": "Does not cover contracts, budgeting, or transfer tools â performance and development only."}];
+window.FUNNEL_LAYERS = [{"label": "Match analysis & scouting", "color": "#7ec8ef", "textColor": "#0a3060", "logos": ["https://logo.clearbit.com/statsbomb.com", "https://logo.clearbit.com/driblab.com", "https://logo.clearbit.com/wyscout.com", "https://logo.clearbit.com/scisports.com", "https://logo.clearbit.com/impect.com", "https://logo.clearbit.com/instatscout.com", "https://logo.clearbit.com/olocip.com", "https://logo.clearbit.com/golstats.com"], "names": ["StatsBomb", "Driblab", "Wyscout", "SciSports", "Impect", "InStat", "Olocip", "Golstats"], "page": "data"}, {"label": "Sports science & GPS", "color": "#4daa88", "textColor": "#fff", "logos": ["https://logo.clearbit.com/wimugo.com", "https://logo.clearbit.com/catapult.com", "https://logo.clearbit.com/statsports.com", "https://logo.clearbit.com/thermohuman.com", "https://logo.clearbit.com/skillcorner.com", "https://logo.clearbit.com/neurotracker.net"], "names": ["WIMU", "Catapult", "STATSports", "ThermoHuman", "SkillCorner", "NeuroTracker"], "page": "sportstec"}, {"label": "Operations & management", "color": "#e8954a", "textColor": "#fff", "logos": ["https://logo.clearbit.com/cyferd.com", "https://logo.clearbit.com/teamworks.com", "https://logo.clearbit.com/transferroom.com", "https://logo.clearbit.com/oracle.com"], "names": ["Cyferd", "Teamworks", "TransferRoom", "Oracle/SAP"], "page": "operations"}, {"label": "Video â tactical analysis", "color": "#9b72cf", "textColor": "#fff", "logos": ["https://logo.clearbit.com/wyscout.com", "https://logo.clearbit.com/hudl.com", "https://logo.clearbit.com/flyfut.com", "https://logo.clearbit.com/longomatch.com", "https://logo.clearbit.com/metrica-sports.com"], "names": ["Wyscout", "Hudl", "FlyFut", "LongoMatch", "Metrica"], "page": "video"}, {"label": "Video â AI automatic cameras", "color": "#7b5ea7", "textColor": "#fff", "logos": ["https://logo.clearbit.com/pixellot.tv", "https://logo.clearbit.com/veo.co", "https://logo.clearbit.com/traceup.com", "https://logo.clearbit.com/seeuplay.com"], "names": ["Pixellot", "Veo", "Trace", "SeeUPlay"], "page": "video"}, {"label": "Player performance & academy", "color": "#4caf82", "textColor": "#fff", "logos": ["https://logo.clearbit.com/cyferd.com", "https://logo.clearbit.com/teamworks.com", "https://logo.clearbit.com/kitmanlabs.com", "https://logo.clearbit.com/coachintelligencelab.com"], "names": ["Cyferd Perf.", "Teamworks AMS", "Kitman Labs", "Coach Intel. Lab"], "page": "performance"}, {"label": "Transfer tools", "color": "#3a8c5c", "textColor": "#fff", "logos": ["https://logo.clearbit.com/transferroom.com"], "names": ["TransferRoom"], "page": "operations"}];
 
 const nav=document.getElementById('nav');
 const pagesEl=document.getElementById('pages');
@@ -486,25 +486,25 @@ const pagesEl=document.getElementById('pages');
 const PAGES=[
   {id:"blueprint",label:"Club Blueprint",type:"blueprint",
    title:"Football Club Blueprint",
-   desc:"A structured operational guide for modern football clubs — mapping every department's workflow, the data that flows through it, and how technology connects it all."},
+   desc:"A structured operational guide for modern football clubs â mapping every department's workflow, the data that flows through it, and how technology connects it all."},
   {id:"orgchart",label:"Org Chart",type:"orgchart",
-   title:"Ideal Club Structure — 2026",
+   title:"Ideal Club Structure â 2026",
    desc:"A modern football club organogram. Drag to pan, scroll to zoom. Hover any box for role details."},
   {id:"coaching",label:"Coaching Analysis",type:"coaching",
    title:"Coaching Hire & Fire Framework",
    desc:"A structured process for evaluating when to make a coaching change, how to run a rigorous hiring process, and what to benchmark throughout a coach tenure."},
   {id:"dataplatform",label:"Data Blueprint",type:"dataplatform",
-   title:"Data Blueprint — Technology Ecosystem",
+   title:"Data Blueprint â Technology Ecosystem",
    desc:"The full landscape of sports technology available to a modern football club. Click any category to explore vendors, pricing, and use cases."},
   {id:"sd",label:"Sporting Director",type:"sd",
    title:"Sporting Director Evaluation",
-   desc:"Framework for evaluating Sporting Director performance — 8 parameters, strengths, improvement areas and action plan based on DD Mazatlan FC."},
+   desc:"Framework for evaluating Sporting Director performance â 8 parameters, strengths, improvement areas and action plan based on DD Mazatlan FC."},
   {id:"platforms",label:"Full Platforms",type:"platforms",
    title:"Multi-solution platforms",
-   desc:"Platforms that aim to be the full operating system for a club — combining scouting, performance, contracts and more in one place."},
+   desc:"Platforms that aim to be the full operating system for a club â combining scouting, performance, contracts and more in one place."},
   {id:"playervaluation",label:"Player Valuation",type:"playervaluation",
    title:"Player Valuation Framework",
-   desc:"Structured methodology for pricing players in transfer windows — combining statistical models, market comparables, contract leverage, and positional scarcity."}
+   desc:"Structured methodology for pricing players in transfer windows â combining statistical models, market comparables, contract leverage, and positional scarcity."}
 ];
 
 PAGES.forEach((p,i)=>{
@@ -545,14 +545,14 @@ function buildPage(p){
   if(p.type==='coaching') return h+buildCoaching();
   if(p.type==='dataplatform') return buildDataPlatform();
   if(p.type==='sd') return buildSD();
-  if(p.id==='operations') h+=`<div class="pricing-highlight"><div class="ph-title">Cyferd Sports — precio por app</div><div class="ph-grid"><div class="ph-item"><div class="ph-val">$20K</div><div class="ph-desc">Implementación</div></div><div class="ph-item"><div class="ph-val">$25K</div><div class="ph-desc">Licencia anual</div></div><div class="ph-item"><div class="ph-val">$135K</div><div class="ph-desc">3 apps · Año 1</div></div></div></div>`;
+  if(p.id==='operations') h+=`<div class="pricing-highlight"><div class="ph-title">Cyferd Sports â precio por app</div><div class="ph-grid"><div class="ph-item"><div class="ph-val">$20K</div><div class="ph-desc">ImplementaciÃ³n</div></div><div class="ph-item"><div class="ph-val">$25K</div><div class="ph-desc">Licencia anual</div></div><div class="ph-item"><div class="ph-val">$135K</div><div class="ph-desc">3 apps Â· AÃ±o 1</div></div></div></div>`;
 
   if(p.id==='video'){
     /* split video into two branches */
-    h+=`<div class="branch-divider"><div class="branch-line"></div><span class="branch-badge" style="background:#ede9fe;color:#5b21b6">Branch A — Analysis, tagging & tactical editing</span><div class="branch-line"></div></div>`;
+    h+=`<div class="branch-divider"><div class="branch-line"></div><span class="branch-badge" style="background:#ede9fe;color:#5b21b6">Branch A â Analysis, tagging & tactical editing</span><div class="branch-line"></div></div>`;
     h+=`<div class="section-sublabel">${p.branch_a.desc}</div>`;
     h+=`<div class="vendor-grid">`+p.branch_a.vendors.map((v,vi)=>buildVcard(v,'video-a',vi)).join('')+`</div>`;
-    h+=`<div class="branch-divider"><div class="branch-line"></div><span class="branch-badge" style="background:#f3e8ff;color:#7c3aed">Branch B — Automatic tracking cameras</span><div class="branch-line"></div></div>`;
+    h+=`<div class="branch-divider"><div class="branch-line"></div><span class="branch-badge" style="background:#f3e8ff;color:#7c3aed">Branch B â Automatic tracking cameras</span><div class="branch-line"></div></div>`;
     h+=`<div class="section-sublabel">${p.branch_b.desc}</div>`;
     h+=`<div class="vendor-grid">`+p.branch_b.vendors.map((v,vi)=>buildVcard(v,'video-b',vi)).join('')+`</div>`;
     return h;
@@ -583,7 +583,7 @@ function getBadge(b){
 function buildVcard(v,pid,vi){
   const tags=(v.tags||[]).map(t=>`<span class="vtag" style="color:${v.c};background:${v.bg};border-color:${v.bc||v.c+'40'}">${t}</span>`).join('');
   const id=`vb-${pid}-${vi}`;
-  return `<div class="vcard"><div class="vcard-head">${getLogo(v)}<div class="vmeta"><div class="vname">${v.n} ${getBadge(v.badge)}</div><div class="vorigin">${v.origin}</div></div></div><div class="vtags">${tags}</div><div class="vbody" id="${id}">${v.desc}</div><div class="vfooter"><span class="vprice">${v.price}</span><span class="vclients">${v.clients}</span><button class="vtoggle" onclick="toggleBody('${id}',this)">+ más</button></div></div>`;
+  return `<div class="vcard"><div class="vcard-head">${getLogo(v)}<div class="vmeta"><div class="vname">${v.n} ${getBadge(v.badge)}</div><div class="vorigin">${v.origin}</div></div></div><div class="vtags">${tags}</div><div class="vbody" id="${id}">${v.desc}</div><div class="vfooter"><span class="vprice">${v.price}</span><span class="vclients">${v.clients}</span><button class="vtoggle" onclick="toggleBody('${id}',this)">+ mÃ¡s</button></div></div>`;
 }
 
 function buildHome(p){
@@ -592,7 +592,7 @@ function buildHome(p){
     <div onclick="goTo('${l.page}')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:2px;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">
       <div style="width:14px;height:14px;border-radius:3px;background:${l.color};flex-shrink:0;"></div>
       <div style="font-size:13px;font-weight:500;color:var(--text);flex:1;">${l.label}</div>
-      <span style="font-size:12px;color:var(--text3);">→</span>
+      <span style="font-size:12px;color:var(--text3);">â</span>
     </div>`).join('');
 
   const totalLayers = layers.length;
@@ -614,7 +614,7 @@ function buildHome(p){
   return `<div style="display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start;">
     <div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:14px;">
-        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center;margin-bottom:16px;">THE SPORTS TECH FUNNEL — CLICK A LAYER TO EXPLORE</div>
+        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center;margin-bottom:16px;">THE SPORTS TECH FUNNEL â CLICK A LAYER TO EXPLORE</div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:0;">${funnelRows}</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
@@ -669,13 +669,13 @@ function buildPlayerValuation(p){
         </div>`).join('')}
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
-        <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;">Valuation Tiers — Liga MX Context</div>
+        <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;">Valuation Tiers â Liga MX Context</div>
         ${[
-          {tier:'World Class',range:'€30M+',color:'#f59e0b',bg:'rgba(245,158,11,.1)',ex:'R. Jiménez (prime), H. Lozano'},
-          {tier:'Elite',range:'€10M – €30M',color:'#3b82f6',bg:'rgba(59,130,246,.1)',ex:'Liga MX top scorers, CMNT regulars'},
-          {tier:'Quality Starter',range:'€3M – €10M',color:'#10b981',bg:'rgba(16,185,129,.1)',ex:'Solid Liga MX first team, age 22–26'},
-          {tier:'Rotation',range:'€500K – €3M',color:'#94a3b8',bg:'rgba(148,163,184,.08)',ex:'Liga MX squad depth, loan potential'},
-          {tier:'Development',range:'< €500K',color:'#64748b',bg:'rgba(100,116,139,.08)',ex:'Academy, Liga Expansión, U20'},
+          {tier:'World Class',range:'â¬30M+',color:'#f59e0b',bg:'rgba(245,158,11,.1)',ex:'R. JimÃ©nez (prime), H. Lozano'},
+          {tier:'Elite',range:'â¬10M â â¬30M',color:'#3b82f6',bg:'rgba(59,130,246,.1)',ex:'Liga MX top scorers, CMNT regulars'},
+          {tier:'Quality Starter',range:'â¬3M â â¬10M',color:'#10b981',bg:'rgba(16,185,129,.1)',ex:'Solid Liga MX first team, age 22â26'},
+          {tier:'Rotation',range:'â¬500K â â¬3M',color:'#94a3b8',bg:'rgba(148,163,184,.08)',ex:'Liga MX squad depth, loan potential'},
+          {tier:'Development',range:'< â¬500K',color:'#64748b',bg:'rgba(100,116,139,.08)',ex:'Academy, Liga ExpansiÃ³n, U20'},
         ].map(t => `<div style="background:${t.bg};border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
           <div style="min-width:88px;font-size:11px;font-weight:700;color:${t.color}">${t.range}</div>
           <div><div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:1px;">${t.tier}</div>
@@ -687,11 +687,11 @@ function buildPlayerValuation(p){
       <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;">Valuation Process</div>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
         ${[
-          {n:'1',t:'Data Pull',icon:'📊',d:'Pull 2 seasons stats via API. Min 900 mins played.'},
-          {n:'2',t:'Comparables',icon:'🔍',d:'10–15 comparable transfers. Same age ±2yr, position, league tier.'},
-          {n:'3',t:'Regression',icon:'📈',d:'Weighted regression on key metrics vs transfer fee. Adjust for inflation.'},
-          {n:'4',t:'Contract Adj.',icon:'📋',d:'≤1yr left = up to 40% discount. Release clause = ceiling, not floor.'},
-          {n:'5',t:'Final Range',icon:'✅',d:'Output: Low / Mid / High range + negotiation strategy per scenario.'},
+          {n:'1',t:'Data Pull',icon:'ð',d:'Pull 2 seasons stats via API. Min 900 mins played.'},
+          {n:'2',t:'Comparables',icon:'ð',d:'10â15 comparable transfers. Same age Â±2yr, position, league tier.'},
+          {n:'3',t:'Regression',icon:'ð',d:'Weighted regression on key metrics vs transfer fee. Adjust for inflation.'},
+          {n:'4',t:'Contract Adj.',icon:'ð',d:'â¤1yr left = up to 40% discount. Release clause = ceiling, not floor.'},
+          {n:'5',t:'Final Range',icon:'â',d:'Output: Low / Mid / High range + negotiation strategy per scenario.'},
         ].map(s => `<div style="text-align:center;padding:16px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:14px;">
           <div style="font-size:22px;margin-bottom:8px;">${s.icon}</div>
           <div style="font-size:10px;font-weight:700;color:var(--green-light);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">Step ${s.n}</div>
@@ -710,18 +710,18 @@ function buildBlueprint(){
       tagline:"From fragmented scouting to an integrated, flexible workflow.",
       kpi:["Players signed per window","Scout report accuracy","Shortlist conversion rate","Time from ID to signing"],
       phases:[
-        {name:"Phase 1 — What to look for?", color:"#e0a020", steps:[
+        {name:"Phase 1 â What to look for?", color:"#e0a020", steps:[
           {s:"Club Methodology", d:"Define game style: attacking phase, defensive phase, pressing, set pieces. Align with Technical Director on club identity and values."},
           {s:"Squad Succession Plan", d:"Squad Ladder: contract expiries, age distribution, positional depth. Benchmark against champion squad profiles. Young 6% / Young Pro 24% / Experienced 46% / Veterans 24%."},
-          {s:"Season Overview", d:"End-of-season meeting: review collective + positional data. Output: positions needed and ideal attributes — no names yet."},
+          {s:"Season Overview", d:"End-of-season meeting: review collective + positional data. Output: positions needed and ideal attributes â no names yet."},
           {s:"Sporting Director Alignment", d:"Seirullo model: define 8 player structures (Conditional, Cognitive, Emotional, Coordinative, Bioenergetic, Socioaffective, Expressive, Mental). Define domestic/U21/foreign slots."},
         ]},
-        {name:"Phase 2 — Analysis", color:"#185FA5", steps:[
+        {name:"Phase 2 â Analysis", color:"#185FA5", steps:[
           {s:"Data Analysis", d:"StatsBomb, Driblab, Impect, SkillCorner. Per 90 vs totals. League strength adjustments. Build Club Score per position. Two archetypes: Data-Centric clubs vs Technical-Led clubs."},
           {s:"Platform Benchmark", d:"Shortlist from data providers. IMPECT scoring, SkillCorner Game Intelligence, Wyscout video cross-reference. Rank players by position and attribute score."},
           {s:"Player Report", d:"Technical + tactical assessment (with/without ball). Physical profile. Social context. Video clips. Scout voice notes or full written report for AAA priority players."},
         ]},
-        {name:"Phase 3 — Recommendations", color:"#065f46", steps:[
+        {name:"Phase 3 â Recommendations", color:"#065f46", steps:[
           {s:"Shortlist (Phase 1 criteria)", d:"Merge data scoring with attribute criteria from Phase 1. Rank by position, age, financial category."},
           {s:"Candidates Comparison", d:"Side-by-side: league benchmarks, global benchmarks, scouted targets, current roster."},
           {s:"Game Intelligence", d:"SkillCorner runs (dropping off, coming short, pulling wide), pressing resistance, passing under pressure."},
@@ -730,7 +730,7 @@ function buildBlueprint(){
         ]},
       ],
       outputs:["Ranked shortlist ready for negotiation","Player report PDF per target","Financial scenario per candidate","Signed player onboarding"],
-      files:[{name:"Scouting App Process",url:"Scouting_App_Process.pdf"},{name:"Tigres — Scouting Scope",url:"Tigres_Technical_Scope.docx"},{name:"Chivas — Scouting Scope",url:"Chivas_Project_Scope.docx"}],
+      files:[{name:"Scouting App Process",url:"Scouting_App_Process.pdf"},{name:"Tigres â Scouting Scope",url:"Tigres_Technical_Scope.docx"},{name:"Chivas â Scouting Scope",url:"Chivas_Project_Scope.docx"}],
     },
     {
       id:"firstteam_mens", label:"First Team (Men)", color:"#185FA5", bg:"#dbeafe", icon:"shirt",
@@ -742,7 +742,7 @@ function buildBlueprint(){
           {s:"GPS calibration", d:"Set individual load thresholds per player. Define HSR zones and sprint thresholds. Agree on weekly load targets by position."},
           {s:"Wellness protocol", d:"Daily wellness questionnaire: sleep, fatigue, soreness, readiness. Psychology onboarding. Seirullo structures assessment for new signings."},
         ]},
-        {name:"In-season — weekly cycle", color:"#185FA5", steps:[
+        {name:"In-season â weekly cycle", color:"#185FA5", steps:[
           {s:"Match day +1", d:"Recovery monitoring. GPS recovery data. Wellness questionnaire. Thermography for high-intensity players. Pool sessions or light training only."},
           {s:"MD-4 to MD-2", d:"Training load accumulation. GPS tracking every session. Nutrition compliance check. Individual physical targets per position. Gym and injury-prevention sessions."},
           {s:"MD-1", d:"Light activation. Pre-match readiness score generated from GPS + wellness + medical inputs. Coach receives traffic-light status per player."},
@@ -763,7 +763,7 @@ function buildBlueprint(){
       kpi:["Player availability %","Scouting pipeline activity","Performance score per player","Training load compliance"],
       phases:[
         {name:"Structure & standards", color:"#9b3db8", steps:[
-          {s:"Dedicated roster management", d:"Separate player profiles and IDs. Full 360 profile: GPS, medical, nutrition, wellness, match data — mirroring the mens framework."},
+          {s:"Dedicated roster management", d:"Separate player profiles and IDs. Full 360 profile: GPS, medical, nutrition, wellness, match data â mirroring the mens framework."},
           {s:"Scouting pipeline", d:"Same scouting process as in mens team, calibrated for womens leagues. StatsBomb and Wyscout have strongrong womens data coverage (NWSL, WSL, Liga F)."},
           {s:"Performance standards", d:"Position-specific KPIs calibrated for womens football demands. GPS thresholds and composite score formula set independently from mens squad."},
         ]},
@@ -777,7 +777,7 @@ function buildBlueprint(){
       kpi:["Players promoted to first team per season","Sprint ranking evolution per cohort","Injury rate vs load ratio","Report consistency (bi-monthly)"],
       phases:[
         {name:"Identification & profiling", color:"#3B6D11", steps:[
-          {s:"Unique player ID", d:"Each academy player gets an internal ID linked across GPS, medical, nutrition, and match data — consistent from U10 to first team."},
+          {s:"Unique player ID", d:"Each academy player gets an internal ID linked across GPS, medical, nutrition, and match data â consistent from U10 to first team."},
           {s:"Sprint ranking", d:"GPS generates real-time sprint ranking across the full academy cohort. Flag physically elite youth players. Alert when output spikes beyond historical norms."},
           {s:"Cognitive baseline", d:"Cognitive tests (NeuroTracker). Psychological resilience profiling. Seirullo structures adapted to youth context."},
         ]},
@@ -829,18 +829,18 @@ function buildBlueprint(){
       tagline:"From spreadsheets and email chains to a fully governed digital workflow.",
       kpi:["Contract processing time","% contracts with complete documentation","Alerts actioned before deadline","Financial clearance cycle time"],
       phases:[
-        {name:"Phase 1 — Sport Side", color:"#1e40af", steps:[
+        {name:"Phase 1 â Sport Side", color:"#1e40af", steps:[
           {s:"Sporting Director Approval", d:"Technical identification. Player salary, buyout clause, bonus conditions defined. Internal decision to proceed to negotiation."},
           {s:"Negotiation", d:"Negotiation with agent or selling club. Key terms: deal type (permanent/loan/option to buy), transfer fee, salary structure, agent commission, performance bonuses. Output: Agreed Term Sheet."},
           {s:"Financial and Admin Validation", d:"Validates: payment schedule, commission structure, budget impact, cash flow projection, accounting classification. Output: financial clearance and authorization to draft contracts."},
         ]},
-        {name:"Phase 2 — Docs and Medical", color:"#0f6e56", steps:[
+        {name:"Phase 2 â Docs and Medical", color:"#0f6e56", steps:[
           {s:"Legal Documentation", d:"Contracts generated from templates: player contract, transfer or loan agreement, intermediary agreement, bonus structure (collective and individual). Output: final drafts approved."},
           {s:"Immigration (foreign players)", d:"Work permit request and migration documentation. Mexican consulate appointment for visa processing. CTI via FIFA TMS. Output: migration authorization and valid work visa."},
           {s:"Physical Incorporation", d:"Player travel coordinated by Operations. Medical examination: physical tests, cardiology, orthopedic evaluation. Output: medical clearance."},
           {s:"Signing and Registration", d:"Employment, transfer, and agent agreements signed. Liga MX registration: contract, work visa, passport, federation documentation. FIFA TMS process completed."},
         ]},
-        {name:"Phase 3 — Monitoring and AI", color:"#854F0B", steps:[
+        {name:"Phase 3 â Monitoring and AI", color:"#854F0B", steps:[
           {s:"Post-signing monitoring", d:"Bonus tracking (individual and collective), commission payments, contract expiration alerts (12 months before), option-to-buy and renewal window flags."},
           {s:"Squad Ladder", d:"Panoramic view: contract expiry timelines, age distribution, positional balance. Benchmark against champion squad age profiles. Identifies succession risks."},
           {s:"Historical analysis", d:"Past contract data analyzed to improve future negotiations. Value Score (performance divided by log-salary) to identify over and underperformers at contract renewal time."},
@@ -855,11 +855,11 @@ function buildBlueprint(){
       kpi:["Valuation accuracy vs actual transfer fee","% players with complete EPV profile","Signings within projected value range"],
       phases:[
         {name:"5-step valuation model", color:"#5b21b6", steps:[
-          {s:"Step 1 — Gather player profile", d:"Age, minutes played, contract length, salary, nationality, position. For own players: GPS metrics (sprints, VO2 max, accelerations), nutrition records, exact physical data."},
-          {s:"Step 2 — Performance benchmarking", d:"Compare within key stat categories. Factor in club level, league level, historical transfer data. Momentum via Impect. Similarity tools: who plays like Player X?"},
-          {s:"Step 3 — Market context", d:"Impect Squad Ratings (xG + Pinnacle closing odds model). Cross-competition comparison. Supply and demand between selling and buying leagues. Classify by position."},
-          {s:"Step 4 — Expected performance", d:"Predict output in target league. Adjust for historical adaptation patterns of similar players. Physical and technical projection. Net Gains principle: future contribution over past reputation."},
-          {s:"Step 5 — Value Score output", d:"VS equals Performance divided by log(Salary). EPV blends: predictive models plus financial adjustments plus Value Score plus contract length weight. Decision: Extend / Develop / Loan / Transfer."},
+          {s:"Step 1 â Gather player profile", d:"Age, minutes played, contract length, salary, nationality, position. For own players: GPS metrics (sprints, VO2 max, accelerations), nutrition records, exact physical data."},
+          {s:"Step 2 â Performance benchmarking", d:"Compare within key stat categories. Factor in club level, league level, historical transfer data. Momentum via Impect. Similarity tools: who plays like Player X?"},
+          {s:"Step 3 â Market context", d:"Impect Squad Ratings (xG + Pinnacle closing odds model). Cross-competition comparison. Supply and demand between selling and buying leagues. Classify by position."},
+          {s:"Step 4 â Expected performance", d:"Predict output in target league. Adjust for historical adaptation patterns of similar players. Physical and technical projection. Net Gains principle: future contribution over past reputation."},
+          {s:"Step 5 â Value Score output", d:"VS equals Performance divided by log(Salary). EPV blends: predictive models plus financial adjustments plus Value Score plus contract length weight. Decision: Extend / Develop / Loan / Transfer."},
         ]},
       ],
       outputs:["Expected Player Value (EPV) per player","Value Score dashboard","Transfer decision framework","Negotiation reference price"],
@@ -937,8 +937,8 @@ function buildScoutingWorkflow(dept){
   var phaseColors = ['#e0a020','#1e6b8c','#0f6e56'];
   var html = '<div style="margin:0 0 24px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">';
   html += '<div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">';
-  html += '<span style="font-size:18px;">🔄</span><div><div style="font-size:14px;font-weight:700;color:var(--text);">Full Scouting Process</div>';
-  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">End-to-end workflow — from club methodology to final recommendation</div></div></div>';
+  html += '<span style="font-size:18px;">ð</span><div><div style="font-size:14px;font-weight:700;color:var(--text);">Full Scouting Process</div>';
+  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">End-to-end workflow â from club methodology to final recommendation</div></div></div>';
   html += '<div style="padding:16px 20px;">';
   dept.phases.forEach(function(phase, pi){
     html += '<div class="wf-phase-block">';
@@ -949,11 +949,11 @@ function buildScoutingWorkflow(dept){
       html += '<div class="wf-step">';
       html += '<div class="wf-step-num">STEP ' + (stepNum < 10 ? '0'+stepNum : stepNum) + '</div>';
       html += '<div class="wf-step-title">' + step.s + '</div>';
-      html += '<div class="wf-step-desc">' + step.d.substring(0, 120) + (step.d.length > 120 ? '…' : '') + '</div>';
+      html += '<div class="wf-step-desc">' + step.d.substring(0, 120) + (step.d.length > 120 ? 'â¦' : '') + '</div>';
       html += '</div>';
     });
     html += '</div>';
-    if(pi < dept.phases.length - 1){ html += '<div class="wf-arrow">↓</div>'; }
+    if(pi < dept.phases.length - 1){ html += '<div class="wf-arrow">â</div>'; }
     html += '</div>';
   });
   html += '</div></div>';
@@ -976,7 +976,7 @@ SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); if(d.id==='
 
   return '<div style="display:flex;flex-direction:column;gap:20px">'
     +'<div style="background:#fff;border:1px solid #c8dff5;border-radius:14px;padding:18px 22px">'
-    +'<div style="font-size:11px;font-weight:700;color:#6b9ec7;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px">Club structure — click any department to jump</div>'
+    +'<div style="font-size:11px;font-weight:700;color:#6b9ec7;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px">Club structure â click any department to jump</div>'
     +'<div style="display:flex;gap:14px;flex-wrap:wrap">'
     +'<div style="flex:1;min-width:200px;background:#dbeafe;border-radius:10px;padding:14px 16px;border:1px solid #93c5fd">'
     +'<div style="font-size:14px;font-weight:700;color:#1e40af;margin-bottom:8px">&#9917; Sports Department</div>'
@@ -986,17 +986,17 @@ SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); if(d.id==='
     +'<div style="display:flex;flex-wrap:wrap;gap:6px">'+opsChips+'</div></div>'
     +'</div></div>'
     +'<div class="side-tabs" id="blueprint-side-tabs">'
-    +'<button class="side-tab active" data-bpside="sports" onclick="blueprintTab(this.dataset.bpside)">⚽ Sporting Side</button>'
-    +'<button class="side-tab" data-bpside="ops" onclick="blueprintTab(this.dataset.bpside)">🏢 Operational Side</button>'
+    +'<button class="side-tab active" data-bpside="sports" onclick="blueprintTab(this.dataset.bpside)">â½ Sporting Side</button>'
+    +'<button class="side-tab" data-bpside="ops" onclick="blueprintTab(this.dataset.bpside)">ð¢ Operational Side</button>'
     +'</div>'
     +'<div class="side-section active" id="bp-sect-sports">'
     +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0"><div class="dark-banner-title" style="font-size:18px">&#9917; Sports Department</div><div class="dark-banner-sub" style="font-size:12px">Scouting, First Team (Men &amp; Women), Academy — all data flows through one system.</div></div>'
+    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#0d4f2f,#166534)"><div class="dark-banner-title" style="font-size:18px">&#9917; Sports Department</div><div class="dark-banner-sub" style="font-size:12px">Scouting, First Team (Men &amp; Women), Academy â all data flows through one system.</div></div>'
     +'<div style="padding:16px 18px">'+sportCards+'</div></div>'
     +'</div>'
     +'<div class="side-section" id="bp-sect-ops">'
     +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#3d1a00,#5c2a00)"><div class="dark-banner-title" style="font-size:18px">&#127970; Operations &amp; Admin</div><div class="dark-banner-sub" style="font-size:12px">Contract management, player valuation, budgeting, logistics — financial and operational governance.</div></div>'
+    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#0c2a54,#1e40af)"><div class="dark-banner-title" style="font-size:18px">&#127970; Operations &amp; Admin</div><div class="dark-banner-sub" style="font-size:12px">Contract management, player valuation, budgeting, logistics â financial and operational governance.</div></div>'
     +'<div style="padding:16px 18px">'+opsCards+'</div></div>'
     +'</div>';
 }
@@ -1015,7 +1015,7 @@ function toggleDeptBody2(id,header){
 }
 
 /* ============================================================
-   VISUAL GALLERIES — content from PDF knowledge assets
+   VISUAL GALLERIES â content from PDF knowledge assets
    ============================================================ */
 
 function galleryWrap(title, cards){
@@ -1049,16 +1049,16 @@ function metricBar(label, pct, color){
 }
 
 function buildDataGallery(){
-  const pricing = tableCard("Benchmark pricing — data providers (annual USD)", "#185FA5", "#dbeafe",
+  const pricing = tableCard("Benchmark pricing â data providers (annual USD)", "#185FA5", "#dbeafe",
     ["Provider","Avg","Max","Notes"],
     [
       ["StatsBomb","$40-50K","$65K","Liga MX range $35-65K. API + CSV"],
       ["Driblab","$40K","$70K","By leagues, physical data, API. 8 MX clubs"],
       ["SkillCorner","$5K","custom","Tier 2: 5 leagues + physical data"],
       ["TransferRoom","$30K","$39K Y3","Decision Room & Contingency AI. Discounted: $17.5K Y1"],
-      ["WIMU (GPS)","$35K","—","Per kit of 30 GPS. 18/18 Liga MX clubs"],
-      ["Impect","custom","—","Germany. Passing models, league strength ratings"],
-      ["Golstats","low","—","MX only. Match, player, tracking data"],
+      ["WIMU (GPS)","$35K","â","Per kit of 30 GPS. 18/18 Liga MX clubs"],
+      ["Impect","custom","â","Germany. Passing models, league strength ratings"],
+      ["Golstats","low","â","MX only. Match, player, tracking data"],
     ]
   );
 
@@ -1075,12 +1075,12 @@ function buildDataGallery(){
 
   const metrics = `<div style="background:#fff;border:1px solid #c8dff530;border-radius:11px;padding:14px 16px;border-left:3px solid #185FA5">
     <div style="font-size:12px;font-weight:700;color:#185FA5;margin-bottom:10px">Most-used metrics today</div>
-    ${['Expected Goals (xG) — shot probability model','Goals Added (g+) — total on-ball value (ASA)','Club Score — weighted attributes per position','Passing Packed — forward pass value, depth & risk','1v1 Duels Won — attacking + defending','% Crossing — successful crossing rate','Running Behind — forward run detection (SkillCorner)'].map(m=>`<div style="font-size:11px;color:#3d6080;padding:3px 0;border-bottom:1px solid #f0f7ff">◆ ${m}</div>`).join('')}
+    ${['Expected Goals (xG) â shot probability model','Goals Added (g+) â total on-ball value (ASA)','Club Score â weighted attributes per position','Passing Packed â forward pass value, depth & risk','1v1 Duels Won â attacking + defending','% Crossing â successful crossing rate','Running Behind â forward run detection (SkillCorner)'].map(m=>`<div style="font-size:11px;color:#3d6080;padding:3px 0;border-bottom:1px solid #f0f7ff">â ${m}</div>`).join('')}
   </div>`;
 
   const budget = `<div style="background:#fff;border:1px solid #854F0B30;border-radius:11px;padding:14px 16px;border-left:3px solid #854F0B">
     <div style="font-size:12px;font-weight:700;color:#854F0B;margin-bottom:10px">Liga MX club tech budgets</div>
-    ${metricBar("Top 4 clubs (América, Monterrey, Tigres, Chivas)",100,"#185FA5")}
+    ${metricBar("Top 4 clubs (AmÃ©rica, Monterrey, Tigres, Chivas)",100,"#185FA5")}
     ${metricBar("Budget: up to $400K/year",100,"#185FA5")}
     ${metricBar("Rest of Liga MX clubs",35,"#6b9ec7")}
     ${metricBar("Budget: under $100K/year",35,"#6b9ec7")}
@@ -1098,14 +1098,14 @@ function buildDataGallery(){
     ]
   );
 
-  return galleryWrap("Data analysis — field guide & market intelligence",
+  return galleryWrap("Data analysis â field guide & market intelligence",
     [pricing, `<div>${twoTypes}</div>`, metrics, budget, apiModes]
   );
 }
 
 function buildScoutingGallery(){
   const process = `<div style="background:#fff;border:1px solid #1e6b8c30;border-radius:11px;overflow:hidden">
-    <div style="background:#dbeafe;padding:10px 14px;font-size:12px;font-weight:700;color:#1e6b8c">Full scouting process — 12 steps across 3 phases</div>
+    <div style="background:#dbeafe;padding:10px 14px;font-size:12px;font-weight:700;color:#1e6b8c">Full scouting process â 12 steps across 3 phases</div>
     <div style="padding:12px 14px;display:flex;flex-direction:column;gap:0">
       ${[
         {ph:"Phase 1",c:"#e0a020",steps:["Club Methodology","Squad Succession Plan","Season Overview","Sporting Director Alignment"]},
@@ -1134,15 +1134,15 @@ function buildScoutingGallery(){
   );
 
   const reportItems = `<div style="background:#fff;border:1px solid #1e6b8c30;border-radius:11px;padding:14px 16px;border-left:3px solid #1e6b8c">
-    <div style="font-size:12px;font-weight:700;color:#1e6b8c;margin-bottom:8px">Player report — key items</div>
-    ${["On-field performance & match impact","Tactical fit & adaptability","Versatility across positions & systems","Physical profile (GPS-derived)","Social & family context","References from previous clubs/coaches","Financial: salary expectation, agent, transfer fee","Video clips + scout voice notes"].map(i=>`<div style="font-size:11px;color:#3d6080;padding:3px 0;border-bottom:1px solid #f0f7ff">→ ${i}</div>`).join('')}
+    <div style="font-size:12px;font-weight:700;color:#1e6b8c;margin-bottom:8px">Player report â key items</div>
+    ${["On-field performance & match impact","Tactical fit & adaptability","Versatility across positions & systems","Physical profile (GPS-derived)","Social & family context","References from previous clubs/coaches","Financial: salary expectation, agent, transfer fee","Video clips + scout voice notes"].map(i=>`<div style="font-size:11px;color:#3d6080;padding:3px 0;border-bottom:1px solid #f0f7ff">â ${i}</div>`).join('')}
   </div>`;
 
   const mlsFilters = tableCard("MLS-style scouting filters example", "#5b21b6", "#ede9fe",
     ["Filter","Criteria"],
     [
       ["Age","25 or younger"],
-      ["Minutes","≥50% of minutes played last season"],
+      ["Minutes","â¥50% of minutes played last season"],
       ["Financial","Below max spend for position"],
       ["Tier 1 target","Meets all 3 statistical filters"],
       ["Tier 2 target","Meets 2 of 3 filters"],
@@ -1155,7 +1155,7 @@ function buildScoutingGallery(){
     ${[["Young (U21)","6","#3B6D11"],["Young Pro (21-24)","24","#185FA5"],["Experienced (25-30)","46","#0f6e56"],["Veterans (30+)","24","#854F0B"]].map(([lbl,pct,c])=>metricBar(lbl,pct,c)).join('')}
   </div>`;
 
-  return galleryWrap("Scouting — process maps, tools & benchmarks",
+  return galleryWrap("Scouting â process maps, tools & benchmarks",
     [process, platforms, reportItems, mlsFilters, succession]
   );
 }
@@ -1184,7 +1184,7 @@ function buildScienceGallery(){
       ["Collect Data","From GPS, wearables, national team, personal devices (Whoop). Data often forgotten or shared via WhatsApp PDF.","#185FA5"],
       ["Automate Processing","Daily/weekly pipelines. Standardize across providers. Missing data alerts, outlier checks, auto-cleaning.","#0f6e56"],
       ["Analyze","Find patterns and correlations with historical seasons. Workload vs injury risk. Training vs match output.","#5b21b6"],
-      ["Predict Risk","Probability of injury based on historical cases. Red flags signal injury coming — flu detection spreads.","#854F0B"],
+      ["Predict Risk","Probability of injury based on historical cases. Red flags signal injury coming â flu detection spreads.","#854F0B"],
       ["Communicate on Time","Alerts, tasks, calendar, reports delivered to decision-makers before it is too late.","#e0a020"],
       ["Accountability","Model learns over time. Track what you said you would do in terms of player projection.","#065f46"],
     ].map(([t,d,c])=>`<div style="display:flex;gap:10px;margin-bottom:8px;align-items:flex-start">
@@ -1219,7 +1219,7 @@ function buildScienceGallery(){
     ]
   );
 
-  return galleryWrap("Sports science — pillars, workflow & data standards",
+  return galleryWrap("Sports science â pillars, workflow & data standards",
     [pillars, workflow, datasets, staffTable]
   );
 }
@@ -1233,7 +1233,7 @@ function buildPerfGallery(){
       ["Cross Analysis","Integrate findings across tactical, data, science, and financial","#0f6e56"],
       ["Benchmark","Compare vs academy options, league averages, scouted targets","#5b21b6"],
       ["Comprehensive Report","Strengths, weaknesses, development needs, future projection","#854F0B"],
-      ["Strategic Recommendation","Extend/Renew · Adapt/Develop · Sell/Transfer · Release","#e0a020"],
+      ["Strategic Recommendation","Extend/Renew Â· Adapt/Develop Â· Sell/Transfer Â· Release","#e0a020"],
     ].map(([t,d,c],i)=>`<div style="display:flex;gap:10px;margin-bottom:10px;align-items:flex-start">
       <div style="width:22px;height:22px;border-radius:50%;background:${c};color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i+1}</div>
       <div><div style="font-size:11px;font-weight:700;color:${c}">${t}</div><div style="font-size:10px;color:#3d6080;line-height:1.5">${d}</div></div>
@@ -1242,8 +1242,8 @@ function buildPerfGallery(){
   </div>`;
 
   const roiCard = `<div style="background:#fff;border:1px solid #854F0B30;border-radius:11px;padding:14px 16px;border-left:3px solid #854F0B">
-    <div style="font-size:12px;font-weight:700;color:#854F0B;margin-bottom:8px">ROI formula — financial perspective</div>
-    <div style="background:#fef3c7;border-radius:7px;padding:10px 12px;font-size:12px;font-weight:700;color:#854F0B;text-align:center;margin-bottom:10px">ROI = (Performance Value − Risk Costs) ÷ Total Salary Paid</div>
+    <div style="font-size:12px;font-weight:700;color:#854F0B;margin-bottom:8px">ROI formula â financial perspective</div>
+    <div style="background:#fef3c7;border-radius:7px;padding:10px 12px;font-size:12px;font-weight:700;color:#854F0B;text-align:center;margin-bottom:10px">ROI = (Performance Value â Risk Costs) Ã· Total Salary Paid</div>
     ${[
       ["Performance Value","Weighted index: goals, assists, minutes, efficiency"],
       ["Risk Costs","Days missed (injuries/suspensions) + financial penalties"],
@@ -1252,12 +1252,12 @@ function buildPerfGallery(){
   </div>`;
 
   const valueScore = `<div style="background:#fff;border:1px solid #5b21b630;border-radius:11px;padding:14px 16px;border-left:3px solid #5b21b6">
-    <div style="font-size:12px;font-weight:700;color:#5b21b6;margin-bottom:8px">Value Score — salary-adjusted performance</div>
-    <div style="background:#ede9fe;border-radius:7px;padding:10px 12px;font-size:13px;font-weight:700;color:#5b21b6;text-align:center;margin-bottom:10px">VS = Performance ÷ log₁₀(Salary)</div>
+    <div style="font-size:12px;font-weight:700;color:#5b21b6;margin-bottom:8px">Value Score â salary-adjusted performance</div>
+    <div style="background:#ede9fe;border-radius:7px;padding:10px 12px;font-size:13px;font-weight:700;color:#5b21b6;text-align:center;margin-bottom:10px">VS = Performance Ã· logââ(Salary)</div>
     ${[
-      ["High VS","Player outperforming their wage — contract renewal candidate"],
-      ["Low VS","Player underperforming — loan/sell/release candidate"],
-      ["Why log?","Raw salaries are heavily skewed — log transformation makes comparison fair"],
+      ["High VS","Player outperforming their wage â contract renewal candidate"],
+      ["Low VS","Player underperforming â loan/sell/release candidate"],
+      ["Why log?","Raw salaries are heavily skewed â log transformation makes comparison fair"],
     ].map(([k,v])=>`<div style="display:flex;gap:8px;font-size:11px;color:#3d6080;margin-bottom:5px"><span style="font-weight:700;color:#5b21b6;min-width:80px">${k}</span><span>${v}</span></div>`).join('')}
   </div>`;
 
@@ -1277,16 +1277,16 @@ function buildPerfGallery(){
   const aiDash = `<div style="background:#fff;border:1px solid #185FA530;border-radius:11px;padding:14px 16px;border-left:3px solid #185FA5">
     <div style="font-size:12px;font-weight:700;color:#185FA5;margin-bottom:8px">AI dashboard consolidates 3 layers</div>
     ${[
-      ["Injury risk alerts","Workload spikes, wellness drops, thermal asymmetry flags","🔴"],
-      ["Performance benchmarking","League, global, roster, scouted options side-by-side","📊"],
-      ["Financial efficiency","Salary vs ROI, market valuation trends, contract runway","💰"],
+      ["Injury risk alerts","Workload spikes, wellness drops, thermal asymmetry flags","ð´"],
+      ["Performance benchmarking","League, global, roster, scouted options side-by-side","ð"],
+      ["Financial efficiency","Salary vs ROI, market valuation trends, contract runway","ð°"],
     ].map(([t,d,icon])=>`<div style="display:flex;gap:10px;margin-bottom:8px">
       <span style="font-size:16px">${icon}</span>
       <div><div style="font-size:11px;font-weight:700;color:#185FA5">${t}</div><div style="font-size:10px;color:#3d6080">${d}</div></div>
     </div>`).join('')}
   </div>`;
 
-  return galleryWrap("Player performance — evaluation models, ROI & AI decision tools",
+  return galleryWrap("Player performance â evaluation models, ROI & AI decision tools",
     [evalProcess, roiCard, valueScore, decisions, aiDash]
   );
 }
@@ -1336,25 +1336,25 @@ function buildCoaching(){
   var FIRE=[
     {q:"1. Points vs Expected Points",c:"#1a4f7a",ic:"&#128200;",
      desc:"Plot actual points vs xPoints (based on xG for/against). Is underperformance structural or just variance?",
-     items:["First 5 games: baseline — do not fire based on this",
-            "First 10 games: trend is emerging — evaluate urgency",
-            "First 15 games: statistically significant — compare against pre-agreed hiring benchmark",
+     items:["First 5 games: baseline â do not fire based on this",
+            "First 10 games: trend is emerging â evaluate urgency",
+            "First 15 games: statistically significant â compare against pre-agreed hiring benchmark",
             "Is xG positive? If yes, underperformance may be finishing luck, not system failure"],
      extra:{type:"note",text:"Build this chart before every board discussion about a coaching change. Firing a coach with positive xG is a political decision, not a sporting one."}},
     {q:"2. Can he still rebound?",c:"#0f6e56",ic:"&#128257;",
      desc:"Has this coach demonstrated rebound capacity in his career? Use historical data before deciding.",
      items:["Research bad starts he reversed at previous clubs",
-            "Assess if the squad is performing individually — or have players dropped off?",
+            "Assess if the squad is performing individually â or have players dropped off?",
             "Is the poor run caused by injuries, fixture density, or tactics?",
             "External reference check: what do people who worked with him say about resilience?"],
-     extra:{type:"examples",items:["Diego Simeone — Atletico 2012: 3W 2D 3L after 8 games, finished La Liga champions","Jurgen Klopp — Dortmund Dec 2014 in relegation zone, recovered to mid-table","Pep Guardiola — Man City 2016/17 worst title defense in years, rebuilt to win 100-point season"]}},
+     extra:{type:"examples",items:["Diego Simeone â Atletico 2012: 3W 2D 3L after 8 games, finished La Liga champions","Jurgen Klopp â Dortmund Dec 2014 in relegation zone, recovered to mid-table","Pep Guardiola â Man City 2016/17 worst title defense in years, rebuilt to win 100-point season"]}},
     {q:"3. What is the main reason?",c:"#854F0B",ic:"&#10067;",
      desc:"Classify the root cause before making any decision. Some problems are fixable, others are not.",
-     items:["Tactical identity lost — players not executing the game model",
-            "Dressing room fractured — player rebellion or loss of confidence in coach",
-            "Injury crisis — squad depleted beyond manageable level",
-            "Wrong players for the system — poor transfer window, not the coach fault",
-            "Collective data collapse — xG drops, progressive passes down, pressing intensity low"],
+     items:["Tactical identity lost â players not executing the game model",
+            "Dressing room fractured â player rebellion or loss of confidence in coach",
+            "Injury crisis â squad depleted beyond manageable level",
+            "Wrong players for the system â poor transfer window, not the coach fault",
+            "Collective data collapse â xG drops, progressive passes down, pressing intensity low"],
      extra:{type:"note",text:"If the reason is tactical or methodological, firing may be correct. If injuries or transfers caused the run, give more time and add support resources."}},
     {q:"4. Who on the staff do we keep?",c:"#7c3aed",ic:"&#128106;",
      desc:"Identify staff members who should remain regardless of the head coach decision. Reduces transition cost.",
@@ -1368,9 +1368,9 @@ function buildCoaching(){
   var HIRE=[
     {n:1,c:"#1a4f7a",ic:"&#128270;",title:"Build the Candidate Universe",
      desc:"Cast a wide net. 3 parallel source streams.",
-     items:["Agent proposals — request formal presentations with career stats and project vision",
-            "Free agent coaches — scan market for available profiles matching the brief",
-            "Academy prospects — internal candidates with upside and cultural fit"],
+     items:["Agent proposals â request formal presentations with career stats and project vision",
+            "Free agent coaches â scan market for available profiles matching the brief",
+            "Academy prospects â internal candidates with upside and cultural fit"],
      out:"Long list: 12-20 names across 3 tiers"},
     {n:2,c:"#0f6e56",ic:"&#128203;",title:"Define Scope & Project Requirements",
      desc:"Before evaluating anyone, define what the club needs.",
@@ -1379,56 +1379,56 @@ function buildCoaching(){
             "Objectives for next 2-3 seasons (survive, compete, win)",
             "Budget reality and transfer window expectations",
             "Liga MX calendar specifics (Clausura/Apertura, Liguilla format)"],
-     out:"1-page scope document — shared with every evaluator"},
-    {n:3,c:"#854F0B",ic:"&#128172;",title:"Subjective Pass — Pros & Cons",
+     out:"1-page scope document â shared with every evaluator"},
+    {n:3,c:"#854F0B",ic:"&#128172;",title:"Subjective Pass â Pros & Cons",
      desc:"Build qualitative profiles before looking at any statistics.",
      items:["Watch 3-5 games managed by each candidate",
             "Contact trusted references (coaches, players, directors who worked with them)",
-            "Social and family context — can they adapt to this city and club culture?",
-            "Media presence — how do they handle pressure publicly?"],
+            "Social and family context â can they adapt to this city and club culture?",
+            "Media presence â how do they handle pressure publicly?"],
      out:"Subjective 1-pager per candidate with strengths, concerns and fit score"},
-    {n:4,c:"#185FA5",ic:"&#128202;",title:"Data Comparison — Statistics & Benchmarks",
+    {n:4,c:"#185FA5",ic:"&#128202;",title:"Data Comparison â Statistics & Benchmarks",
      desc:"Quantify each candidate using the evaluation matrix. Score 1-5 per category.",
      items:["Complete the Coach Card (CT, personality, methodology, statistics)",
             "Compare win % against Liga MX average and similar club profiles",
-            "Analyse rebound capacity — did they improve after poor starts?",
+            "Analyse rebound capacity â did they improve after poor starts?",
             "Points vs Expected Points in first 5, 10, 15 games at previous clubs"],
      out:"Completed evaluation matrix with rankings and total scores"},
-    {n:5,c:"#7c3aed",ic:"&#128203;",title:"Shortlist — Max 3-4 Finalists",
+    {n:5,c:"#7c3aed",ic:"&#128203;",title:"Shortlist â Max 3-4 Finalists",
      desc:"Reduce to finalists. Each must pass thresholds in CT, methodology and statistics.",
      items:["Set minimum score thresholds per category with sporting director",
             "Discard any candidate with a red flag in personality or media management",
             "Rank by total score AND by fit-with-scope alignment",
             "Consider how they would work with current squad profile"],
      out:"Ranked shortlist of 3-4 with justification document"},
-    {n:6,c:"#0f6e56",ic:"&#127909;",title:"Video Calls — First Structured Interview",
+    {n:6,c:"#0f6e56",ic:"&#127909;",title:"Video Calls â First Structured Interview",
      desc:"30-45 min video call. Same format for all finalists.",
      items:["How would you adapt your style to our current squad?",
             "What do you look for in your assistant and CT?",
             "Describe your worst professional moment and what you learned",
             "How do you use data and technology in your daily work?",
             "Walk us through your pressing model or build-up structure"],
-     out:"Interview notes added to Coach Card — update scores post-call"},
-    {n:7,c:"#854F0B",ic:"&#129309;",title:"Presential Meetings — Full Coach Card",
+     out:"Interview notes added to Coach Card â update scores post-call"},
+    {n:7,c:"#854F0B",ic:"&#129309;",title:"Presential Meetings â Full Coach Card",
      desc:"In-person meeting. Involve technical director and sporting director.",
      items:["Full tactical presentation by candidate (45-60 min)",
-            "Meet their proposed CT — assistant and fitness coach",
-            "Social context assessment — understand their environment",
+            "Meet their proposed CT â assistant and fitness coach",
+            "Social context assessment â understand their environment",
             "Final evaluation card completed independently by all decision-makers"],
      out:"Complete Coach Card per finalist. Final ranking and decision recommendation"},
     {n:8,c:"#0D1B3E",ic:"&#128203;",title:"Decision, Offer & Negotiate",
      desc:"Board-level decision aligned with sporting and financial direction.",
      items:["Present recommendation with full evidence to President/CEO",
             "Align on contract length, salary, bonus structure",
-            "Define clear performance objectives — points targets, style KPIs",
+            "Define clear performance objectives â points targets, style KPIs",
             "Agree on what success looks like in 6 and 12 months",
-            "Document pre-agreed exit criteria — feeds directly into firing framework"],
+            "Document pre-agreed exit criteria â feeds directly into firing framework"],
      out:"Signed contract + internal success criteria document"},
   ];
 
   var html="<div style='display:flex;flex-direction:column;gap:18px'>";
   // Hero banner
-  html+="<div class='dark-banner'>";
+  html+="<div class='dark-banner' style='background:linear-gradient(135deg,#0d4f2f,#15803d)'>";
   html+="<div class='dark-banner-title'>Coaching Hire &amp; Fire Framework</div>";
   html+="<div class='dark-banner-sub'>A structured process for evaluating when to make a coaching change, running a rigorous hiring process, and benchmarking coach tenure at a professional club.</div>";
   html+="<div class='stat-hero-grid' style='margin-top:18px;margin-bottom:0'>";
@@ -1493,15 +1493,15 @@ function buildCoaching(){
   html+="</div>"; // end grid
 
 
-  // ── COACH CARD — TEAMWORKS STYLE ──
+  // ââ COACH CARD â TEAMWORKS STYLE ââ
   html+="<div class='dark-panel'>";
   html+="<div class='dark-panel-header' style='display:flex;align-items:center;justify-content:space-between'>";
   html+="<div><div class='dark-panel-title'>&#127942; Coach Evaluation Matrix</div>";
-  html+="<div class='dark-panel-sub'>Based on Formato Evaluación DT — 15 criteria across 5 categories · Score 1–5</div></div>";
+  html+="<div class='dark-panel-sub'>Based on Formato EvaluaciÃ³n DT â 15 criteria across 5 categories Â· Score 1â5</div></div>";
   html+="<a href='Formato_Evaluacio_n_DT.xlsx' download style='font-size:10px;padding:5px 12px;border-radius:10px;background:#22c55e;color:#052e16;text-decoration:none;font-weight:700;flex-shrink:0'>&#11015; Template</a>";
   html+="</div>";
 
-  // Candidate summary bars — Teamworks style
+  // Candidate summary bars â Teamworks style
   html+="<div style='padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05)'>";
   html+="<div style='font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px'>Candidate Rankings</div>";
   var sorted=[...CANDIDATES].sort(function(a,b){return b.total-a.total;});
@@ -1520,7 +1520,7 @@ function buildCoaching(){
   // Category breakdown for top candidate
   var top=sorted[0];
   html+="<div style='padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05)'>";
-  html+="<div style='font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px'>"+top.name+" — Category Breakdown (Top Candidate)</div>";
+  html+="<div style='font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px'>"+top.name+" â Category Breakdown (Top Candidate)</div>";
   html+="<div class='metric-grid'>";
   var si2=0;
   EVAL_CATS.forEach(function(cat){
@@ -1579,10 +1579,10 @@ function buildCoaching(){
   });
   html+="</tr></tbody></table></div></div>";
 
-  // ── RADAR METRICS — TEAMWORKS STYLE ──
+  // ââ RADAR METRICS â TEAMWORKS STYLE ââ
   html+="<div class='dark-panel' style='margin-top:0'>";
   html+="<div class='dark-panel-header'>";
-  html+="<div class='dark-panel-title'>&#127919; Position Benchmarks — Liga MX Reference</div>";
+  html+="<div class='dark-panel-title'>&#127919; Position Benchmarks â Liga MX Reference</div>";
   html+="<div class='dark-panel-sub'>Key metrics to evaluate players under any coaching system. Scroll right to see all positions.</div>";
   html+="</div>";
   var POS=[
@@ -1623,9 +1623,9 @@ function buildCoaching(){
 function buildSD(){
   var html='<div style="display:flex;flex-direction:column;gap:18px">';
   // Hero banner
-  html+="<div class='dark-banner'>";
+  html+="<div class='dark-banner' style='background:linear-gradient(135deg,#1e3a5f,#1d4ed8)'>";
   html+="<div class='dark-banner-title'>Sporting Director Evaluation</div>";
-  html+="<div class='dark-banner-sub'>Framework for evaluating a Sporting Director's performance across 8 key parameters. Based on the Mazatlan FC Due Diligence methodology — scores 1 (poor) to 5 (excellent).</div>";
+  html+="<div class='dark-banner-sub'>Framework for evaluating a Sporting Director's performance across 8 key parameters. Based on the Mazatlan FC Due Diligence methodology â scores 1 (poor) to 5 (excellent).</div>";
   html+="<div class='stat-hero-grid' style='margin-top:18px;margin-bottom:0'>";
   html+="<div class='stat-hero-item'><div class='stat-hero-num'>8</div><div class='stat-hero-label'>Parameters scored</div></div>";
   html+="<div class='stat-hero-item'><div class='stat-hero-num'>5<span>+</span></div><div class='stat-hero-label'>Strengths identified</div></div>";
@@ -1634,11 +1634,11 @@ function buildSD(){
   html+="</div>";
   html+="</div>";
 
-  // ── SPORTING DIRECTOR EVALUATION (from DD_Mazatlan) ──
+  // ââ SPORTING DIRECTOR EVALUATION (from DD_Mazatlan) ââ
   html+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:18px">';
   html+='<div style="background:linear-gradient(135deg,#1a4f7a,#0d3454);padding:13px 20px;display:flex;align-items:center;justify-content:space-between">';
-  html+='<div><div style="font-size:14px;font-weight:800;color:#fff">&#127942; Sporting Director — Evaluation Framework</div>';
-  html+='<div style="font-size:10px;color:rgba(255,255,255,.6);margin-top:2px">Based on DD Mazatlan FC methodology — 8 evaluation parameters</div></div>';
+  html+='<div><div style="font-size:14px;font-weight:800;color:#fff">&#127942; Sporting Director â Evaluation Framework</div>';
+  html+='<div style="font-size:10px;color:rgba(255,255,255,.6);margin-top:2px">Based on DD Mazatlan FC methodology â 8 evaluation parameters</div></div>';
   html+='<a href="DD_Mazatla_n_FC.pdf" download style="font-size:10px;padding:4px 11px;border-radius:11px;background:#22c55e;color:#052e16;text-decoration:none;font-weight:700">&#11015; Download Full DD</a>';
   html+='</div>';
   html+='<div style="padding:16px">';
@@ -1677,8 +1677,8 @@ function buildSD(){
   ];
 
   html+='<div class="dark-panel" style="margin-bottom:14px">';
-  html+='<div class="dark-panel-header"><div class="dark-panel-title">&#128202; Evaluation Parameters — Sporting Director</div>';
-  html+='<div class="dark-panel-sub">Score 1 (poor) to 5 (excellent) · Mazatlan FC DD</div></div>';
+  html+='<div class="dark-panel-header"><div class="dark-panel-title">&#128202; Evaluation Parameters â Sporting Director</div>';
+  html+='<div class="dark-panel-sub">Score 1 (poor) to 5 (excellent) Â· Mazatlan FC DD</div></div>';
   html+='<div class="metric-grid">';
   PARAMS.forEach(function(p){
     var pct=p.score/p.max*100;
@@ -1695,13 +1695,13 @@ function buildSD(){
   // Strengths and Areas of improvement
   html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">';
 
-  var WINS=["Strong communication with coaching staff — DTs listen and implement corrections","Excellent game reading during matches, capitalized in real time","Close to the squad — knows players personally and anticipates destabilizing situations","Attends post-match meetings with youth coaches","Follows all league and promotion matches — stays current"];
+  var WINS=["Strong communication with coaching staff â DTs listen and implement corrections","Excellent game reading during matches, capitalized in real time","Close to the squad â knows players personally and anticipates destabilizing situations","Attends post-match meetings with youth coaches","Follows all league and promotion matches â stays current"];
   html+='<div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:10px;padding:12px">';
   html+='<div style="font-size:10px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">&#10003; Strengths</div>';
   WINS.forEach(function(w){ html+='<div style="font-size:11px;color:#166534;padding:4px 0;border-bottom:1px solid #d1fae5;line-height:1.5">'+w+'</div>'; });
   html+='</div>';
 
-  var IMPROV=["Define game model formally — document and share with Youth Director","Physical department: act decisively, not just ideate. Push for ambition from the fitness area","Plan weekly work cycles — no improvisation. Set concrete measurable goals","Take decisions without hesitation — trust the defined process","Choose a medium/long-term coach aligned with the club identity","Demand more from the goalkeeping coach — his plan, his KPIs, zero excuses","Empower Youth Director — communication and trust are lacking","Review match logistics in advance with Technical Secretary and CT"];
+  var IMPROV=["Define game model formally â document and share with Youth Director","Physical department: act decisively, not just ideate. Push for ambition from the fitness area","Plan weekly work cycles â no improvisation. Set concrete measurable goals","Take decisions without hesitation â trust the defined process","Choose a medium/long-term coach aligned with the club identity","Demand more from the goalkeeping coach â his plan, his KPIs, zero excuses","Empower Youth Director â communication and trust are lacking","Review match logistics in advance with Technical Secretary and CT"];
   html+='<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:12px">';
   html+='<div style="font-size:10px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">&#9888; Areas for Improvement</div>';
   IMPROV.forEach(function(w){ html+='<div style="font-size:11px;color:#78350f;padding:4px 0;border-bottom:1px solid #fde68a;line-height:1.5">'+w+'</div>'; });
@@ -1711,7 +1711,7 @@ function buildSD(){
   // Action Plan
   html+='<div style="background:linear-gradient(135deg,#052e16,#134e26);border-radius:10px;padding:12px 14px;color:#fff">';
   html+='<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ade80;margin-bottom:8px">&#128203; Action Plan</div>';
-  var ACTIONS=["Deliver to the board: institutional methodology + player profile. Detailed. Embrace new football technology.","Create a new Sports Science / Physical Coordinator department in the sporting structure.","Exhaustive control of all club departments. Weekly reports. No one operates without a clear chain of command.","Plan. Eliminate improvisation across all areas.","Summer visit to 3 MLS clubs — understand planning culture, training structures and technology use."];
+  var ACTIONS=["Deliver to the board: institutional methodology + player profile. Detailed. Embrace new football technology.","Create a new Sports Science / Physical Coordinator department in the sporting structure.","Exhaustive control of all club departments. Weekly reports. No one operates without a clear chain of command.","Plan. Eliminate improvisation across all areas.","Summer visit to 3 MLS clubs â understand planning culture, training structures and technology use."];
   ACTIONS.forEach(function(a){
     html+='<div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.08)">';
     html+='<span style="color:#4ade80;font-size:12px;flex-shrink:0">&#10148;</span>';
@@ -1726,16 +1726,16 @@ function buildSD(){
 }
 
 function buildDataPlatform(){
-  // ── CATEGORY DEFINITIONS ──
+  // ââ CATEGORY DEFINITIONS ââ
   var CATS    = _DP_CATS;
 
-  // ── VENDOR DATA ──
+  // ââ VENDOR DATA ââ
   var VENDORS = _DP_VENDORS;
 
-  // ── STATE ──
+  // ââ STATE ââ
   var activeCat='overview';
 
-  // ── BUILD FUNCTION ──
+  // ââ BUILD FUNCTION ââ
   function renderCatContent(catId){
     if(catId==='overview') return renderOverview();
     var vendors=VENDORS[catId];
@@ -1785,7 +1785,7 @@ function buildDataPlatform(){
   return '<div style="display:flex;flex-direction:column;gap:0">'
     +'<div style="padding:0 0 20px">'
     +'<div class="hero-headline">Data Blueprint</div>'
-    +'<div class="hero-sub">The full landscape of sports technology for modern football clubs — vendors, pricing, clients and use cases. Click any category to explore.</div>'
+    +'<div class="hero-sub">The full landscape of sports technology for modern football clubs â vendors, pricing, clients and use cases. Click any category to explore.</div>'
     +'<div class="stat-hero-grid">'
     +'<div class="stat-hero-item"><div class="stat-hero-num">7<span>+</span></div><div class="stat-hero-label">Technology categories</div></div>'
     +'<div class="stat-hero-item"><div class="stat-hero-num">30<span>+</span></div><div class="stat-hero-label">Vendors mapped</div></div>'
@@ -1801,7 +1801,7 @@ function buildDataPlatform(){
 
 function buildOrgChart(){
   var BOXES=[
-    [615,52,100,36,'0D1B3E','President / CEO','','Top executive — oversees all three departments','ceo'],
+    [615,52,100,36,'0D1B3E','President / CEO','','Top executive â oversees all three departments','ceo'],
     [130,132,140,36,'1a4f7a','Sporting Director','','Leads entire sports department. Sets methodology, manages coaches, scouting and sciences.','sd'],
     [595,132,140,36,'1e3a5f','Head of Technology','NEW ROLE','Oversees AI, data pipelines, platforms and cybersecurity. Reports to CEO.','ht'],
     [950,132,140,36,'5c3317','Director of Operations','','Manages finance, legal, contracts, logistics and commercial departments.','od'],
@@ -1865,16 +1865,16 @@ function buildOrgChart(){
   ];
 
   var TIPS={
-    'ceo':'Top executive — oversees Sports, Operations and Technology',
+    'ceo':'Top executive â oversees Sports, Operations and Technology',
     'sd':'Leads entire sports department. Sets methodology, manages coaches and scouting.',
-    'ht':'NEW ROLE — Head of Technology: AI, data pipelines, platforms and cybersecurity.',
+    'ht':'NEW ROLE â Head of Technology: AI, data pipelines, platforms and cybersecurity.',
     'od':'Manages finance, legal, contracts, logistics and commercial departments.',
     'td':'Defines tactical philosophy. Coordinates analysis and coaching staff.',
     'cs':'Leads all scouting. Manages scouts, data filters and shortlists.',
     'ftc':'Head coach of the mens first team.',
-    'wc':'Head coach of the womens first team — independent structure.',
+    'wc':'Head coach of the womens first team â independent structure.',
     'ad':'Leads all youth categories U12-U20.',
-    'aic':'NEW ROLE — AI Coordinator: ML models, injury prediction, player valuation algorithms.',
+    'aic':'NEW ROLE â AI Coordinator: ML models, injury prediction, player valuation algorithms.',
     'de':'Manages all data pipelines and API integrations.',
     'pm':'Manages all club software platforms.',
     'csl':'GDPR, data security, SSO and access controls.',
@@ -2003,7 +2003,7 @@ function buildOrgChart(){
 
   var svgSections=''
   +'<rect x="0" y="390" width="660" height="130" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="0.8"/>'
-  +'<text x="10" y="405" font-size="9" font-weight="700" letter-spacing="1" fill="#047857">SHARED SERVICES — Serve both Mens &amp; Womens First Teams</text>'
+  +'<text x="10" y="405" font-size="9" font-weight="700" letter-spacing="1" fill="#047857">SHARED SERVICES â Serve both Mens &amp; Womens First Teams</text>'
   +'<rect x="665" y="330" width="665" height="115" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="0.8"/>'
   +'<text x="670" y="348" font-size="9" font-weight="700" letter-spacing="1" fill="#1e3a5f">TECHNOLOGY DEPARTMENT</text>';
 
@@ -2018,12 +2018,12 @@ function buildOrgChart(){
   +'<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;align-items:center;padding:12px 16px;background:var(--navy);border-radius:var(--radius-md);">'
   +legHtml
   +'<div style="display:flex;gap:6px;margin-left:auto;align-items:center">'
-  +'<button onclick="ocZoomOut()" style="width:28px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:14px;font-weight:700">−</button>'
+  +'<button onclick="ocZoomOut()" style="width:28px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:14px;font-weight:700">â</button>'
   +'<button onclick="ocReset()" style="padding:0 10px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);cursor:pointer;font-size:10px;font-weight:600">Reset</button>'
   +'<button onclick="ocZoomIn()" style="width:28px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:14px;font-weight:700">+</button>'
   +'<a href="organigrama_ideal.pptx" download style="margin-left:8px;font-size:10px;padding:5px 12px;border-radius:14px;background:#22c55e;color:#052e16;text-decoration:none;font-weight:700">&#11015; PPTX</a>'
   +'</div></div>'
-  +'<div style="font-size:10px;color:var(--text3);margin-bottom:8px;text-align:center">Scroll to zoom · Drag to pan · +/− buttons</div>'
+  +'<div style="font-size:10px;color:var(--text3);margin-bottom:8px;text-align:center">Scroll to zoom Â· Drag to pan Â· +/â buttons</div>'
   +'<div id="oc-viewport" style="width:100%;height:560px;overflow:hidden;border-radius:var(--radius-lg);border:1px solid var(--border);background:#f0fdf4;cursor:grab;user-select:none;position:relative;">'
   +'<div id="oc-inner" style="transform-origin:0 0;transform:translate(0px,0px) scale(0.72);will-change:transform;">'
   +'<svg viewBox="0 0 1330 560" width="1330" height="560" style="display:block">'
@@ -2037,20 +2037,20 @@ function buildOrgChart(){
 window.addEventListener('load',()=>setTimeout(drawFunnel,120));
 window.addEventListener('resize',()=>setTimeout(drawFunnel,120));
 
-// ══════════════════════════════════════════════
-// ORG CHART — TOOLTIP
-// ══════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââ
+// ORG CHART â TOOLTIP
+// ââââââââââââââââââââââââââââââââââââââââââââââ
 var _ocTIPS={
-  ceo:'Top executive — oversees Sports, Operations and Technology',
+  ceo:'Top executive â oversees Sports, Operations and Technology',
   sd:'Leads entire sports department. Sets methodology, manages coaches and scouting.',
-  ht:'NEW ROLE — Head of Technology: AI, data pipelines, platforms and cybersecurity.',
+  ht:'NEW ROLE â Head of Technology: AI, data pipelines, platforms and cybersecurity.',
   od:'Manages finance, legal, contracts, logistics and commercial departments.',
   td:'Defines tactical philosophy. Coordinates analysis and coaching staff.',
   cs:'Leads all scouting. Manages scouts, data filters and shortlists.',
   ftc:'Head coach of the mens first team.',
-  wc:'Head coach of the womens first team — independent structure.',
+  wc:'Head coach of the womens first team â independent structure.',
   ad:'Leads all youth categories U12-U20.',
-  aic:'NEW ROLE — AI Coordinator: ML models, injury prediction, player valuation algorithms.',
+  aic:'NEW ROLE â AI Coordinator: ML models, injury prediction, player valuation algorithms.',
   de:'Manages all data pipelines and API integrations.',
   pm:'Manages all club software platforms.',
   csl:'GDPR, data security, SSO and access controls.',
@@ -2076,9 +2076,9 @@ function ocHide(){
   if(t)t.style.display='none';
 }
 
-// ══════════════════════════════════════════════
-// ORG CHART — ZOOM & PAN
-// ══════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââ
+// ORG CHART â ZOOM & PAN
+// ââââââââââââââââââââââââââââââââââââââââââââââ
 var _ocZ={s:0.72,tx:0,ty:0,drag:false,sx:0,sy:0};
 function ocUt(){
   var el=document.getElementById('oc-inner');
@@ -2113,9 +2113,9 @@ function ocReset(){_ocZ.s=0.72;_ocZ.tx=0;_ocZ.ty=0;ocUt();}
   });
 })();
 
-// ══════════════════════════════════════════════
-// DATA BLUEPRINT — TAB SWITCHING
-// ══════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââ
+// DATA BLUEPRINT â TAB SWITCHING
+// ââââââââââââââââââââââââââââââââââââââââââââââ
 var _dpCATS_COLORS={
   data:'#1557a0',sportstec:'#065f46',video:'#5b21b6',
   operations:'#7c3317',scouting:'#1a4f7a',performance:'#854F0B',
@@ -2148,7 +2148,7 @@ function buildDpContent(id){
 
   if(id==='overview'){
     var h='<div style="margin-bottom:18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px">';
-    h+='<div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Sports Technology Funnel — click a layer to explore</div>';
+    h+='<div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Sports Technology Funnel â click a layer to explore</div>';
     h+='<canvas id="funnelCanvas" style="width:100%;display:block;cursor:pointer;max-height:220px"></canvas>';
     h+='<div style="background:linear-gradient(135deg,var(--navy),#134e26);border-radius:10px;padding:12px 16px;margin-top:12px;color:#fff">';
     h+='<div style="display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:3px">';
@@ -2206,20 +2206,20 @@ function buildDpContent(id){
   return h+'</div>';
 }
 
-// ══════════════════════════════════════════════════════
-// ORG CHART — TOOLTIP FUNCTIONS
-// ══════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ORG CHART â TOOLTIP FUNCTIONS
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 var _ocTIPS = {
-  ceo:'Top executive — oversees Sports, Operations and Technology',
+  ceo:'Top executive â oversees Sports, Operations and Technology',
   sd:'Leads entire sports department. Sets methodology, manages coaches and scouting.',
-  ht:'NEW ROLE — Head of Technology: AI, data pipelines, platforms and cybersecurity.',
+  ht:'NEW ROLE â Head of Technology: AI, data pipelines, platforms and cybersecurity.',
   od:'Manages finance, legal, contracts, logistics and commercial departments.',
   td:'Defines tactical philosophy. Coordinates analysis and coaching staff.',
   cs:'Leads all scouting. Manages scouts, data filters and shortlists.',
   ftc:'Head coach of the mens first team.',
-  wc:'Head coach of the womens first team — independent structure.',
+  wc:'Head coach of the womens first team â independent structure.',
   ad:'Leads all youth categories U12-U20.',
-  aic:'NEW ROLE — AI Coordinator: ML models, injury prediction, player valuation algorithms.',
+  aic:'NEW ROLE â AI Coordinator: ML models, injury prediction, player valuation algorithms.',
   de:'Manages all data pipelines and API integrations.',
   pm:'Manages all club software platforms.',
   csl:'GDPR, data security, SSO and access controls.',
@@ -2246,9 +2246,9 @@ function ocHide() {
   if (t) t.style.display = 'none';
 }
 
-// ══════════════════════════════════════════════════════
-// ORG CHART — ZOOM & PAN
-// ══════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ORG CHART â ZOOM & PAN
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 var _ocZ = { s: 0.72, tx: 0, ty: 0, drag: false, sx: 0, sy: 0 };
 function ocUt() {
   var el = document.getElementById('oc-inner');
@@ -2285,9 +2285,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// ══════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // FUNNEL DRAW
-// ══════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function drawFunnel() {
   var canvas = document.getElementById('funnelCanvas');
   if (!canvas) return;
@@ -2322,7 +2322,7 @@ function drawFunnel() {
 
     canvas._layers.push({x:x, y:y, w:w, h:h, page:layer.page});
 
-    // Fill — very light tint of the color
+    // Fill â very light tint of the color
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(x, y, w, h, r);
     else ctx.rect(x, y, w, h);
@@ -2342,8 +2342,8 @@ function drawFunnel() {
     ctx.fillStyle = layer.textColor || '#052e16';
     ctx.fillText(layer.label, x + 14, y + h / 2 + 5);
 
-    // Vendor names — right side subtle
-    var names = (layer.names || []).join('  ·  ');
+    // Vendor names â right side subtle
+    var names = (layer.names || []).join('  Â·  ');
     if (names) {
       var nameX = x + 200;
       ctx.font = '600 12px DM Sans, sans-serif';
@@ -2352,7 +2352,7 @@ function drawFunnel() {
       var maxW = w - 220;
       var txt = names;
       while (ctx.measureText(txt).width > maxW && txt.length > 4) {
-        txt = txt.slice(0, -4) + '…';
+        txt = txt.slice(0, -4) + 'â¦';
       }
       ctx.fillText(txt, nameX, y + h / 2 + 5);
     }
@@ -2360,7 +2360,7 @@ function drawFunnel() {
     // Right arrow hint
     ctx.font = '14px sans-serif';
     ctx.fillStyle = col;
-    ctx.fillText('›', x + w - 20, y + h / 2 + 6);
+    ctx.fillText('âº', x + w - 20, y + h / 2 + 6);
   });
 
   // Click to navigate
@@ -2381,9 +2381,9 @@ function drawFunnel() {
 }
 
 
-// ══════════════════════════════════════════════════════
-// DATA BLUEPRINT — TAB SWITCHING
-// ══════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// DATA BLUEPRINT â TAB SWITCHING
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 var _dpCOLORS = {
   data:'#1557a0', sportstec:'#065f46', video:'#5b21b6',
   operations:'#7c3317', scouting:'#1a4f7a', performance:'#854F0B',
@@ -2430,7 +2430,7 @@ function buildDpContent(id) {
     h += '</div></div>';
     h += '<div class="feature-cols">';
     h += '<div class="feature-col"><div class="feature-col-icon">&#128202;</div><div class="feature-col-title">Data-Driven Decisions</div><div class="feature-col-desc">Match stats, physical metrics and tactical analytics from the best providers worldwide.</div></div>';
-    h += '<div class="feature-col"><div class="feature-col-icon">&#128640;</div><div class="feature-col-title">Connected Ecosystem</div><div class="feature-col-desc">Every tool integrates — scouting feeds performance, performance feeds contracts.</div></div>';
+    h += '<div class="feature-col"><div class="feature-col-icon">&#128640;</div><div class="feature-col-title">Connected Ecosystem</div><div class="feature-col-desc">Every tool integrates â scouting feeds performance, performance feeds contracts.</div></div>';
     h += '<div class="feature-col"><div class="feature-col-icon">&#127942;</div><div class="feature-col-title">Competitive Edge</div><div class="feature-col-desc">The right technology stack is now a non-negotiable part of winning at the top level.</div></div>';
     h += '</div>';
     h += '<div class="section-label" style="margin-bottom:10px">Select a category to explore vendors</div>';
@@ -2469,17 +2469,17 @@ function buildDpContent(id) {
     h += '<div class="vmeta"><div class="vname"><span style="font-size:14px;font-weight:800;color:' + v.c + '">' + v.n + '</span>' + bdgH + '</div><div class="vorigin">' + v.origin + '</div></div></div>';
     h += '<div class="vtags">' + tagsH + '</div>';
     h += '<div class="vfooter"><span class="vprice">' + v.price + '</span><span class="vclient">' + v.clients + '</span>';
-    h += '<button class="vbtn" onclick="var b=document.getElementById(\'' + bid + '\');b.classList.toggle(\'open\');this.textContent=b.classList.contains(\'open\')?\'− less\':\'+ more\'">+ more</button></div>';
+    h += '<button class="vbtn" onclick="var b=document.getElementById(\'' + bid + '\');b.classList.toggle(\'open\');this.textContent=b.classList.contains(\'open\')?\'â less\':\'+ more\'">+ more</button></div>';
     h += '<div class="vbody" id="' + bid + '">' + v.desc + '</div></div>';
   });
   return h + '</div>';
 }
 
 
-// ════════════════════════════════════════════════════════════
-// CONTENT EDITOR — Inline editor for HUB_DATA
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// CONTENT EDITOR â Inline editor for HUB_DATA
 // Press Ctrl+Shift+E (or Cmd+Shift+E on Mac) to open
-// ════════════════════════════════════════════════════════════
+// ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 (function() {
   // Editor state
@@ -2527,8 +2527,8 @@ function buildDpContent(id) {
     header.style.cssText = 'padding:16px 20px;background:#052e16;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0';
     header.innerHTML = [
       '<div style="font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em">&#9998; Hub Content Editor</div>',
-      '<div style="font-size:11px;color:rgba(255,255,255,.4);font-weight:300">Edit vendors, categories and content · Ctrl+Shift+E to close</div>',
-      '<button onclick="document.getElementById(\'hub-editor\').style.display=\'none\';_edOpen=false" style="margin-left:auto;width:28px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:14px">✕</button>'
+      '<div style="font-size:11px;color:rgba(255,255,255,.4);font-weight:300">Edit vendors, categories and content Â· Ctrl+Shift+E to close</div>',
+      '<button onclick="document.getElementById(\'hub-editor\').style.display=\'none\';_edOpen=false" style="margin-left:auto;width:28px;height:28px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:14px">â</button>'
     ].join('');
 
     // Tab bar
@@ -2616,7 +2616,7 @@ function buildDpContent(id) {
     var tags = document.getElementById('ed-tags').value.split(',').map(function(t){return t.trim();}).filter(Boolean);
     var desc = document.getElementById('ed-desc').value.trim();
 
-    if (!n || !cat) { document.getElementById('ed-msg').textContent = '⚠ Name and category required'; return; }
+    if (!n || !cat) { document.getElementById('ed-msg').textContent = 'â  Name and category required'; return; }
 
     var entry = {n:n, origin:ori, logo:logo||('https://logo.clearbit.com/'+n.toLowerCase().replace(/\s+/g,'')+'.com'),
       c:'#15803d', bg:'#f0fdf4', bc:'#6ee7b7', tags:tags, price:price, clients:cli, desc:desc, badge:''};
@@ -2626,7 +2626,7 @@ function buildDpContent(id) {
     if (!_DP_VENDORS[cat]) _DP_VENDORS[cat] = [];
     _DP_VENDORS[cat].push(entry);
 
-    document.getElementById('ed-msg').textContent = '✅ ' + n + ' added to ' + cat + '!';
+    document.getElementById('ed-msg').textContent = 'â ' + n + ' added to ' + cat + '!';
     setTimeout(function(){ document.getElementById('ed-msg').textContent = ''; }, 3000);
   };
 
@@ -2639,7 +2639,7 @@ function buildDpContent(id) {
         html += '<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:#0a1a0e;border:1px solid rgba(255,255,255,.06);border-radius:7px;margin-bottom:4px">';
         html += '<img src="' + v.logo + '" style="width:24px;height:24px;border-radius:4px;object-fit:contain;background:#fff" onerror="this.style.display=\'none\'"/>';
         html += '<div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">' + v.n + '</div>';
-        html += '<div style="font-size:10px;color:rgba(255,255,255,.4)">' + (v.price||'') + ' · ' + (v.origin||'') + '</div></div>';
+        html += '<div style="font-size:10px;color:rgba(255,255,255,.4)">' + (v.price||'') + ' Â· ' + (v.origin||'') + '</div></div>';
         html += '<button onclick="removeVendor(\'' + catId + '\',' + vi + ')" style="padding:3px 8px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#f87171;border-radius:5px;cursor:pointer;font-size:10px;font-weight:600">Remove</button>';
         html += '</div>';
       });
@@ -2656,7 +2656,7 @@ function buildDpContent(id) {
 
   function buildExportTab() {
     var exportData = {
-      _note: 'Cyferd Hub Data — export from inline editor. Paste this back into the HTML to persist changes.',
+      _note: 'Cyferd Hub Data â export from inline editor. Paste this back into the HTML to persist changes.',
       categories: _DP_CATS,
       vendors: _DP_VENDORS,
       platforms: typeof PLATFORMS !== 'undefined' ? PLATFORMS : [],
@@ -2675,7 +2675,7 @@ function buildDpContent(id) {
     ].join('');
   }
 
-  // Permanent visible edit button — always visible
+  // Permanent visible edit button â always visible
   document.addEventListener('DOMContentLoaded', function() {
     var btn = document.createElement('button');
     btn.id = 'ed-hint';

@@ -507,6 +507,20 @@ body{font-family:'Inter','DM Sans',system-ui,sans-serif;background:var(--bg);col
 .bm-pos-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle;}
 .bm-club-badge{font-size:10px;font-weight:600;color:var(--text3);background:var(--surface2);padding:2px 7px;border-radius:4px;}
 @media(max-width:900px){.bm-wrap{grid-template-columns:1fr;}.bm-pitch-col{position:relative;height:auto;}.bm-stats-row{grid-template-columns:repeat(2,1fr);}}
+
+/* ── Scouting Timeline ─────────────────────────────────── */
+.scout-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.scout-timeline{position:relative;padding:8px 0;}
+.scout-timeline::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#e0a020,#3b82f6,#22c55e);opacity:.35;}
+.stl-phase-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px 4px 52px;margin:12px 0 6px;opacity:.6;}
+.stl-step{display:flex;align-items:flex-start;gap:14px;padding:10px 10px 10px 0;position:relative;}
+.stl-node{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;position:relative;z-index:1;border:2px solid rgba(255,255,255,.12);}
+.stl-body{flex:1;padding-top:3px;}
+.stl-num{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-bottom:2px;}
+.stl-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px;line-height:1.3;}
+.stl-desc{font-size:11px;color:var(--text3,#8899aa);line-height:1.55;}
+@media(max-width:900px){.scout-layout{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -1279,71 +1293,60 @@ function buildBlueprint(){
 
   var sportCards='';
   
-function buildScoutingWorkflow(dept){
-  var phaseColors = ['#e0a020','#1e6b8c','#0f6e56'];
-  var html = '<div style="margin:0 0 24px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">';
-  html += '<div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">';
-  html += '<span style="font-size:18px;">ð</span><div><div style="font-size:14px;font-weight:700;color:var(--text);">Full Scouting Process</div>';
-  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">End-to-end workflow â from club methodology to final recommendation</div></div></div>';
-  html += '<div style="padding:16px 20px;">';
-  dept.phases.forEach(function(phase, pi){
-    html += '<div class="wf-phase-block">';
-    html += '<div class="wf-phase-label" style="color:'+phaseColors[pi%phaseColors.length]+'">' + phase.name + '</div>';
-    html += '<div class="wf-grid">';
-    phase.steps.forEach(function(step, si){
-      var stepNum = dept.phases.slice(0,pi).reduce(function(a,p){return a+p.steps.length;},0) + si + 1;
-      html += '<div class="wf-step">';
-      html += '<div class="wf-step-num">STEP ' + (stepNum < 10 ? '0'+stepNum : stepNum) + '</div>';
-      html += '<div class="wf-step-title">' + step.s + '</div>';
-      html += '<div class="wf-step-desc">' + step.d.substring(0, 120) + (step.d.length > 120 ? 'â¦' : '') + '</div>';
-      html += '</div>';
-    });
-    html += '</div>';
-    if(pi < dept.phases.length - 1){ html += '<div class="wf-arrow">â</div>'; }
-    html += '</div>';
+function buildScoutingWorkflow(p){
+  const steps12=[
+    {n:1,ph:1,icon:'01',title:'Club Methodology',desc:'Define game style: attacking phase, defensive phase, pressing, set pieces. Align with Technical Director on club identity.'},
+    {n:2,ph:1,icon:'02',title:'Squad Succession Plan',desc:'Squad Ladder: contract expiries, age distribution, positional depth. Benchmark against champion squad profiles.'},
+    {n:3,ph:1,icon:'03',title:'Season Overview',desc:'End-of-season meeting: review collective + positional data. Output: positions needed and ideal attributes — no names yet.'},
+    {n:4,ph:1,icon:'04',title:'Sporting Director Alignment',desc:'Seirullo model: define 8 player structures (Conditional, Cognitive, Emotional, Coordinative, Bioenergetic, Socioaffective...).'},
+    {n:5,ph:2,icon:'05',title:'Data Analysis',desc:'StatsBomb, Driblab, Impect, SkillCorner. Per 90 vs totals. League strength adjustments. Build Club Score per position.'},
+    {n:6,ph:2,icon:'06',title:'Platform Benchmark',desc:'Shortlist from data providers. IMPECT scoring, SkillCorner Game Intelligence, Wyscout video cross-reference. Rank players.'},
+    {n:7,ph:2,icon:'07',title:'Player Report',desc:'Technical + tactical assessment (with/without ball). Physical profile. Social context. Video clips. Scout voice notes oral recording.'},
+    {n:8,ph:3,icon:'08',title:'Shortlist — Phase 1 Criteria',desc:'Filter by: Club Methodology fit, positional profile, age bracket, contract status, budget range, league strength.'},
+    {n:9,ph:3,icon:'09',title:'Candidates Comparison',desc:'Side-by-side metrics: key KPIs, physical data, tactical role fit, market value, contract expiry, agent info.'},
+    {n:10,ph:3,icon:'10',title:'Game Intelligence',desc:'Live scouting. Video analysis. Set-piece behavior. Pressing intensity. Decision-making under pressure. Adaptability.'},
+    {n:11,ph:3,icon:'11',title:'Social & Family Context',desc:'Adaptability to new city/country, family situation, language, cultural fit, social media profile, agent relationship.'},
+    {n:12,ph:3,icon:'12',title:'Financial Overview',desc:'Gross salary, bonuses, agent fees, image rights, buy-out clause. Fit within club financial framework and squad budget.'}
+  ];
+  const phColors=['#e0a020','#3b82f6','#22c55e'];
+  const phNames=['Phase 1 — What to Look For','Phase 2 — Analysis','Phase 3 — Recommendation'];
+  const phBg=['rgba(224,160,32,.18)','rgba(59,130,246,.18)','rgba(34,197,94,.18)'];
+  
+  // Build timeline HTML
+  let tl='<div class="scout-timeline">';
+  let lastPh=0;
+  steps12.forEach(st=>{
+    if(st.ph!==lastPh){
+      lastPh=st.ph;
+      tl+='<div class="stl-phase-label" style="color:'+phColors[st.ph-1]+'">'+phNames[st.ph-1]+'</div>';
+    }
+    tl+='<div class="stl-step">'
+      +'<div class="stl-node" style="background:'+phBg[st.ph-1]+';box-shadow:0 0 0 3px '+phColors[st.ph-1]+'55;color:'+phColors[st.ph-1]+'">'+st.icon+'</div>'
+      +'<div class="stl-body">'
+      +'<div class="stl-num">Step '+st.n+' of 12</div>'
+      +'<div class="stl-title">'+st.title+'</div>'
+      +'<div class="stl-desc">'+st.desc+'</div>'
+      +'</div></div>';
   });
-  html += '</div></div>';
-  return html;
-}
-
-SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); if(d.id==='scouting_dept'){sportCards+=buildScoutingWorkflow(d);} });
-  var opsCards='';
-  OPS_DEPTS.forEach(function(d){ opsCards+=deptCard(d,'#854F0B'); });
-
-  var sportChips=['Scouting','Sport Science','First Team (Men)','First Team (Women)','Academy'].map(function(d){
-    var anchor='dept-'+({'Scouting':'scouting_dept','Sport Science':'sportstec_dept','First Team (Men)':'firstteam_mens','First Team (Women)':'firstteam_womens','Academy':'academy_dept'}[d]);
-    return '<span style="font-size:11px;padding:4px 12px;border-radius:20px;background:var(--green-pale);color:var(--green);border:1px solid var(--border2);cursor:pointer;font-weight:600" onclick="document.getElementById(\''+anchor+'\').scrollIntoView({behavior:\'smooth\'})">'+d+'</span>';
-  }).join('');
-
-  var opsChips=['Contract Management','Player Valuation','Budgeting','Logistics and Travel'].map(function(d){
-    var anchor='dept-'+({'Contract Management':'contract_dept','Player Valuation':'valuation_dept','Budgeting':'budgeting_dept','Logistics and Travel':'logistics_dept'}[d]);
-    return '<span style="font-size:11px;padding:4px 12px;border-radius:20px;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;cursor:pointer;font-weight:600" onclick="document.getElementById(\''+anchor+'\').scrollIntoView({behavior:\'smooth\'})">'+d+'</span>';
-  }).join('');
-
-  return '<div style="display:flex;flex-direction:column;gap:20px">'
-    +'<div style="background:#fff;border:1px solid #c8dff5;border-radius:14px;padding:18px 22px">'
-    +'<div style="font-size:11px;font-weight:700;color:#6b9ec7;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px">Club structure â click any department to jump</div>'
-    +'<div style="display:flex;gap:14px;flex-wrap:wrap">'
-    +'<div style="flex:1;min-width:200px;background:#dbeafe;border-radius:10px;padding:14px 16px;border:1px solid #93c5fd">'
-    +'<div style="font-size:14px;font-weight:700;color:#1e40af;margin-bottom:8px">&#9917; Sports Department</div>'
-    +'<div style="display:flex;flex-wrap:wrap;gap:6px">'+sportChips+'</div></div>'
-    +'<div style="flex:1;min-width:200px;background:#fef3c7;border-radius:10px;padding:14px 16px;border:1px solid #fcd34d">'
-    +'<div style="font-size:14px;font-weight:700;color:#92400e;margin-bottom:8px">&#127970; Operations and Admin</div>'
-    +'<div style="display:flex;flex-wrap:wrap;gap:6px">'+opsChips+'</div></div>'
-    +'</div></div>'
-    +'<div class="side-tabs" id="blueprint-side-tabs">'
-    +'<button class="side-tab active" data-bpside="sports" onclick="blueprintTab(this.dataset.bpside)">⚽ Sporting Side</button>'
-    +'<button class="side-tab" data-bpside="ops" onclick="blueprintTab(this.dataset.bpside)">🏢 Operational Side</button>'
-    +'</div>'
-    +'<div class="side-section active" id="bp-sect-sports">'
-    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#0d4f2f,#166534)"><div class="dark-banner-title" style="font-size:18px">&#9917; Sports Department</div><div class="dark-banner-sub" style="font-size:12px">Scouting, First Team (Men &amp; Women), Academy â all data flows through one system.</div></div>'
-    +'<div style="padding:16px 18px">'+sportCards+'</div></div>'
-    +'</div>'
-    +'<div class="side-section" id="bp-sect-ops">'
-    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#0c2a54,#1e40af)"><div class="dark-banner-title" style="font-size:18px">&#127970; Operations &amp; Admin</div><div class="dark-banner-sub" style="font-size:12px">Contract management, player valuation, budgeting, logistics â financial and operational governance.</div></div>'
-    +'<div style="padding:16px 18px">'+opsCards+'</div></div>'
+  tl+='</div>';
+  
+  // Build left side (existing phases/cards structure, simplified)
+  const phases=p.phases||[];
+  let leftHtml='';
+  phases.forEach(ph=>{
+    const stepsHtml=ph.steps.map((st,si)=>{
+      const sn=phases.slice(0,phases.indexOf(ph)).reduce((a,x)=>a+x.steps.length,0)+si+1;
+      return '<div class="wf-step"><div class="wf-step-num">STEP '+(sn<10?'0'+sn:sn)+'</div>'
+        +'<div class="wf-step-title">'+st.s+'</div>'
+        +'<div class="wf-step-desc">'+st.d+'</div></div>';
+    }).join('');
+    leftHtml+='<div class="wf-phase-header" style="color:'+ph.color+'">'+ph.name+'</div>'
+      +'<div class="wf-phase-steps">'+stepsHtml+'</div>';
+  });
+  
+  return '<div class="scout-layout">'
+    +'<div>'+leftHtml+'</div>'
+    +''+tl
     +'</div>';
 }
 

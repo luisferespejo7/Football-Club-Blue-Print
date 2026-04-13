@@ -655,7 +655,19 @@ const PAGES=[
    desc:"Interactive salary dashboard. Click positions on the pitch to explore Liga MX player salaries."},
     {id:"playervaluation",label:"Player Valuation",type:"playervaluation",
    title:"Player Valuation Framework",
-   desc:"Structured methodology for pricing players in transfer windows â combining statistical models, market comparables, contract leverage, and positional scarcity."}
+   desc:"Structured methodology for pricing players in transfer windows â combining statistical models, market comparables, contract leverage, and positional scarcity."},
+  {id:"sportscience",label:"Sport Science",type:"sportscience",
+   title:"Sport Science Department",
+   desc:"Integrated performance science framework — monitoring, load management, injury prevention, and player development protocols.",
+   stats:[
+     {l:"Monitoring KPIs",v:"12+",n:"key metrics tracked daily"},
+     {l:"Recovery Protocols",v:"4",n:"structured phases"},
+     {l:"Testing Batteries",v:"6",n:"assessments per cycle"},
+     {l:"Staff Roles",v:"5",n:"sport science positions"}
+   ]},
+  {id:"files",label:"Files",type:"files",
+   title:"Resources & Files",
+   desc:"Curated library of essential documents for sports administrators — contracts, budgeting tools, scouting processes, and operational guides."}
 ];
 
 PAGES.forEach((p,i)=>{
@@ -912,7 +924,10 @@ function buildPage(p){
   if(p.id==='sportstec') h+=buildScienceGallery();
   if(p.id==='performance') h+=buildPerfGallery();
 
-  return h;
+  
+  if(p.type==='sportscience') return buildSportScience(p);
+  if(p.type==='files') return buildFiles(p);
+return h;
 }
 
 
@@ -3044,6 +3059,111 @@ function buildDpContent(id) {
 })();
 
 
+
+function buildSportScience(p) {
+  return `
+  <div class="lp-section">
+    <div class="lp-label">DEPARTMENT OVERVIEW</div>
+    <div class="lp-h2">What Sport Science Does</div>
+    <div class="lp-body">The Sport Science department bridges data, physiology, and football performance. It supports the coaching staff with objective metrics, manages player loads, and builds evidence-based recovery and development protocols.</div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">CORE PILLARS</div>
+    <div class="lp-pillars">
+      <div class="lp-pillar"><div class="lp-pillar-num">01</div><div class="lp-pillar-name">Load Monitoring</div></div>
+      <div class="lp-pillar"><div class="lp-pillar-num">02</div><div class="lp-pillar-name">Injury Prevention</div></div>
+      <div class="lp-pillar"><div class="lp-pillar-num">03</div><div class="lp-pillar-name">Recovery Protocols</div></div>
+      <div class="lp-pillar"><div class="lp-pillar-num">04</div><div class="lp-pillar-name">Physical Testing</div></div>
+      <div class="lp-pillar"><div class="lp-pillar-num">05</div><div class="lp-pillar-name">Nutrition and Hydration</div></div>
+      <div class="lp-pillar"><div class="lp-pillar-num">06</div><div class="lp-pillar-name">Sleep and Wellbeing</div></div>
+    </div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">STAFF STRUCTURE</div>
+    <div class="lp-cards">
+      <div class="lp-card"><div class="lp-card-title">Head of Sport Science</div><div class="lp-card-body">Leads the department. Designs annual monitoring plans, oversees testing batteries, and communicates directly with the Head Coach and Sporting Director.</div></div>
+      <div class="lp-card"><div class="lp-card-title">Performance Analyst</div><div class="lp-card-body">Processes GPS and physical data. Builds load dashboards and flags injury risk players daily using ATL/CTL ratios and HRV trends.</div></div>
+      <div class="lp-card"><div class="lp-card-title">Physiotherapist</div><div class="lp-card-body">Manages rehabilitation protocols. Works with performance staff to clear players from injury and design return-to-play criteria.</div></div>
+      <div class="lp-card"><div class="lp-card-title">Nutritionist</div><div class="lp-card-body">Designs periodized nutrition plans based on training load and competition calendar. Monitors body composition and hydration levels.</div></div>
+      <div class="lp-card"><div class="lp-card-title">Strength and Conditioning Coach</div><div class="lp-card-body">Delivers gym-based programming. Coordinates with the head coach to align S&C sessions with tactical demands of the week.</div></div>
+    </div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">WEEKLY MONITORING CYCLE</div>
+    <div class="lp-steps">
+      <div class="lp-step"><div class="lp-step-num">MON</div><div class="lp-step-text">Post-match recovery. HRV, muscle soreness, and sleep quality collected. Light session.</div></div>
+      <div class="lp-step"><div class="lp-step-num">TUE</div><div class="lp-step-text">Activation session. GPS tracking begins. Load targets set based on match cycle (MD+2).</div></div>
+      <div class="lp-step"><div class="lp-step-num">WED</div><div class="lp-step-text">High-intensity day (MD-3). Max load window. HSR and sprint distance benchmarks per position.</div></div>
+      <div class="lp-step"><div class="lp-step-num">THU</div><div class="lp-step-text">Tactical session. Medium load. Flagging players above 85% weekly load threshold.</div></div>
+      <div class="lp-step"><div class="lp-step-num">FRI</div><div class="lp-step-text">MD-1 activation. Short and sharp. Wellbeing questionnaires. Final readiness report to coaches.</div></div>
+      <div class="lp-step"><div class="lp-step-num">SAT</div><div class="lp-step-text">Match day. Live GPS monitoring. Post-match nutrition protocol activated immediately.</div></div>
+    </div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">KEY METRICS TRACKED</div>
+    <div class="lp-tech-grid">
+      <div class="lp-tech-item">Total Distance (km)</div>
+      <div class="lp-tech-item">HSR Distance (>21 km/h)</div>
+      <div class="lp-tech-item">Sprint Distance (>25 km/h)</div>
+      <div class="lp-tech-item">Max Velocity</div>
+      <div class="lp-tech-item">Accelerations and Decels</div>
+      <div class="lp-tech-item">Player Load (AU)</div>
+      <div class="lp-tech-item">Heart Rate Zones</div>
+      <div class="lp-tech-item">HRV (rMSSD)</div>
+      <div class="lp-tech-item">Sleep Score</div>
+      <div class="lp-tech-item">Muscle Soreness (1-10)</div>
+      <div class="lp-tech-item">Readiness Score</div>
+      <div class="lp-tech-item">ATL / CTL / TSB Ratio</div>
+    </div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">TESTING BATTERY</div>
+    <div class="lp-list">
+      Yo-Yo Intermittent Recovery Test (Level 2) — aerobic capacity baseline.
+      CMJ (Countermovement Jump) — explosive lower body power via force plate.
+      Sprint 10m / 30m — acceleration profile and max speed benchmark.
+      Change of Direction (505 test) — agility and deceleration quality.
+      Isometric Hamstring Test — bilateral asymmetry and injury risk.
+      Body Composition (DEXA or skinfolds) — lean mass and fat % tracking.
+    </div>
+  </div>
+  <div class="lp-section">
+    <div class="lp-label">INJURY PREVENTION FRAMEWORK</div>
+    <div class="lp-principles">
+      <div class="lp-principle">Risk Stratification: Players categorized weekly into Low / Medium / High injury risk based on load, HRV, soreness, and history.</div>
+      <div class="lp-principle">Acute:Chronic Workload Ratio: Target ACWR between 0.8 and 1.3. Players above 1.5 flagged for load reduction.</div>
+      <div class="lp-principle">Functional Movement Screen: Pre-season screen to identify movement dysfunctions and corrective programs.</div>
+      <div class="lp-principle">Return to Play Protocol: 5-stage RTP process from pool rehab through to match clearance.</div>
+      <div class="lp-principle">Hamstring Protocol (Nordic): Season-long eccentric hamstring program for all outfield players above risk threshold.</div>
+    </div>
+  </div>
+  `;
+}
+
+function buildFiles(p) {
+  const cats = [
+    {icon:"CONTRACT",title:"Contract Templates",color:"#3b82f6",files:[
+      {name:"Player Contract — Liga MX",desc:"Standard professional player agreement with Liga MX clauses, image rights, and performance bonuses.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/CONTRACTS_MX_LIGAMX%20VF%20Ca..."},
+      {name:"Contract Management App — Chivas",desc:"Full contract tracking dashboard: expiry alerts, salary caps, renewal pipeline.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/Quote%20ContractM%20App%20-%20Chivas.pdf"},
+      {name:"Contract Management App — San Luis",desc:"Adapted contract management workflow for Atletico de San Luis.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/Quote%20Budgeting%20App%20-%20San%20Luis.p..."}
+    ]},
+    {icon:"SPORT SCI",title:"Sport Science",color:"#22c55e",files:[
+      {name:"Sport Science Project App",desc:"Full sport science department blueprint: monitoring KPIs, testing batteries, staff roles, and protocols.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/Sport%20Science%20Project%20App.pdf"}
+    ]},
+    {icon:"SCOUTING",title:"Scouting and Recruitment",color:"#f59e0b",files:[
+      {name:"Scouting App Process",desc:"End-to-end scouting workflow: shadow list, player reports, shortlist criteria, and recruitment pipeline.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/Scouting%20App%20Process.pdf"}
+    ]},
+    {icon:"BUDGET",title:"Budgeting and Finance",color:"#a855f7",files:[
+      {name:"Club Budgeting App — San Luis",desc:"Operational budget template: salaries, travel, equipment, and departmental cost centers.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/Quote%20Budgeting%20App%20-%20San%20Luis.p..."}
+    ]},
+    {icon:"TECH",title:"Technology and Platforms",color:"#06b6d4",files:[
+      {name:"Cyferd Sports Hub v17",desc:"Full club tech stack platform integrating scouting, performance, contracts, and analytics into one OS.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/cyferd_sports_hub_v17.html"},
+      {name:"Acquisition Funnel",desc:"Fan acquisition and commercial funnel model for club revenue growth.",url:"https://github.com/luisferespejo7/Football-Club-Blue-Print/blob/main/fUNNEL.pdf"}
+    ]}
+  ];
+  const cards = cats.map(cat => '<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;"><span style="font-size:11px;font-weight:700;padding:4px 10px;background:'+cat.color+'22;color:'+cat.color+';border-radius:6px;letter-spacing:.06em;">'+cat.icon+'</span><div style="font-size:14px;font-weight:700;color:#fff;">'+cat.title+'</div></div><div style="display:flex;flex-direction:column;gap:10px;">'+cat.files.map(f=>'<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;"><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:3px;">'+f.name+'</div><div style="font-size:12px;color:#94a3b8;line-height:1.5;">'+f.desc+'</div></div><a href="'+f.url+'" target="_blank" style="flex-shrink:0;background:#22c55e;color:#052e16;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;">View</a></div>').join('')+'</div></div>').join('');
+  return '<div class="lp-section"><div class="lp-label">RESOURCE LIBRARY</div><div class="lp-body" style="margin-bottom:24px;">All key documents for sports administration — organized by category. Click any file to open it.</div></div>'+cards;
+}
 </script>
 </body>
 </html>

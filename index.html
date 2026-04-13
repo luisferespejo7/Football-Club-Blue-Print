@@ -36,6 +36,25 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;background-image:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(37,99,235,.12) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 90% 100%,rgba(6,182,212,.08) 0%,transparent 60%);background-attachment:fixed;}
 
+
+/* ── SIDE TABS (Sporting / Operational) ── */
+.side-tabs{display:flex;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
+.side-tab{padding:10px 24px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border2);color:var(--text2);background:transparent;transition:all .18s;letter-spacing:.02em;}
+.side-tab:hover{border-color:var(--green);color:var(--green-light);}
+.side-tab.active{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 2px 16px rgba(59,130,246,.35);}
+.side-section{display:none;}
+.side-section.active{display:block;}
+/* ── SCOUTING WORKFLOW ── */
+.wf-phase-block{margin-bottom:28px;}
+.wf-phase-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.5;margin-bottom:10px;padding-left:2px;}
+.wf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+.wf-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;transition:box-shadow .15s,border-color .15s;}
+.wf-step:hover{box-shadow:var(--shadow-md);border-color:var(--border2);}
+.wf-step-num{font-size:9px;font-weight:800;font-family:'DM Mono',monospace;color:var(--text3);margin-bottom:5px;letter-spacing:.08em;}
+.wf-step-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.wf-step-desc{font-size:11px;color:var(--text2);line-height:1.55;}
+.wf-arrow{text-align:center;font-size:18px;color:var(--border2);margin:2px 0;}
+
 /* ── TOPBAR ── */
 .topbar{background:rgba(4,8,16,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,.04),0 4px 32px rgba(0,0,0,.6);}
 .brand{display:flex;align-items:center;gap:10px;}
@@ -776,6 +795,32 @@ function buildBlueprint(){
       outputs:["Bi-monthly player development reports","Sprint ranking dashboard","Contract consideration flags","First-team readiness report"],
       files:[{name:"Sports Science App",url:"Sport_Science_Project_App.pdf"},{name:"Player Performance Project",url:"Player_Performance_Project.pdf"}],
     },
+  ,
+    {
+      id:"sportstec_dept", label:"Sport Science", color:"#065f46", bg:"#f0fdf4", icon:"dna",
+      tagline:"From isolated data streams to an integrated player intelligence system.",
+      kpi:["Player availability %","GPS load compliance","Wellness score trend","Recovery time between fixtures"],
+      phases:[
+        {name:"Data Collection & Integration", color:"#065f46", steps:[
+          {s:"GPS & Physical Monitoring", d:"Daily GPS data: distance, HSR zones, accelerations/decelerations, sprint count. WIMU integration. Automated threshold alerts by position."},
+          {s:"Medical & Recovery", d:"CPK baseline per player. Thermography screening. Injury log with mechanism, severity, expected return. Linked to GPS load to identify overuse risk."},
+          {s:"Wellness & Psychology", d:"Daily wellness questionnaire: sleep, fatigue, soreness, readiness. Seirullo structured profiles. Psychology flags for staff review."},
+          {s:"Nutrition & Anthropometry", d:"Seasonal baseline: fat mass, muscle mass, hydration. Nutrition compliance tracking. Flags linked to performance output."},
+        ]},
+        {name:"Analysis & Decision Support", color:"#0f766e", steps:[
+          {s:"Composite Readiness Score", d:"GPS + medical + wellness + psychology into a single score (0-100). Trend over 7/14/28 days per player. Early warning system for staff."},
+          {s:"Load Management", d:"Individual weekly load targets by position. Planned vs actual comparison. HSR distribution across the microcycle. Training-to-match ratio."},
+          {s:"Match Day Protocol", d:"Pre-match readiness report. Post-match recovery scoring. Compare vs benchmark. Auto-feed into next session plan."},
+        ]},
+        {name:"Reporting & Governance", color:"#14532d", steps:[
+          {s:"Staff Dashboard", d:"Real-time availability map per player. Coaching staff, physio and analysts. Color-coded readiness. Drill-down to individual streams."},
+          {s:"Trend Reports", d:"Weekly and monthly auto-reports. Highlights: injury risk alerts, load spikes, wellness declines. Exportable for medical staff."},
+          {s:"Data Governance", d:"Single source of truth. All providers feed one platform. Role-based access: coach sees availability; physio sees recovery detail."},
+        ]},
+      ],
+      outputs:["Daily player readiness report","Weekly load compliance dashboard","Injury risk heatmap","Season trend export"],
+      files:[{name:"Sport Science Project App",url:"Sport Science Project App.pdf"}],
+    }
   ];
 
   var OPS_DEPTS=[
@@ -887,12 +932,40 @@ function buildBlueprint(){
   }
 
   var sportCards='';
-  SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); });
+  
+function buildScoutingWorkflow(dept){
+  var phaseColors = ['#e0a020','#1e6b8c','#0f6e56'];
+  var html = '<div style="margin:0 0 24px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">';
+  html += '<div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">';
+  html += '<span style="font-size:18px;">🔄</span><div><div style="font-size:14px;font-weight:700;color:var(--text);">Full Scouting Process</div>';
+  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">End-to-end workflow — from club methodology to final recommendation</div></div></div>';
+  html += '<div style="padding:16px 20px;">';
+  dept.phases.forEach(function(phase, pi){
+    html += '<div class="wf-phase-block">';
+    html += '<div class="wf-phase-label" style="color:'+phaseColors[pi%phaseColors.length]+'">' + phase.name + '</div>';
+    html += '<div class="wf-grid">';
+    phase.steps.forEach(function(step, si){
+      var stepNum = dept.phases.slice(0,pi).reduce(function(a,p){return a+p.steps.length;},0) + si + 1;
+      html += '<div class="wf-step">';
+      html += '<div class="wf-step-num">STEP ' + (stepNum < 10 ? '0'+stepNum : stepNum) + '</div>';
+      html += '<div class="wf-step-title">' + step.s + '</div>';
+      html += '<div class="wf-step-desc">' + step.d.substring(0, 120) + (step.d.length > 120 ? '…' : '') + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    if(pi < dept.phases.length - 1){ html += '<div class="wf-arrow">↓</div>'; }
+    html += '</div>';
+  });
+  html += '</div></div>';
+  return html;
+}
+
+SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); if(d.id==='scouting_dept'){sportCards+=buildScoutingWorkflow(d);} });
   var opsCards='';
   OPS_DEPTS.forEach(function(d){ opsCards+=deptCard(d,'#854F0B'); });
 
-  var sportChips=['Scouting','First Team (Men)','First Team (Women)','Academy'].map(function(d){
-    var anchor='dept-'+({'Scouting':'scouting_dept','First Team (Men)':'firstteam_mens','First Team (Women)':'firstteam_womens','Academy':'academy_dept'}[d]);
+  var sportChips=['Scouting','Sport Science','First Team (Men)','First Team (Women)','Academy'].map(function(d){
+    var anchor='dept-'+({'Scouting':'scouting_dept','Sport Science':'sportstec_dept','First Team (Men)':'firstteam_mens','First Team (Women)':'firstteam_womens','Academy':'academy_dept'}[d]);
     return '<span style="font-size:11px;padding:4px 12px;border-radius:20px;background:var(--green-pale);color:var(--green);border:1px solid var(--border2);cursor:pointer;font-weight:600" onclick="document.getElementById(\''+anchor+'\').scrollIntoView({behavior:\'smooth\'})">'+d+'</span>';
   }).join('');
 
@@ -912,13 +985,26 @@ function buildBlueprint(){
     +'<div style="font-size:14px;font-weight:700;color:#92400e;margin-bottom:8px">&#127970; Operations and Admin</div>'
     +'<div style="display:flex;flex-wrap:wrap;gap:6px">'+opsChips+'</div></div>'
     +'</div></div>'
-    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0"><div class="dark-banner-title" style="font-size:18px">&#9917; Sports Department</div><div class="dark-banner-sub" style="font-size:12px">Scouting, First Team (Men &amp; Women), Academy — all data flows through one system.</div></div>'
-    +'<div style="padding:16px 18px">'+sportCards+'</div></div>'
-    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
-    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#3d1a00,#5c2a00)"><div class="dark-banner-title" style="font-size:18px">&#127970; Operations &amp; Admin</div><div class="dark-banner-sub" style="font-size:12px">Contract management, player valuation, budgeting, logistics — financial and operational governance.</div></div>'
-    +'<div style="padding:16px 18px">'+opsCards+'</div></div>'
+    +'<div class="side-tabs" id="blueprint-side-tabs">'
+    +'<button class="side-tab active" onclick="blueprintTab('sports')">⚽ Sporting Side</button>'
+    +'<button class="side-tab" onclick="blueprintTab('ops')">🏢 Operational Side</button>'
+    +'</div>'
+    +'<div class="side-section active" id="bp-sect-sports">'
+    +    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
+    +    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0"><div class="dark-banner-title" style="font-size:18px">&#9917; Sports Department</div><div class="dark-banner-sub" style="font-size:12px">Scouting, First Team (Men &amp; Women), Academy — all data flows through one system.</div></div>'
+    +    +'<div style="padding:16px 18px">'+sportCards+'</div></div>'
+    +'</div>'
+    +'<div class="side-section" id="bp-sect-ops">'
+    +    +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
+    +    +'<div class="dark-banner" style="border-radius:0;padding:18px 24px;margin:0;background:linear-gradient(135deg,#3d1a00,#5c2a00)"><div class="dark-banner-title" style="font-size:18px">&#127970; Operations &amp; Admin</div><div class="dark-banner-sub" style="font-size:12px">Contract management, player valuation, budgeting, logistics — financial and operational governance.</div></div>'
+    +    +'<div style="padding:16px 18px">'+opsCards+'</div></div>'
     +'</div>';
+}
+
+function blueprintTab(side){
+  document.querySelectorAll('#blueprint-side-tabs .side-tab').forEach(function(b,i){b.classList.toggle('active', i===(side==='sports'?0:1));});
+  document.getElementById('bp-sect-sports').classList.toggle('active', side==='sports');
+  document.getElementById('bp-sect-ops').classList.toggle('active', side==='ops');
 }
 
 function toggleDeptBody2(id,header){

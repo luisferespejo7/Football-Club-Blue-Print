@@ -588,34 +588,33 @@ function buildVcard(v,pid,vi){
 
 function buildHome(p){
   const layers = window.FUNNEL_LAYERS || [];
+  const total = layers.length;
   const legendHTML = layers.map(l=>`
-    <div onclick="goTo('${l.page}')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:2px;" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">
-      <div style="width:14px;height:14px;border-radius:3px;background:${l.color};flex-shrink:0;"></div>
-      <div style="font-size:13px;font-weight:500;color:var(--text);flex:1;">${l.label}</div>
-      <span style="font-size:12px;color:var(--text3);">â</span>
+    <div onclick="goTo('${l.page}')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:4px;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='transparent'">
+      <div style="width:12px;height:12px;border-radius:3px;background:${l.color};flex-shrink:0;"></div>
+      <div style="font-size:12px;font-weight:600;color:var(--text);">${l.label}</div>
     </div>`).join('');
 
-  const totalLayers = layers.length;
-  const funnelRows = layers.map((l,i)=>{
-    const widthPct = 100 - (i / (totalLayers - 1)) * 62;
-    const logosHTML = (l.logos||[]).map((logo,li)=>{
-      const name = (l.names||[])[li] || '';
-      const initials = name.replace(/[^A-Za-z]/g,'').substring(0,3).toUpperCase();
-      return `<div style="width:34px;height:34px;border-radius:50%;background:#fff;border:2px solid rgba(255,255,255,.7);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,.3);" title="${name}">
-        <img src="${logo}" alt="${name}" loading="lazy" style="width:26px;height:26px;object-fit:contain;" onerror="this.outerHTML='<span style=font-size:8px;font-weight:800;color:#333;line-height:1.1;text-align:center;padding:1px>${initials}</span>'"/>
-      </div>`;
-    }).join('');
-    return `<div onclick="goTo('${l.page}')" title="Click to explore ${l.label}" style="width:${widthPct}%;margin:0 auto;background:${l.color};padding:10px 20px;display:flex;flex-direction:column;align-items:center;gap:5px;min-height:62px;justify-content:center;cursor:pointer;transition:filter .15s;clip-path:polygon(0 0,100% 0,calc(100% - 28px) 100%,28px 100%);" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
-      <div style="font-size:12px;font-weight:700;color:${l.textColor||'#fff'};text-align:center;">${l.label}</div>
-      <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:center;">${logosHTML}</div>
+  const funnelHTML = layers.map((l,i)=>{
+    const pct = 100 - (i / (total - 1)) * 48;
+    const nextPct = i < total - 1 ? 100 - ((i+1) / (total - 1)) * 48 : pct - 6;
+    const leftTop = (100 - pct) / 2;
+    const leftBot = (100 - nextPct) / 2;
+    const rightTop = leftTop + pct;
+    const rightBot = leftBot + nextPct;
+    return `<div onclick="goTo('${l.page}')" title="Click to explore ${l.label}" style="position:relative;width:100%;height:56px;cursor:pointer;margin-bottom:2px;" onmouseover="this.querySelector('.fl').style.opacity='0.8'" onmouseout="this.querySelector('.fl').style.opacity='1'">
+      <div class="fl" style="position:absolute;inset:0;clip-path:polygon(${leftTop}% 0%, ${rightTop}% 0%, ${rightBot}% 100%, ${leftBot}% 100%);background:${l.color};transition:opacity .2s;"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="font-size:12px;font-weight:700;color:${l.textColor||'#fff'};text-shadow:0 1px 3px rgba(0,0,0,.6);letter-spacing:.03em;">${l.label}</div>
+      </div>
     </div>`;
   }).join('');
 
   return `<div style="display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start;">
     <div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:14px;">
-        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center;margin-bottom:16px;">THE SPORTS TECH FUNNEL â CLICK A LAYER TO EXPLORE</div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:0;">${funnelRows}</div>
+        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;text-align:center;margin-bottom:16px;">THE SPORTS TECH FUNNEL — CLICK A LAYER TO EXPLORE</div>
+        <div style="padding:0 20px;">${funnelHTML}</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
         <span style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:6px 18px;font-size:13px;font-weight:600;color:var(--text);">Technology</span>
@@ -986,8 +985,8 @@ SPORTS_DEPTS.forEach(function(d){ sportCards+=deptCard(d,'#185FA5'); if(d.id==='
     +'<div style="display:flex;flex-wrap:wrap;gap:6px">'+opsChips+'</div></div>'
     +'</div></div>'
     +'<div class="side-tabs" id="blueprint-side-tabs">'
-    +'<button class="side-tab active" data-bpside="sports" onclick="blueprintTab(this.dataset.bpside)">â½ Sporting Side</button>'
-    +'<button class="side-tab" data-bpside="ops" onclick="blueprintTab(this.dataset.bpside)">ð¢ Operational Side</button>'
+    +'<button class="side-tab active" data-bpside="sports" onclick="blueprintTab(this.dataset.bpside)">⚽ Sporting Side</button>'
+    +'<button class="side-tab" data-bpside="ops" onclick="blueprintTab(this.dataset.bpside)">🏢 Operational Side</button>'
     +'</div>'
     +'<div class="side-section active" id="bp-sect-sports">'
     +'<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">'
@@ -1805,13 +1804,13 @@ function buildOrgChart(){
     [130,132,140,36,'1a4f7a','Sporting Director','','Leads entire sports department. Sets methodology, manages coaches, scouting and sciences.','sd'],
     [595,132,140,36,'1e3a5f','Head of Technology','NEW ROLE','Oversees AI, data pipelines, platforms and cybersecurity. Reports to CEO.','ht'],
     [950,132,140,36,'5c3317','Director of Operations','','Manages finance, legal, contracts, logistics and commercial departments.','od'],
-    [-10,208,82,42,'2563a8','Technical Director','Methodology','Defines tactical philosophy and game model. Coordinates analysis staff.','td'],
+    [5,208,95,42,'2563a8','Technical Director','Methodology','Defines tactical philosophy and game model. Coordinates analysis staff.','td'],
     [100,208,80,42,'2563a8','Chief Scout','Recruitment','Leads all scouting. Manages scouts, data filters, shortlists and transfers.','cs'],
     [225,208,80,42,'2563a8','First Team Coach','Mens Team','Head coach of the mens first team. Results, training methodology, squad management.','ftc'],
     [355,208,80,42,'7c3aed','Womens Head Coach','Womens Team','Head coach of the womens first team. Independent structure equivalent to mens.','wc'],
     [470,208,82,42,'059669','Academy Director','Youth Dev.','Leads all youth categories U12-U20. Ensures progression pathway.','ad'],
-    [-8,282,52,28,'3b7fc4','Video Analyst','','Tactical video reports for coaching staff. Tags and clips match footage.','va'],
-    [48,282,52,28,'3b7fc4','Data Analyst','','Analyses match data (StatsBomb, Driblab). Reports for technical staff.','da1'],
+    [7,282,52,28,'3b7fc4','Video Analyst','','Tactical video reports for coaching staff. Tags and clips match footage.','va'],
+    [63,282,52,28,'3b7fc4','Data Analyst','','Analyses match data (StatsBomb, Driblab). Reports for technical staff.','da1'],
     [105,282,52,28,'3b7fc4','Scout (Intl)','','Covers international leagues and tournaments.','si'],
     [162,282,52,28,'3b7fc4','Scout (Local)','','Covers domestic leagues and academy competitions.','sl'],
     [232,282,52,28,'3b7fc4','Asst. Coach 1','','First assistant. Leads defensive organisation and set pieces.','ac1'],

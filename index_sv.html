@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Football Club Blueprint · Short Version</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#2d6a4f;--green-light:#52b788;--green-bright:#74c69d;
+  --gold:#f4a261;--dark:#0d1117;--dark2:#161b22;--dark3:#1e2a38;
+  --text:#e6edf3;--muted:#8b949e;--border:#30363d;
+  --red:#e63946;--blue:#3b82f6;--purple:#8b5cf6;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:56px;overflow-x:auto;}
+.nav-logo{font-weight:700;color:var(--green-bright);font-size:1rem;white-space:nowrap;margin-right:1rem;}
+nav a{color:var(--muted);text-decoration:none;font-size:0.82rem;white-space:nowrap;padding:4px 10px;border-radius:20px;transition:all 0.2s;}
+nav a:hover{color:var(--text);background:var(--dark3);}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d1117 0%,#1e2a38 50%,#0d2818 100%);padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(82,183,136,0.15),transparent 70%);}
+.hero-badge{display:inline-block;background:rgba(82,183,136,0.15);border:1px solid rgba(82,183,136,0.3);color:var(--green-bright);padding:4px 14px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.2;margin-bottom:1rem;position:relative;}
+.hero h1 span{color:var(--green-bright);}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto 2.5rem;}
+.hero-stats{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;position:relative;}
+.hero-stat{text-align:center;}
+.hero-stat strong{display:block;font-size:2rem;font-weight:800;color:var(--green-bright);}
+.hero-stat span{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+
+/* SECTION */
+section{padding:5rem 0;}
+section:nth-child(even){background:var(--dark2);}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green-bright);margin-bottom:0.75rem;}
+.section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:0.75rem;}
+.section-sub{color:var(--muted);max-width:600px;margin-bottom:3rem;font-size:1rem;}
+
+/* CHALLENGE */
+.challenge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.challenge-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s;}
+.challenge-card:hover{border-color:var(--red);}
+.challenge-icon{font-size:1.5rem;flex-shrink:0;}
+.challenge-card h4{font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;color:var(--text);}
+.challenge-card p{font-size:0.82rem;color:var(--muted);}
+
+/* PILLARS */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.pillar-card{background:var(--dark3);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s;}
+.pillar-card:hover{transform:translateY(-4px);border-color:var(--green-light);}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.pillar-card:nth-child(1)::before{background:var(--green-bright);}
+.pillar-card:nth-child(2)::before{background:var(--blue);}
+.pillar-card:nth-child(3)::before{background:var(--gold);}
+.pillar-card:nth-child(4)::before{background:var(--purple);}
+.pillar-num{font-size:0.75rem;font-weight:700;color:var(--muted);letter-spacing:2px;margin-bottom:0.75rem;}
+.pillar-icon{font-size:2rem;margin-bottom:0.75rem;}
+.pillar-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+.pillar-card p{font-size:0.85rem;color:var(--muted);}
+
+/* ORG CHART */
+.org-chart{overflow-x:auto;padding-bottom:1rem;}
+.org-level{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;position:relative;}
+.org-level+.org-level::before{content:'';display:block;width:1px;background:var(--border);height:24px;margin:0 auto;}
+.org-box{background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:0.6rem 1.2rem;font-size:0.8rem;font-weight:600;text-align:center;white-space:nowrap;}
+.org-box.ceo{background:var(--green);border-color:var(--green-light);color:#fff;}
+.org-box.sport{background:#1e3a5f;border-color:var(--blue);}
+.org-box.ops{background:#2a1f3d;border-color:var(--purple);}
+.org-box.tech{background:#1a2a1a;border-color:var(--green);}
+.org-box.shared{background:#2a2a1a;border-color:var(--gold);}
+.org-connector{display:flex;justify-content:center;margin:0;}
+.org-line{width:1px;height:20px;background:var(--border);}
+.org-branch{display:flex;justify-content:center;gap:2rem;position:relative;}
+.org-branch::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);height:1px;background:var(--border);}
+.org-dept-label{font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:0.5rem;}
+
+/* SCOUTING TIMELINE */
+.scouting-phases{display:flex;flex-direction:column;gap:3rem;}
+.phase-label{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);color:var(--green-bright);padding:4px 14px;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;}
+.steps-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;position:relative;}
+.step-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.25rem;position:relative;}
+.step-card::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;z-index:1;}
+.step-card:last-child::after{display:none;}
+.step-num{font-size:0.7rem;font-weight:700;color:var(--green-bright);letter-spacing:1px;margin-bottom:0.4rem;}
+.step-card h4{font-size:0.9rem;font-weight:700;margin-bottom:0.3rem;}
+.step-card p{font-size:0.78rem;color:var(--muted);}
+
+/* COACHING FRAMEWORK */
+.coaching-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+.coaching-block{background:var(--dark3);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+.coaching-block h3{font-size:1.1rem;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;}
+.fire-questions{display:flex;flex-direction:column;gap:0.75rem;}
+.fire-q{background:rgba(230,57,70,0.08);border:1px solid rgba(230,57,70,0.2);border-radius:8px;padding:0.75rem 1rem;font-size:0.85rem;}
+.fire-q strong{color:var(--red);display:block;font-size:0.75rem;margin-bottom:0.2rem;}
+.hire-steps{display:flex;flex-direction:column;gap:0.6rem;counter-reset:hire;}
+.hire-step{display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted);}
+.hire-step-num{background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;}
+.bench-criteria{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
+.bench-item{background:var(--dark2);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.8rem;color:var(--muted);}
+
+/* SPORTING DIRECTOR */
+.sd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;}
+.sd-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;gap:1rem;}
+.sd-num{font-size:2rem;font-weight:800;color:rgba(82,183,136,0.25);line-height:1;flex-shrink:0;width:40px;}
+.sd-content h4{font-size:0.9rem;font-weight:700;margin-bottom:0.25rem;}
+.sd-content p{font-size:0.82rem;color:var(--muted);}
+.sd-scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:2rem;}
+.score-box{background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.score-bar-wrap{background:var(--dark2);border-radius:4px;height:6px;margin:0.5rem 0;}
+.score-bar{height:6px;border-radius:4px;background:linear-gradient(90deg,var(--green-bright),var(--green));}
+.score-label{font-size:0.75rem;color:var(--muted);}
+.score-val{font-size:1.3rem;font-weight:800;color:var(--green-bright);}
+
+/* SPORT SCIENCE */
+.ss-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;}
+.ss-pillar{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:border-color 0.2s,transform 0.2s;}
+.ss-pillar:hover{border-color:var(--green-light);transform:translateY(-3px);}
+.ss-pillar-icon{font-size:2.2rem;margin-bottom:0.75rem;}
+.ss-pillar h3{font-size:0.9rem;font-weight:700;margin-bottom:0.4rem;}
+.ss-pillar p{font-size:0.78rem;color:var(--muted);}
+.ss-staff{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem;}
+.ss-staff-card{background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.ss-staff-card h4{font-size:0.88rem;font-weight:700;color:var(--green-bright);margin-bottom:0.4rem;}
+.ss-staff-card p{font-size:0.8rem;color:var(--muted);}
+
+/* PLAYER VALUATION */
+.val-weights{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+.val-weight{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;}
+.val-pct{font-size:2rem;font-weight:800;color:var(--green-bright);display:block;}
+.val-name{font-size:0.85rem;font-weight:700;margin:0.25rem 0;}
+.val-desc{font-size:0.78rem;color:var(--muted);}
+.val-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.val-step{background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.val-step-num{font-size:0.7rem;font-weight:700;color:var(--green-bright);letter-spacing:1px;margin-bottom:0.4rem;}
+.val-step h4{font-size:0.88rem;font-weight:700;margin-bottom:0.3rem;}
+.val-step p{font-size:0.78rem;color:var(--muted);}
+
+/* OPERATIONS */
+.ops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.ops-card{background:var(--dark3);border:1px solid var(--border);border-radius:16px;padding:1.75rem;border-top:3px solid;}
+.ops-card:nth-child(1){border-top-color:var(--blue);}
+.ops-card:nth-child(2){border-top-color:var(--gold);}
+.ops-card:nth-child(3){border-top-color:var(--purple);}
+.ops-card:nth-child(4){border-top-color:var(--green-bright);}
+.ops-icon{font-size:1.75rem;margin-bottom:0.75rem;}
+.ops-card h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;}
+.ops-steps{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.ops-steps li{font-size:0.82rem;color:var(--muted);padding-left:1rem;position:relative;}
+.ops-steps li::before{content:'›';position:absolute;left:0;color:var(--green-bright);font-weight:700;}
+
+/* OPERATING PRINCIPLES */
+.principles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
+.principle{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;}
+.principle-icon{font-size:1.5rem;flex-shrink:0;}
+.principle h4{font-size:0.92rem;font-weight:700;margin-bottom:0.3rem;}
+.principle p{font-size:0.8rem;color:var(--muted);}
+
+/* FOOTER */
+footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer p{color:var(--muted);font-size:0.85rem;}
+footer strong{color:var(--green-bright);}
+
+/* UTILS */
+.tag{display:inline-block;background:rgba(82,183,136,0.12);border:1px solid rgba(82,183,136,0.25);color:var(--green-bright);padding:2px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;margin:2px;}
+.divider{height:1px;background:var(--border);margin:2rem 0;}
+@media(max-width:600px){
+  .hero{padding:4rem 1.5rem 3rem;}
+  .hero-stats{gap:1.5rem;}
+  .container{padding:0 1.25rem;}
+  section{padding:3.5rem 0;}
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">⚽ FCB · SV</span>
+    <a href="#challenge">Challenge</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#structure">Structure</a>
+    <a href="#scouting">Scouting</a>
+    <a href="#coaching">Coaching</a>
+    <a href="#sd">Sporting Director</a>
+    <a href="#sportscience">Sport Science</a>
+    <a href="#valuation">Player Valuation</a>
+    <a href="#operations">Operations</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container" style="position:relative;">
+    <div class="hero-badge">Short Version · 2026</div>
+    <h1>The Modern Football<br/><span>Club Blueprint</span></h1>
+    <p>A structured model to align sporting vision, scouting, talent development, performance, and decision-making across the entire club.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>10</strong><span>Departments Mapped</span></div>
+      <div class="hero-stat"><strong>12</strong><span>Scouting Steps</span></div>
+      <div class="hero-stat"><strong>8</strong><span>SD Parameters</span></div>
+      <div class="hero-stat"><strong>4</strong><span>Core Pillars</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- THE CHALLENGE -->
+<section id="challenge">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Why Most Clubs Struggle</h2>
+    <p class="section-sub">Modern football organizations face structural inefficiencies that limit performance and long-term success.</p>
+    <div class="challenge-grid">
+      <div class="challenge-card"><span class="challenge-icon">🏚️</span><div><h4>Siloed Departments</h4><p>Scouting, performance, and finance operate independently with no shared data flow.</p></div></div>
+      <div class="challenge-card"><span class="challenge-icon">🔀</span><div><h4>No Scouting Structure</h4><p>Player identification varies by scout, with no consistent methodology or profile alignment.</p></div></div>
+      <div class="challenge-card"><span class="challenge-icon">📊</span><div><h4>Data Without Decisions</h4><p>Clubs collect data but it rarely reaches the decision-makers in a useful format.</p></div></div>
+      <div class="challenge-card"><span class="challenge-icon">⚡</span><div><h4>Misalignment</h4><p>Sporting vision, finance, and performance operate without shared objectives or KPIs.</p></div></div>
+      <div class="challenge-card"><span class="challenge-icon">🌎</span><div><h4>Regional Inconsistency</h4><p>Talent identification varies across markets without a unified evaluation methodology.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="container">
+    <div class="section-label">Foundation</div>
+    <h2 class="section-title">Core Pillars of the Blueprint</h2>
+    <p class="section-sub">Four interconnected pillars designed to create alignment, clarity, and efficiency across the entire football organization.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">PILLAR 01</div>
+        <div class="pillar-icon">🎯</div>
+        <h3>Sporting Vision &amp; Identity</h3>
+        <p>Define game model, player profiles, and long-term squad philosophy. Every signing and decision starts here.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">PILLAR 02</div>
+        <div class="pillar-icon">📡</div>
+        <h3>Integrated Data Infrastructure</h3>
+        <p>One system connecting scouting, performance, medical, and financial data. No more silos.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">PILLAR 03</div>
+        <div class="pillar-icon">⚙️</div>
+        <h3>Structured Processes</h3>
+        <p>Repeatable workflows for scouting, hiring, contracting, and performance evaluation that don't depend on individuals.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">PILLAR 04</div>
+        <div class="pillar-icon">📈</div>
+        <h3>Performance Culture</h3>
+        <p>Evidence-based decision making at every level — from the board to the training pitch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUB STRUCTURE -->
+<section id="structure">
+  <div class="container">
+    <div class="section-label">Organization</div>
+    <h2 class="section-title">Ideal Club Structure · 2026</h2>
+    <p class="section-sub">A modern football club organogram — executive, sports, operations, technology, and shared services all aligned.</p>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Football Club Blueprint · Short Version</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#2d6a4f;--gl:#52b788;--gb:#74c69d;--gold:#f4a261;--dk:#0d1117;--dk2:#161b22;--dk3:#1e2a38;--tx:#e6edf3;--mu:#8b949e;--br:#30363d;--red:#e63946;--bl:#3b82f6;--pu:#8b5cf6}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--br);padding:0 2rem}
+.ni{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1rem;height:52px;overflow-x:auto;scrollbar-width:none}
+.ni::-webkit-scrollbar{display:none}
+.logo{font-weight:800;color:var(--gb);font-size:.95rem;white-space:nowrap;margin-right:.75rem}
+nav a{color:var(--mu);text-decoration:none;font-size:.78rem;white-space:nowrap;padding:4px 10px;border-radius:20px;transition:all .2s}
+nav a:hover{color:var(--tx);background:var(--dk3)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+.hero{background:linear-gradient(135deg,#0d1117 0%,#1e2a38 50%,#0d2818 100%);padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(82,183,136,.15),transparent 70%)}
+.badge{display:inline-block;background:rgba(82,183,136,.12);border:1px solid rgba(82,183,136,.3);color:var(--gb);padding:4px 14px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.2;margin-bottom:1rem;position:relative}
+.hero h1 em{color:var(--gb);font-style:normal}
+.hero p{font-size:1rem;color:var(--mu);max-width:580px;margin:0 auto 2.5rem}
+.hstats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;position:relative}
+.hs{text-align:center}
+.hs strong{display:block;font-size:1.8rem;font-weight:800;color:var(--gb)}
+.hs span{font-size:.75rem;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+section{padding:5rem 0}
+section:nth-child(even){background:var(--dk2)}
+.slabel{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gb);margin-bottom:.6rem}
+.stitle{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:.6rem}
+.ssub{color:var(--mu);max-width:580px;margin-bottom:2.5rem;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.card{background:var(--dk3);border:1px solid var(--br);border-radius:14px;padding:1.5rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--gl);transform:translateY(-3px)}
+.card h4{font-size:.92rem;font-weight:700;margin-bottom:.3rem}
+.card p{font-size:.82rem;color:var(--mu)}
+.cico{font-size:1.75rem;margin-bottom:.75rem;display:block}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <span class="logo">⚽ FCB · SV</span>
+  <a href="#challenge">Challenge</a>
+  <a href="#pillars">Pillars</a>
+  <a href="#structure">Structure</a>
+  <a href="#scouting">Scouting</a>
+  <a href="#coaching">Coaching</a>
+  <a href="#sd">Sporting Director</a>
+  <a href="#ss">Sport Science</a>
+  <a href="#valuation">Valuation</a>
+  <a href="#ops">Operations</a>
+</div></nav>
+
+<!-- HERO -->
+<div class="hero"><div class="wrap" style="position:relative">
+  <div class="badge">Short Version · 2026</div>
+  <h1>The Modern Football<br/><em>Club Blueprint</em></h1>
+  <p>A structured model to align sporting vision, scouting, talent development, performance, and decision-making in modern football environments.</p>
+  <div class="hstats">
+    <div class="hs"><strong>10+</strong><span>Departments Mapped</span></div>
+    <div class="hs"><strong>12</strong><span>Scouting Steps</span></div>
+    <div class="hs"><strong>8</strong><span>SD Parameters</span></div>
+    <div class="hs"><strong>4</strong><span>Core Pillars</span></div>
+  </div>
+</div></div>
+<!-- CHALLENGE -->
+<section id="challenge"><div class="wrap">
+  <div class="slabel">The Problem</div>
+  <h2 class="stitle">Why Most Clubs Struggle</h2>
+  <p class="ssub">Modern football organizations face structural inefficiencies that limit performance and long-term success.</p>
+  <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <div class="card" style="border-top:3px solid var(--red)"><span class="cico">🏚️</span><h4>Siloed Departments</h4><p>Scouting, performance, and finance operate independently with no shared data flow or common KPIs.</p></div>
+    <div class="card" style="border-top:3px solid var(--red)"><span class="cico">🔀</span><h4>No Scouting Structure</h4><p>Player identification varies by scout with no consistent methodology or profile alignment.</p></div>
+    <div class="card" style="border-top:3px solid var(--red)"><span class="cico">📊</span><h4>Data Without Decisions</h4><p>Clubs collect data but it rarely reaches decision-makers in a useful, actionable format.</p></div>
+    <div class="card" style="border-top:3px solid var(--red)"><span class="cico">⚡</span><h4>Sporting Misalignment</h4><p>Sporting vision, finance, and performance operate without shared objectives or timelines.</p></div>
+    <div class="card" style="border-top:3px solid var(--red)"><span class="cico">🌎</span><h4>Regional Inconsistency</h4><p>Talent identification varies across markets without a unified evaluation methodology.</p></div>
+  </div>
+</div></section>
+
+<!-- PILLARS -->
+<section id="pillars"><div class="wrap">
+  <div class="slabel">Foundation</div>
+  <h2 class="stitle">Core Pillars of the Blueprint</h2>
+  <p class="ssub">Four interconnected pillars that create alignment, clarity, and efficiency across the entire football organization.</p>
+  <div class="grid4">
+    <div class="card" style="border-top:3px solid var(--gb);text-align:center">
+      <div style="font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:2px;margin-bottom:.75rem">PILLAR 01</div>
+      <span class="cico">🎯</span>
+      <h4 style="margin-bottom:.5rem">Sporting Vision &amp; Identity</h4>
+      <p>Define game model, player profiles, and squad philosophy. Every decision starts here.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--bl);text-align:center">
+      <div style="font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:2px;margin-bottom:.75rem">PILLAR 02</div>
+      <span class="cico">📡</span>
+      <h4 style="margin-bottom:.5rem">Integrated Data Infrastructure</h4>
+      <p>One system connecting scouting, performance, medical and financial data. No silos.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--gold);text-align:center">
+      <div style="font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:2px;margin-bottom:.75rem">PILLAR 03</div>
+      <span class="cico">⚙️</span>
+      <h4 style="margin-bottom:.5rem">Structured Processes</h4>
+      <p>Repeatable workflows for scouting, hiring, contracting, and evaluation that don't depend on individuals.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--pu);text-align:center">
+      <div style="font-size:.7rem;font-weight:700;color:var(--mu);letter-spacing:2px;margin-bottom:.75rem">PILLAR 04</div>
+      <span class="cico">📈</span>
+      <h4 style="margin-bottom:.5rem">Performance Culture</h4>
+      <p>Evidence-based decision making at every level — from the board to the training pitch.</p>
+    </div>
+  </div>
+</div></section>
+<!-- CLUB STRUCTURE -->
+<section id="structure"><div class="wrap">
+  <div class="slabel">Organization</div>
+  <h2 class="stitle">Ideal Club Structure · 2026</h2>
+  <p class="ssub">A modern football club organogram — executive, sports, operations, technology, and shared services fully aligned.</p>
+  <div style="overflow-x:auto">
+    <!-- Row 1: CEO -->
+    <div style="display:flex;justify-content:center;margin-bottom:.75rem">
+      <div style="background:var(--green);border:1px solid var(--gl);color:#fff;border-radius:10px;padding:.6rem 1.5rem;font-size:.85rem;font-weight:700;text-align:center">President / CEO</div>
+    </div>
+    <!-- Connector -->
+    <div style="display:flex;justify-content:center;margin-bottom:.75rem"><div style="width:1px;height:20px;background:var(--br)"></div></div>
+    <!-- Row 2: Directors -->
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem">
+      <div style="background:#1e3a5f;border:1px solid var(--bl);border-radius:10px;padding:.55rem 1.2rem;font-size:.8rem;font-weight:600;text-align:center">Sporting Director</div>
+      <div style="background:#2a1f3d;border:1px solid var(--pu);border-radius:10px;padding:.55rem 1.2rem;font-size:.8rem;font-weight:600;text-align:center">Director of Operations</div>
+      <div style="background:#1a2a1a;border:1px solid var(--green);border-radius:10px;padding:.55rem 1.2rem;font-size:.8rem;font-weight:600;text-align:center">Head of Technology <span style="font-size:.65rem;color:var(--gold)">★ NEW</span></div>
+    </div>
+    <!-- Connector -->
+    <div style="display:flex;justify-content:center;margin-bottom:.75rem"><div style="width:1px;height:20px;background:var(--br)"></div></div>
+    <!-- Sports Dept Label -->
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);text-align:center;margin-bottom:.6rem">⚽ Sports Department</div>
+    <div style="display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.6rem">
+      <div style="background:#1e3a5f;border:1px solid #2d5a9f;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600">Technical Director</div>
+      <div style="background:#1e3a5f;border:1px solid #2d5a9f;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600">Chief Scout</div>
+      <div style="background:#1e3a5f;border:1px solid #2d5a9f;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600">First Team Coach</div>
+      <div style="background:#1e3a5f;border:1px solid #2d5a9f;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600">Womens Head Coach</div>
+      <div style="background:#1e3a5f;border:1px solid #2d5a9f;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600">Academy Director</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem">
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">Scout (Intl)</div>
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">Scout (Local)</div>
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">Video Analyst</div>
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">Data Analyst</div>
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">Asst. Coach 1 &amp; 2</div>
+      <div style="background:#162030;border:1px solid #253550;border-radius:8px;padding:.35rem .8rem;font-size:.72rem;color:var(--mu)">U20 / U17 / U15</div>
+    </div>
+    <!-- Shared Services -->
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);text-align:center;margin-bottom:.6rem">🏥 Shared Services — All Teams</div>
+    <div style="display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem">
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Medical</div>
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Performance</div>
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Nutrition</div>
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Psychology</div>
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Fitness</div>
+      <div style="background:#2a2a1a;border:1px solid #5a5020;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:var(--gold)">Head of Analytics</div>
+    </div>
+    <!-- Operations -->
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);text-align:center;margin-bottom:.6rem">🏢 Operations</div>
+    <div style="display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap">
+      <div style="background:#1f1a2e;border:1px solid #4a3a7a;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:#a78bfa">Contract Manager</div>
+      <div style="background:#1f1a2e;border:1px solid #4a3a7a;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:#a78bfa">Finance Manager</div>
+      <div style="background:#1f1a2e;border:1px solid #4a3a7a;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:#a78bfa">Logistics Manager</div>
+      <div style="background:#1f1a2e;border:1px solid #4a3a7a;border-radius:8px;padding:.45rem 1rem;font-size:.75rem;font-weight:600;color:#a78bfa">HR Manager</div>
+    </div>
+  </div>
+</div></section>
+<!-- SCOUTING -->
+<section id="scouting"><div class="wrap">
+  <div class="slabel">Sports Department</div>
+  <h2 class="stitle">Full Scouting Process</h2>
+  <p class="ssub">End-to-end workflow — from club methodology to final recommendation. 12 structured steps across 3 phases.</p>
+
+  <!-- Phase 1 -->
+  <div style="margin-bottom:2.5rem">
+    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(82,183,136,.1);border:1px solid rgba(82,183,136,.25);color:var(--gb);padding:4px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem">Phase 1 · What to Look For?</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem">
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 01</div><h4>Club Methodology</h4><p>Define game style: attacking phase, defensive phase, pressing, set pieces. Align with Technical Director on club identity.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 02</div><h4>Squad Succession Plan</h4><p>Squad Ladder: contract expiries, age distribution, positional depth. Benchmark against champion squad profiles. Young 6%+.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 03</div><h4>Season Overview</h4><p>End-of-season meeting: review collective + positional data. Output: positions needed and ideal attributes — no names yet.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 04</div><h4>Sporting Director Alignment</h4><p>Seirullo model: define 8 player structures (Conditional, Cognitive, Emotional, Coordinative, Bioenergetic, Socioaffective).</p></div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div style="margin-bottom:2.5rem">
+    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--bl);padding:4px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem">Phase 2 · Analysis</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem">
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:.4rem">STEP 05</div><h4>Data Analysis</h4><p>StatsBomb, Driblab, Impect, SkillCorner — per 90 stats, rankings by position, league comparison, age curve projection.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:.4rem">STEP 06</div><h4>Video Scouting</h4><p>Positional tendencies, pressing behavior, decision-making under pressure. Clips tagged to club methodology.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:.4rem">STEP 07</div><h4>Live Scouting</h4><p>In-person observation when data signals are strong. Focus: body language, leadership, positional intelligence off the ball.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:.4rem">STEP 08</div><h4>Reference Category</h4><p>AI similarity tools: who plays like Player X? Cross-league comparisons using Impect + StatsBomb models.</p></div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div>
+    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);color:var(--pu);padding:4px 14px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem">Phase 3 · Decision</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem">
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--pu);letter-spacing:1px;margin-bottom:.4rem">STEP 09</div><h4>Candidates Comparison</h4><p>Side-by-side: league benchmarks, global benchmarks, scouted targets vs. current roster positional needs.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--pu);letter-spacing:1px;margin-bottom:.4rem">STEP 10</div><h4>Game Intelligence</h4><p>SkillCorner: runs (dropping off, coming short, pulling wide), pressing resistance, passing under pressure metrics.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--pu);letter-spacing:1px;margin-bottom:.4rem">STEP 11</div><h4>Social &amp; Family Context</h4><p>References, pressure management, family support, city adaptation. Psychology assessment where available.</p></div>
+      <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--pu);letter-spacing:1px;margin-bottom:.4rem">STEP 12</div><h4>Financial Overview</h4><p>Expected transfer fee, salary, agent commission, bonus structure. Salary budget category. ROI projection.</p></div>
+    </div>
+  </div>
+</div></section>
+<!-- COACHING FRAMEWORK -->
+<section id="coaching"><div class="wrap">
+  <div class="slabel">Coaching Management</div>
+  <h2 class="stitle">Coaching Hire &amp; Fire Framework</h2>
+  <p class="ssub">A structured process for evaluating coaching changes, running a rigorous hiring process, and benchmarking throughout a coach's tenure.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.75rem">
+
+    <!-- WHEN TO FIRE -->
+    <div class="card">
+      <h4 style="font-size:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem">🔒 When to Fire — 4 Questions</h4>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div style="background:rgba(230,57,70,.07);border:1px solid rgba(230,57,70,.2);border-radius:8px;padding:.85rem 1rem">
+          <div style="font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:.25rem">QUESTION 1</div>
+          <div style="font-size:.85rem;font-weight:600">Points vs Expected Points</div>
+          <div style="font-size:.78rem;color:var(--mu);margin-top:.2rem">Is underperformance structural or just variance? First 15 games = statistically significant. Firing with positive xG is a political, not sporting, decision.</div>
+        </div>
+        <div style="background:rgba(230,57,70,.07);border:1px solid rgba(230,57,70,.2);border-radius:8px;padding:.85rem 1rem">
+          <div style="font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:.25rem">QUESTION 2</div>
+          <div style="font-size:.85rem;font-weight:600">Can He Rebound?</div>
+          <div style="font-size:.78rem;color:var(--mu);margin-top:.2rem">Research historical bad starts reversed. Simeone (Atletico 2012), Klopp (Dortmund 2014), Guardiola (City 2016) — all rebounded. Assess resilience first.</div>
+        </div>
+        <div style="background:rgba(230,57,70,.07);border:1px solid rgba(230,57,70,.2);border-radius:8px;padding:.85rem 1rem">
+          <div style="font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:.25rem">QUESTION 3</div>
+          <div style="font-size:.85rem;font-weight:600">What is the Root Cause?</div>
+          <div style="font-size:.78rem;color:var(--mu);margin-top:.2rem">Classify before deciding: Tactical identity lost? Dressing room fractured? Injury crisis? External factors? Some problems are fixable — others are not.</div>
+        </div>
+        <div style="background:rgba(230,57,70,.07);border:1px solid rgba(230,57,70,.2);border-radius:8px;padding:.85rem 1rem">
+          <div style="font-size:.7rem;font-weight:700;color:var(--red);margin-bottom:.25rem">QUESTION 4</div>
+          <div style="font-size:.85rem;font-weight:600">Cost of Firing vs. Keeping?</div>
+          <div style="font-size:.78rem;color:var(--mu);margin-top:.2rem">Full financial analysis: remaining contract, transition cost, market availability of replacements. Document pre-agreed exit criteria before hiring.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW TO HIRE -->
+    <div class="card">
+      <h4 style="font-size:1rem;margin-bottom:1.25rem">🎯 8-Step Hiring Process</h4>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">1</div>
+          <div style="font-size:.83rem;color:var(--mu)">Define the profile needed — based on club identity, squad structure, budget</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">2</div>
+          <div style="font-size:.83rem;color:var(--mu)">Build longlist of 5+ candidates using network + data tools</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">3</div>
+          <div style="font-size:.83rem;color:var(--mu)">Score each candidate across 15+ criteria in 5 categories</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">4</div>
+          <div style="font-size:.83rem;color:var(--mu)">Video analysis: tactical approach, pressing model, set pieces, player management</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">5</div>
+          <div style="font-size:.83rem;color:var(--mu)">Reference checks: 3+ contacts from different clubs in his career</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">6</div>
+          <div style="font-size:.83rem;color:var(--mu)">Interview + project presentation: how would he approach our club?</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">7</div>
+          <div style="font-size:.83rem;color:var(--mu)">Present shortlist to President/CEO with full evidence package</div>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start">
+          <div style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0">8</div>
+          <div style="font-size:.83rem;color:var(--mu)">Sign contract + define pre-agreed KPIs, success criteria, and exit conditions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVALUATION MATRIX -->
+    <div class="card">
+      <h4 style="font-size:1rem;margin-bottom:1.25rem">📋 Coach Evaluation Matrix</h4>
+      <p style="font-size:.82rem;color:var(--mu);margin-bottom:1.25rem">15 criteria across 5 categories · Score 1–5 per criterion</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <div style="background:var(--dk2);border-radius:8px;padding:.65rem .9rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.82rem;font-weight:600">Tactical &amp; Methodological</span><span style="font-size:.72rem;color:var(--gb)">20 pts</span>
+        </div>
+        <div style="background:var(--dk2);border-radius:8px;padding:.65rem .9rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.82rem;font-weight:600">Player Management &amp; Culture</span><span style="font-size:.72rem;color:var(--gb)">15 pts</span>
+        </div>
+        <div style="background:var(--dk2);border-radius:8px;padding:.65rem .9rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.82rem;font-weight:600">Communication &amp; Staff</span><span style="font-size:.72rem;color:var(--gb)">15 pts</span>
+        </div>
+        <div style="background:var(--dk2);border-radius:8px;padding:.65rem .9rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.82rem;font-weight:600">Data &amp; Performance Culture</span><span style="font-size:.72rem;color:var(--gb)">10 pts</span>
+        </div>
+        <div style="background:var(--dk2);border-radius:8px;padding:.65rem .9rem;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:.82rem;font-weight:600">SD Alignment &amp; Club Fit</span><span style="font-size:.72rem;color:var(--gb)">15 pts</span>
+        </div>
+      </div>
+      <div style="margin-top:1.25rem;padding:1rem;background:rgba(82,183,136,.07);border:1px solid rgba(82,183,136,.2);border-radius:8px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--gb);margin-bottom:.5rem">BENCHMARK DURING TENURE</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+          <div style="font-size:.75rem;color:var(--mu)">📈 xG vs actual points</div>
+          <div style="font-size:.75rem;color:var(--mu)">🏃 Player availability %</div>
+          <div style="font-size:.75rem;color:var(--mu)">👥 Youth minutes played</div>
+          <div style="font-size:.75rem;color:var(--mu)">💰 Squad value progression</div>
+          <div style="font-size:.75rem;color:var(--mu)">📊 Pressing efficiency</div>
+          <div style="font-size:.75rem;color:var(--mu)">🎯 Tactical consistency</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+<!-- SPORTING DIRECTOR -->
+<section id="sd"><div class="wrap">
+  <div class="slabel">Leadership</div>
+  <h2 class="stitle">Sporting Director Evaluation Framework</h2>
+  <p class="ssub">8 key parameters scored 1–5. Based on the Mazatlan FC Due Diligence methodology. The SD is the spine of the entire sporting operation.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem">
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">1</div>
+      <div><h4>Identity &amp; Squad Design</h4><p style="font-size:.82rem;color:var(--mu)">Define team identity, sporting objectives, player profile, game model and full squad design.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">2</div>
+      <div><h4>Match Control</h4><p style="font-size:.82rem;color:var(--mu)">Pre and post-match control of all teams. Know what is working and what is not at every level.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">3</div>
+      <div><h4>Coaching Calendar</h4><p style="font-size:.82rem;color:var(--mu)">Manage the planning calendar of all coaching staff across all teams and competitions.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">4</div>
+      <div><h4>Training Presence</h4><p style="font-size:.82rem;color:var(--mu)">Present at the majority of first team training sessions. Not optional — presence builds authority.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">5</div>
+      <div><h4>Medical Oversight</h4><p style="font-size:.82rem;color:var(--mu)">Monitor physical and medical reports. Set return dates for injured players. Own injury data.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">6</div>
+      <div><h4>Leadership &amp; Discipline</h4><p style="font-size:.82rem;color:var(--mu)">Be the authority. Constant communication with leaders. Enforce discipline. The culture is set here.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">7</div>
+      <div><h4>Motivation &amp; Empowerment</h4><p style="font-size:.82rem;color:var(--mu)">Motivate the work team. Empower department heads. Set measurable, clear goals for each area.</p></div>
+    </div>
+    <div class="card" style="display:flex;gap:1rem">
+      <div style="font-size:2.5rem;font-weight:800;color:rgba(82,183,136,.2);line-height:1;flex-shrink:0">8</div>
+      <div><h4>Reporting &amp; Accountability</h4><p style="font-size:.82rem;color:var(--mu)">Monthly delivery from each department. Semester reports to President. Data drives every review.</p></div>
+    </div>
+  </div>
+  <!-- Scoring Legend -->
+  <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+    <div style="background:var(--dk3);border:1px solid var(--br);border-radius:10px;padding:.75rem 1.5rem;text-align:center;font-size:.8rem"><span style="color:var(--red);font-weight:700;font-size:1.1rem">1–2</span><br/><span style="color:var(--mu)">Needs Immediate Attention</span></div>
+    <div style="background:var(--dk3);border:1px solid var(--br);border-radius:10px;padding:.75rem 1.5rem;text-align:center;font-size:.8rem"><span style="color:var(--gold);font-weight:700;font-size:1.1rem">3</span><br/><span style="color:var(--mu)">Developing / Acceptable</span></div>
+    <div style="background:var(--dk3);border:1px solid var(--br);border-radius:10px;padding:.75rem 1.5rem;text-align:center;font-size:.8rem"><span style="color:var(--gb);font-weight:700;font-size:1.1rem">4–5</span><br/><span style="color:var(--mu)">Strong / Elite Performance</span></div>
+  </div>
+</div></section>
+<!-- SPORT SCIENCE -->
+<section id="ss"><div class="wrap">
+  <div class="slabel">Performance</div>
+  <h2 class="stitle">Sport Science Department</h2>
+  <p class="ssub">Bridges data, physiology, and football performance. Supports coaching staff with objective metrics, player load management, and evidence-based protocols.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.25rem;margin-bottom:2.5rem">
+    <div class="card" style="text-align:center;border-top:3px solid var(--gb)">
+      <span class="cico">📡</span><h4>Load Monitoring</h4><p>GPS tracking, ATL/CTL ratios, HRV trends. Daily risk flags per player. Prevents overtraining and injury spikes.</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--red)">
+      <span class="cico">🩺</span><h4>Injury Prevention</h4><p>Pattern identification from physical testing. Thermography CPK baseline. Return-to-play protocols with clear criteria.</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--bl)">
+      <span class="cico">🔄</span><h4>Recovery Protocols</h4><p>Structured recovery sessions between fixtures. Sleep, cold water immersion, and nutrition timed to match schedule.</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--gold)">
+      <span class="cico">🏋️</span><h4>Physical Testing</h4><p>Pre-season: strength, endurance, jump, speed, asymmetry. Anthropometric baseline (fat mass, muscle, hydration).</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--pu)">
+      <span class="cico">🥗</span><h4>Nutrition &amp; Hydration</h4><p>Individual diet plans per player. Match-day nutrition protocol. Hydration tracking integrated with GPS load data.</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid #06b6d4">
+      <span class="cico">😴</span><h4>Sleep &amp; Wellbeing</h4><p>Sleep quality monitoring. Wellness questionnaires pre-training. Psychological readiness integrated with load decisions.</p>
+    </div>
+  </div>
+  <!-- Staff Structure -->
+  <div style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:1rem">Staff Structure</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">Head of Sport Science</h4>
+      <p>Leads the department. Designs annual monitoring plans, oversees testing batteries, communicates directly with Head Coach and SD.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">Performance Analyst</h4>
+      <p>Processes GPS and physical data. Builds load dashboards and flags injury-risk players daily using ATL/CTL and HRV trends.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">Physiotherapist</h4>
+      <p>Manages rehabilitation protocols. Works with performance staff to clear players from injury and design return-to-play criteria.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">Nutritionist</h4>
+      <p>Individual plans per player. Match-day nutrition protocols. Works with the hydration specialist on game-week structures.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">S&amp;C Coach</h4>
+      <p>Strength and conditioning programs. Manages gym sessions, in-season maintenance loads, and pre-season physical block.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gb);margin-bottom:.4rem">Psychologist</h4>
+      <p>Mindset, pressure management, team cohesion, and individual player support. Integrated in the weekly staff meeting.</p>
+    </div>
+  </div>
+</div></section>
+<!-- PLAYER VALUATION -->
+<section id="valuation"><div class="wrap">
+  <div class="slabel">Transfer Strategy</div>
+  <h2 class="stitle">Player Valuation Framework</h2>
+  <p class="ssub">Structured methodology for pricing players in transfer windows — combining statistical models, market comparables, contract leverage, and positional scarcity.</p>
+  <!-- Weight Cards -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:2.5rem">
+    <div class="card" style="text-align:center">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--gb)">35%</div>
+      <h4 style="margin:.3rem 0">Statistical Value</h4>
+      <p>xG, xA, progressive actions, defensive contribution per 90</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--bl)">25%</div>
+      <h4 style="margin:.3rem 0">Market Comparables</h4>
+      <p>Similar age/position/league transfers in last 24 months</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--gold)">20%</div>
+      <h4 style="margin:.3rem 0">Contract Leverage</h4>
+      <p>Years remaining, release clause, wage structure</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--pu)">12%</div>
+      <h4 style="margin:.3rem 0">Positional Scarcity</h4>
+      <p>Supply/demand for that profile in target markets</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:2.2rem;font-weight:800;color:var(--red)">8%</div>
+      <h4 style="margin:.3rem 0">Age Curve Adj.</h4>
+      <p>Peak performance projection relative to current age</p>
+    </div>
+  </div>
+  <!-- 5-Step Process -->
+  <div style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:1rem">5-Step Valuation Process</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
+    <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 01</div><h4>Position &amp; League Context</h4><p>Define the exact role needed. Map league level, historical transfer data, and momentum via Impect.</p></div>
+    <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 02</div><h4>Statistical Benchmarking</h4><p>StatsBomb + Driblab per 90 metrics. Cross-league comparison. Age curve and trajectory analysis.</p></div>
+    <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 03</div><h4>Market Context</h4><p>Impect Squad Ratings. Supply and demand between selling and buying leagues. Classify by position scarcity.</p></div>
+    <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 04</div><h4>Expected Performance</h4><p>Predict output in target league. Adjust for historical adaptation patterns. Net Gains principle: future contribution, not past reputation.</p></div>
+    <div class="card"><div style="font-size:.68rem;font-weight:700;color:var(--gb);letter-spacing:1px;margin-bottom:.4rem">STEP 05</div><h4>Value Score Output</h4><p>VS = Performance ÷ log(Salary). EPV blends predictive models + financial adjustments + contract length weight. Decision: Extend / Develop / Loan / Transfer.</p></div>
+  </div>
+</div></section>
+
+<!-- OPERATIONS -->
+<section id="ops"><div class="wrap">
+  <div class="slabel">Operations &amp; Admin</div>
+  <h2 class="stitle">Operational Governance</h2>
+  <p class="ssub">Contract management, budgeting, and logistics — the financial and operational backbone of the club, fully governed and digitized.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem">
+    <!-- Contracts -->
+    <div class="card" style="border-top:3px solid var(--bl)">
+      <span class="cico">📄</span>
+      <h4 style="margin-bottom:.85rem">Contract Management</h4>
+      <div style="font-size:.72rem;font-weight:700;color:var(--bl);margin-bottom:.5rem;letter-spacing:1px">SPORTS SIDE</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem">
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>SD Approval — identity &amp; salary terms defined</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>Negotiation — fee, salary, agent commission, bonuses</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>Financial Validation — budget impact, cash flow, accounting</li>
+      </ul>
+      <div style="font-size:.72rem;font-weight:700;color:var(--bl);margin-bottom:.5rem;letter-spacing:1px">DOCS &amp; MEDICAL</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.35rem">
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>Legal documentation generated digitally</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>Medical clearance — full battery before signing</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gb)">›</span>Regulatory registration with league/federation</li>
+      </ul>
+    </div>
+    <!-- Budgeting -->
+    <div class="card" style="border-top:3px solid var(--gold)">
+      <span class="cico">💰</span>
+      <h4 style="margin-bottom:.85rem">Budgeting Framework</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.35rem">
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>Annual budget per department set in pre-season</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>Wage bill tracking: % of total revenue as KPI</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>Transfer budget with contingency reserves</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>Monthly variance reports — planned vs. actual</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>Agent commission tracking and cap enforcement</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--gold)">›</span>ROI calculation per signing at end of contract</li>
+      </ul>
+    </div>
+    <!-- Logistics -->
+    <div class="card" style="border-top:3px solid var(--pu)">
+      <span class="cico">✈️</span>
+      <h4 style="margin-bottom:.85rem">Logistics &amp; Travel</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.35rem">
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--pu)">›</span>Full travel management: flights, hotels, transfers</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--pu)">›</span>Match-day logistics: nutrition, transport, schedules</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--pu)">›</span>Equipment inventory and kit management system</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--pu)">›</span>Player relocation support for international signings</li>
+        <li style="font-size:.8rem;color:var(--mu);padding-left:.9rem;position:relative"><span style="position:absolute;left:0;color:var(--pu)">›</span>Visa, work permit and documentation management</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- OPERATING PRINCIPLES -->
+<section><div class="wrap">
+  <div class="slabel">Culture</div>
+  <h2 class="stitle">How We Think &amp; Work</h2>
+  <p class="ssub">The operating principles behind every decision in this blueprint. Culture is not a poster — it is behavior at every level.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem">
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">🎯</span><div><h4>Clarity Over Complexity</h4><p>Simple, clear processes beat sophisticated systems nobody uses.</p></div></div>
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">📊</span><div><h4>Data Informs, Humans Decide</h4><p>Data is context, not command. The SD and coach make the final call — with evidence.</p></div></div>
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">🔄</span><div><h4>Process Over Improvisation</h4><p>A good process survives staff changes. Individual brilliance without process does not scale.</p></div></div>
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">🤝</span><div><h4>Alignment Before Action</h4><p>Sporting, financial, and technical alignment before any signing, hire, or strategic decision.</p></div></div>
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">🌱</span><div><h4>Long-Term Thinking</h4><p>Every decision evaluated at 1, 3, and 5 year horizon. Short-termism is the enemy of sustained performance.</p></div></div>
+    <div class="card" style="display:flex;gap:1rem;align-items:flex-start"><span style="font-size:1.5rem;flex-shrink:0">⚡</span><div><h4>Speed With Structure</h4><p>Move fast, but within defined workflows. Urgency and discipline are not mutually exclusive.</p></div></div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer style="background:var(--dk2);border-top:1px solid var(--br);padding:3rem 2rem;text-align:center">
+  <div style="font-size:1.5rem;margin-bottom:.75rem">⚽</div>
+  <div style="font-weight:800;font-size:1.1rem;color:var(--gb);margin-bottom:.5rem">Football Club Blueprint</div>
+  <div style="color:var(--mu);font-size:.85rem;max-width:500px;margin:0 auto 1.5rem">A structured operational model for modern football organizations. Built to create alignment from the boardroom to the training pitch.</div>
+  <div style="color:var(--mu);font-size:.75rem">Short Version · 2026 · luisferespejo7</div>
+</footer>
+</body>
+</html>

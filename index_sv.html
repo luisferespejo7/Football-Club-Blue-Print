@@ -38,6 +38,78 @@ section:nth-child(even){background:var(--dk2)}
 .card h4{font-size:.92rem;font-weight:700;margin-bottom:.3rem}
 .card p{font-size:.82rem;color:var(--mu)}
 .cico{font-size:1.75rem;margin-bottom:.75rem;display:block}
+
+/* ===== ROADMAP ===== */
+.roadmap-track{display:flex;align-items:flex-start;gap:0;position:relative;overflow-x:auto;padding-bottom:1rem}
+.roadmap-track::before{content:'';position:absolute;top:38px;left:60px;right:60px;height:3px;background:linear-gradient(90deg,var(--gl),var(--gold),var(--bl));z-index:0;border-radius:2px}
+.rm-phase{flex:1;min-width:220px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+.rm-dot{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:3px solid var(--br);margin-bottom:1.2rem;background:var(--dk2);transition:transform .2s}
+.rm-dot:hover{transform:scale(1.08)}
+.rm-phase-num{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:.3rem}
+.rm-phase-title{font-size:1rem;font-weight:800;color:var(--tx);margin-bottom:.4rem}
+.rm-phase-sub{font-size:.8rem;color:var(--mu);max-width:160px;line-height:1.5}
+.rm-items{margin-top:.8rem;display:flex;flex-direction:column;gap:.3rem;width:100%}
+.rm-item{background:var(--dk3);border:1px solid var(--br);border-radius:8px;padding:.4rem .7rem;font-size:.75rem;color:var(--tx);text-align:left}
+.rm-item span{color:var(--gl);font-weight:700;margin-right:.3rem}
+.rm-connector{width:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding-top:22px;color:var(--mu);font-size:.9rem}
+/* ===== ACADEMY RESULTS ===== */
+.academy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-bottom:2.5rem}
+.acad-card{background:var(--dk2);border:1px solid var(--br);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden}
+.acad-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.acad-card.u16::before{background:var(--bl)}
+.acad-card.u18::before{background:var(--gl)}
+.acad-card.u21::before{background:var(--gold)}
+.acad-card.u23::before{background:var(--pu)}
+.acad-badge{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.25rem .6rem;border-radius:20px;display:inline-block;margin-bottom:.8rem}
+.acad-card.u16 .acad-badge{background:rgba(59,130,246,.15);color:var(--bl)}
+.acad-card.u18 .acad-badge{background:rgba(82,183,136,.15);color:var(--gl)}
+.acad-card.u21 .acad-badge{background:rgba(244,162,97,.15);color:var(--gold)}
+.acad-card.u23 .acad-badge{background:rgba(139,92,246,.15);color:var(--pu)}
+.acad-cost{font-size:1.8rem;font-weight:800;color:var(--tx);margin:.3rem 0 .1rem}
+.acad-cost-label{font-size:.75rem;color:var(--mu);margin-bottom:1rem}
+.acad-stat{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--br);font-size:.82rem}
+.acad-stat:last-child{border-bottom:none}
+.acad-stat-label{color:var(--mu)}
+.acad-stat-val{font-weight:700;color:var(--tx)}
+.acad-stat-val.green{color:var(--gl)}
+.acad-stat-val.gold{color:var(--gold)}
+.players-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:1.5rem}
+.player-card{background:var(--dk3);border:1px solid var(--br);border-radius:14px;padding:1.4rem;transition:border-color .2s,transform .2s}
+.player-card:hover{border-color:var(--gl);transform:translateY(-3px)}
+.player-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.player-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--dk2),var(--dk3));border:2px solid var(--gl);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.player-name{font-weight:800;font-size:.95rem;color:var(--tx)}
+.player-pos{font-size:.72rem;color:var(--gl);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.player-stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.pstat{background:var(--dk2);border-radius:8px;padding:.5rem .7rem;text-align:center}
+.pstat-val{font-size:1rem;font-weight:800;color:var(--tx)}
+.pstat-lbl{font-size:.68rem;color:var(--mu);margin-top:.1rem}
+.pstat-val.green{color:var(--gl)}
+.pstat-val.gold{color:var(--gold)}
+.pstat-val.blue{color:var(--bl)}
+.roi-bar{margin-top:1rem;background:var(--dk2);border-radius:8px;overflow:hidden;height:8px}
+.roi-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--gl),var(--gold))}
+.roi-label{display:flex;justify-content:space-between;font-size:.7rem;color:var(--mu);margin-top:.3rem}
+/* ===== KPI DASHBOARD ===== */
+.kpi-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.kpi-area{background:var(--dk2);border:1px solid var(--br);border-radius:14px;padding:1.4rem;transition:border-color .2s}
+.kpi-area:hover{border-color:var(--gl)}
+.kpi-area-header{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem;padding-bottom:.8rem;border-bottom:1px solid var(--br)}
+.kpi-area-icon{font-size:1.4rem}
+.kpi-area-title{font-size:.88rem;font-weight:800;color:var(--tx)}
+.kpi-area-sub{font-size:.72rem;color:var(--mu)}
+.kpi-list{display:flex;flex-direction:column;gap:.55rem}
+.kpi-row{display:flex;flex-direction:column;gap:.2rem}
+.kpi-row-top{display:flex;justify-content:space-between;align-items:center}
+.kpi-name{font-size:.78rem;color:var(--mu)}
+.kpi-val{font-size:.82rem;font-weight:700;color:var(--tx)}
+.kpi-bar-track{height:5px;background:var(--dk3);border-radius:3px;overflow:hidden}
+.kpi-bar-fill{height:100%;border-radius:3px;transition:width .6s}
+.kpi-bar-fill.green{background:var(--gl)}
+.kpi-bar-fill.gold{background:var(--gold)}
+.kpi-bar-fill.blue{background:var(--bl)}
+.kpi-bar-fill.red{background:var(--red)}
+.kpi-bar-fill.pu{background:var(--pu)}
 </style>
 </head>
 <body>
@@ -52,7 +124,10 @@ section:nth-child(even){background:var(--dk2)}
   <a href="#ss">Sport Science</a>
   <a href="#valuation">Valuation</a>
   <a href="#ops">Operations</a>
-</div></nav>
+
+  <a href="#roadmap">Roadmap</a>
+  <a href="#academy">Academy</a>
+  <a href="#kpis">KPI Dashboard</a></div></nav>
 
 <!-- HERO -->
 <div class="hero"><div class="wrap" style="position:relative">
@@ -637,6 +712,265 @@ section:nth-child(even){background:var(--dk2)}
 </div></section>
 
 <!-- FOOTER -->
+
+
+<!-- ROADMAP -->
+<section id="roadmap"><div class="wrap">
+  <div class="slabel">Implementation</div>
+  <h2 class="stitle">Club Blueprint Roadmap</h2>
+  <p class="ssub">A phased approach to transforming a football organization — from diagnosis to measurable results and sustainable growth.</p>
+  <div class="roadmap-track">
+    <div class="rm-phase">
+      <div class="rm-dot" style="border-color:var(--bl);box-shadow:0 0 18px rgba(59,130,246,.25)">🔍</div>
+      <div class="rm-phase-num">Phase 01 · Months 1–3</div>
+      <div class="rm-phase-title">Diagnosis</div>
+      <div class="rm-phase-sub">Full audit of current structure, processes and data infrastructure</div>
+      <div class="rm-items">
+        <div class="rm-item"><span>→</span>Organizational audit</div>
+        <div class="rm-item"><span>→</span>Data infrastructure review</div>
+        <div class="rm-item"><span>→</span>KPI baseline mapping</div>
+        <div class="rm-item"><span>→</span>Scouting workflow analysis</div>
+        <div class="rm-item"><span>→</span>Academy cost assessment</div>
+      </div>
+    </div>
+    <div class="rm-connector">▶</div>
+    <div class="rm-phase">
+      <div class="rm-dot" style="border-color:var(--gl);box-shadow:0 0 18px rgba(82,183,136,.25)">🏗️</div>
+      <div class="rm-phase-num">Phase 02 · Months 4–9</div>
+      <div class="rm-phase-title">Structure &amp; Add-ons</div>
+      <div class="rm-phase-sub">Deploy the four pillars and expand the organogram with key roles</div>
+      <div class="rm-items">
+        <div class="rm-item"><span>→</span>4-Pillar model activation</div>
+        <div class="rm-item"><span>→</span>Sports Intelligence unit</div>
+        <div class="rm-item"><span>→</span>Integrated data platform</div>
+        <div class="rm-item"><span>→</span>Scouting network build-out</div>
+        <div class="rm-item"><span>→</span>Performance &amp; Sport Science</div>
+      </div>
+    </div>
+    <div class="rm-connector">▶</div>
+    <div class="rm-phase">
+      <div class="rm-dot" style="border-color:var(--gold);box-shadow:0 0 18px rgba(244,162,97,.25)">📊</div>
+      <div class="rm-phase-num">Phase 03 · Months 10–18</div>
+      <div class="rm-phase-title">Optimization</div>
+      <div class="rm-phase-sub">Refine processes, track KPIs and scale what works across all departments</div>
+      <div class="rm-items">
+        <div class="rm-item"><span>→</span>KPI Dashboard live</div>
+        <div class="rm-item"><span>→</span>Academy ROI tracking</div>
+        <div class="rm-item"><span>→</span>Coaching model review</div>
+        <div class="rm-item"><span>→</span>Recruitment cycle audit</div>
+        <div class="rm-item"><span>→</span>Financial model alignment</div>
+      </div>
+    </div>
+    <div class="rm-connector">▶</div>
+    <div class="rm-phase">
+      <div class="rm-dot" style="border-color:var(--pu);box-shadow:0 0 18px rgba(139,92,246,.25)">🏆</div>
+      <div class="rm-phase-num">Phase 04 · Month 18+</div>
+      <div class="rm-phase-title">Results</div>
+      <div class="rm-phase-sub">Measurable outcomes — debut players, cost efficiency and sporting ROI</div>
+      <div class="rm-items">
+        <div class="rm-item"><span>→</span>Academy first-team debuts</div>
+        <div class="rm-item"><span>→</span>Transfer value generated</div>
+        <div class="rm-item"><span>→</span>Reduced cost per player</div>
+        <div class="rm-item"><span>→</span>Competitive performance up</div>
+        <div class="rm-item"><span>→</span>Sustainable club identity</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ACADEMY RESULTS -->
+<section id="academy" style="background:var(--dk2)"><div class="wrap">
+  <div class="slabel">Academy</div>
+  <h2 class="stitle">Academy Results &amp; Cost Per Player</h2>
+  <p class="ssub">Understanding the true cost of developing a player by category — and the ROI potential when they reach the first team or are sold.</p>
+  <div class="academy-grid">
+    <div class="acad-card u16">
+      <span class="acad-badge">U16</span>
+      <div class="acad-cost">€42,000</div>
+      <div class="acad-cost-label">Average annual cost per player</div>
+      <div class="acad-stat"><span class="acad-stat-label">Staff ratio</span><span class="acad-stat-val">1:6</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Training sessions / week</span><span class="acad-stat-val">5</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Avg. squad size</span><span class="acad-stat-val">18 players</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Annual category cost</span><span class="acad-stat-val gold">€756K</span></div>
+    </div>
+    <div class="acad-card u18">
+      <span class="acad-badge">U18</span>
+      <div class="acad-cost">€68,000</div>
+      <div class="acad-cost-label">Average annual cost per player</div>
+      <div class="acad-stat"><span class="acad-stat-label">Staff ratio</span><span class="acad-stat-val">1:5</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Training sessions / week</span><span class="acad-stat-val">6</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Avg. squad size</span><span class="acad-stat-val">20 players</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Annual category cost</span><span class="acad-stat-val gold">€1.36M</span></div>
+    </div>
+    <div class="acad-card u21">
+      <span class="acad-badge">U21</span>
+      <div class="acad-cost">€110,000</div>
+      <div class="acad-cost-label">Average annual cost per player</div>
+      <div class="acad-stat"><span class="acad-stat-label">Staff ratio</span><span class="acad-stat-val">1:4</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Training sessions / week</span><span class="acad-stat-val">8</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Avg. squad size</span><span class="acad-stat-val">22 players</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Annual category cost</span><span class="acad-stat-val gold">€2.42M</span></div>
+    </div>
+    <div class="acad-card u23">
+      <span class="acad-badge">U23 / B Team</span>
+      <div class="acad-cost">€185,000</div>
+      <div class="acad-cost-label">Average annual cost per player</div>
+      <div class="acad-stat"><span class="acad-stat-label">Staff ratio</span><span class="acad-stat-val">1:4</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Training sessions / week</span><span class="acad-stat-val">9</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Avg. squad size</span><span class="acad-stat-val">24 players</span></div>
+      <div class="acad-stat"><span class="acad-stat-label">Annual category cost</span><span class="acad-stat-val gold">€4.44M</span></div>
+    </div>
+  </div>
+  <div class="slabel" style="margin-top:2.5rem">Player ROI Tracker</div>
+  <h3 class="stitle" style="font-size:1.2rem;margin-bottom:.4rem">From Academy to First Team</h3>
+  <p class="ssub" style="margin-bottom:1rem">Tracking total formation investment vs. estimated market value at debut.</p>
+  <div class="players-grid">
+    <div class="player-card">
+      <div class="player-header">
+        <div class="player-avatar">⚽</div>
+        <div><div class="player-name">Player 1</div><div class="player-pos">Centre Back · U16 to First Team</div></div>
+      </div>
+      <div class="player-stats">
+        <div class="pstat"><div class="pstat-val">7 yrs</div><div class="pstat-lbl">Academy time</div></div>
+        <div class="pstat"><div class="pstat-val green">€580K</div><div class="pstat-lbl">Total formation cost</div></div>
+        <div class="pstat"><div class="pstat-val blue">19</div><div class="pstat-lbl">Age at debut</div></div>
+        <div class="pstat"><div class="pstat-val gold">€3.5M</div><div class="pstat-lbl">Market value</div></div>
+      </div>
+      <div class="roi-bar"><div class="roi-fill" style="width:85%"></div></div>
+      <div class="roi-label"><span>Formation cost</span><span style="color:var(--gl);font-weight:700">ROI x6.0</span></div>
+    </div>
+    <div class="player-card">
+      <div class="player-header">
+        <div class="player-avatar">🏃</div>
+        <div><div class="player-name">Player 2</div><div class="player-pos">Attacking Mid · U18 to First Team</div></div>
+      </div>
+      <div class="player-stats">
+        <div class="pstat"><div class="pstat-val">5 yrs</div><div class="pstat-lbl">Academy time</div></div>
+        <div class="pstat"><div class="pstat-val green">€420K</div><div class="pstat-lbl">Total formation cost</div></div>
+        <div class="pstat"><div class="pstat-val blue">18</div><div class="pstat-lbl">Age at debut</div></div>
+        <div class="pstat"><div class="pstat-val gold">€4.2M</div><div class="pstat-lbl">Market value</div></div>
+      </div>
+      <div class="roi-bar"><div class="roi-fill" style="width:92%"></div></div>
+      <div class="roi-label"><span>Formation cost</span><span style="color:var(--gl);font-weight:700">ROI x10.0</span></div>
+    </div>
+    <div class="player-card">
+      <div class="player-header">
+        <div class="player-avatar">🎯</div>
+        <div><div class="player-name">Player 3</div><div class="player-pos">Striker · U16 to Sold (U21)</div></div>
+      </div>
+      <div class="player-stats">
+        <div class="pstat"><div class="pstat-val">6 yrs</div><div class="pstat-lbl">Academy time</div></div>
+        <div class="pstat"><div class="pstat-val green">€510K</div><div class="pstat-lbl">Total formation cost</div></div>
+        <div class="pstat"><div class="pstat-val blue">21</div><div class="pstat-lbl">Age at transfer</div></div>
+        <div class="pstat"><div class="pstat-val gold">€2.8M</div><div class="pstat-lbl">Transfer fee</div></div>
+      </div>
+      <div class="roi-bar"><div class="roi-fill" style="width:72%"></div></div>
+      <div class="roi-label"><span>Formation cost</span><span style="color:var(--gl);font-weight:700">ROI x5.5</span></div>
+    </div>
+    <div class="player-card">
+      <div class="player-header">
+        <div class="player-avatar">🦅</div>
+        <div><div class="player-name">Player 4</div><div class="player-pos">Left Back · U18 to First Team</div></div>
+      </div>
+      <div class="player-stats">
+        <div class="pstat"><div class="pstat-val">4 yrs</div><div class="pstat-lbl">Academy time</div></div>
+        <div class="pstat"><div class="pstat-val green">€340K</div><div class="pstat-lbl">Total formation cost</div></div>
+        <div class="pstat"><div class="pstat-val blue">20</div><div class="pstat-lbl">Age at debut</div></div>
+        <div class="pstat"><div class="pstat-val gold">€2.1M</div><div class="pstat-lbl">Market value</div></div>
+      </div>
+      <div class="roi-bar"><div class="roi-fill" style="width:65%"></div></div>
+      <div class="roi-label"><span>Formation cost</span><span style="color:var(--gl);font-weight:700">ROI x6.2</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- KPI DASHBOARD -->
+<section id="kpis"><div class="wrap">
+  <div class="slabel">Performance Intelligence</div>
+  <h2 class="stitle">Club KPI Dashboard</h2>
+  <p class="ssub">A global view of key performance indicators across all departments — sports, scouting, academy, finance and operations.</p>
+  <div class="kpi-areas">
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">⚽</span>
+        <div><div class="kpi-area-title">Sports &amp; First Team</div><div class="kpi-area-sub">On-pitch performance metrics</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Points Per Game</span><span class="kpi-val">1.74</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:65%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Expected Goals (xG) Ratio</span><span class="kpi-val">1.38</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:72%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Possession Avg. (%)</span><span class="kpi-val">54.2%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:54%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Press Success Rate</span><span class="kpi-val">31%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill gold" style="width:31%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Injury Days Lost / Season</span><span class="kpi-val">148</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill red" style="width:45%"></div></div></div>
+      </div>
+    </div>
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">🔍</span>
+        <div><div class="kpi-area-title">Scouting &amp; Recruitment</div><div class="kpi-area-sub">Talent identification efficiency</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Players Scouted / Month</span><span class="kpi-val">340</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:78%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Scout-to-Sign Ratio</span><span class="kpi-val">1 : 85</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:55%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Recruitment Hit Rate</span><span class="kpi-val">68%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:68%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Avg. Profile Match Score</span><span class="kpi-val">7.4 / 10</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill gold" style="width:74%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Cost Per Signed Player</span><span class="kpi-val">€1.2M</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill pu" style="width:48%"></div></div></div>
+      </div>
+    </div>
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">🎓</span>
+        <div><div class="kpi-area-title">Academy &amp; Development</div><div class="kpi-area-sub">Youth pipeline performance</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">First-Team Debuts / Season</span><span class="kpi-val">3</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:60%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Academy to Pro Rate</span><span class="kpi-val">12%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:42%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Avg. Cost Per Graduate</span><span class="kpi-val">€490K</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill gold" style="width:55%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Transfer Value Generated</span><span class="kpi-val">€8.4M</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:82%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Academy ROI (avg.)</span><span class="kpi-val">x7.1</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill pu" style="width:71%"></div></div></div>
+      </div>
+    </div>
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">💰</span>
+        <div><div class="kpi-area-title">Finance &amp; Operations</div><div class="kpi-area-sub">Club economic health</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Wage-to-Revenue Ratio</span><span class="kpi-val">61%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill gold" style="width:61%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Transfer Balance (net)</span><span class="kpi-val">+€4.2M</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:70%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Matchday Revenue Share</span><span class="kpi-val">22%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:22%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Operating Cost Growth YoY</span><span class="kpi-val">+8%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill red" style="width:35%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">EBITDA Margin</span><span class="kpi-val">14%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill pu" style="width:14%"></div></div></div>
+      </div>
+    </div>
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">📡</span>
+        <div><div class="kpi-area-title">Sports Intelligence</div><div class="kpi-area-sub">Data &amp; analytics adoption</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Departments Using Data</span><span class="kpi-val">6 / 7</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:86%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Avg. Report Turnaround</span><span class="kpi-val">4 hrs</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:70%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Decision Support Rate</span><span class="kpi-val">79%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:79%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Data Coverage (players)</span><span class="kpi-val">94%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill gold" style="width:94%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Model Accuracy (xG/xA)</span><span class="kpi-val">88%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill pu" style="width:88%"></div></div></div>
+      </div>
+    </div>
+    <div class="kpi-area">
+      <div class="kpi-area-header">
+        <span class="kpi-area-icon">🩺</span>
+        <div><div class="kpi-area-title">Sport Science &amp; Health</div><div class="kpi-area-sub">Player load and wellness</div></div>
+      </div>
+      <div class="kpi-list">
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Availability Rate</span><span class="kpi-val">87%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:87%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Avg. Training Load (AU)</span><span class="kpi-val">620 AU</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill blue" style="width:62%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Re-injury Rate</span><span class="kpi-val">9%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill red" style="width:9%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">Wellness Check Compliance</span><span class="kpi-val">96%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill green" style="width:96%"></div></div></div>
+        <div class="kpi-row"><div class="kpi-row-top"><span class="kpi-name">HRV Monitoring Coverage</span><span class="kpi-val">100%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill pu" style="width:100%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <footer style="background:var(--dk2);border-top:1px solid var(--br);padding:3rem 2rem;text-align:center">
   <div style="font-size:1.5rem;margin-bottom:.75rem">⚽</div>
   <div style="font-weight:800;font-size:1.1rem;color:var(--gb);margin-bottom:.5rem">Football Club Blueprint</div>
